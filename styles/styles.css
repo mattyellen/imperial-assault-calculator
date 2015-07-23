@@ -37,29 +37,13 @@ section {
     margin: 0 20px;
 }
 
-.navbar-nav li.loader {
-    margin: 12px 24px 0 6px;
-}
-
-.pictureDetail {
-    max-width: 425px;
-}
-
-/* animate page transitions */
-section.au-enter-active {
-  -webkit-animation: fadeInRight 1s;
-  animation: fadeInRight 1s;
-}
-
-/* animate flickr image entry */
-div.au-stagger {
-  /* 50ms will be applied between each successive enter operation */
-  -webkit-animation-delay:50ms;
-  animation-delay:50ms;
-}
-
 .mobile {
     width: 320px
+}
+
+.header {
+    display: table;
+    margin: auto;
 }
 
 h1 .icon {
