@@ -3,6 +3,7 @@ bower_components
 .idea
 .DS_STORE
 /dist/*.map
+/obj
 build/reports
 ImperialAssaultCalculator.csproj.user
 .vs

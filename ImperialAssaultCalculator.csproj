@@ -25,12 +25,9 @@
     <Content Include="aurelia.protractor.js" />
     <Content Include="config.js" />
     <Content Include="index.html" />
-    <Content Include="karma.conf.js" />
     <Content Include="protractor.conf.js" />
     <Content Include="src\app.html" />
     <TypeScriptCompile Include="src\app.ts" />
-    <Content Include="src\nav-bar.html" />
-    <TypeScriptCompile Include="src\nav-bar.ts" />
     <Content Include="styles\styles.css" />
     <Content Include="test\e2e\dist\demo.spec.js" />
     <Content Include="test\e2e\dist\skeleton.po.js" />
