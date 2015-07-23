@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <ProjectGuid>{7A39C13C-608D-4690-B1FB-6BBF6162AD0E}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <OutputPath>bin</OutputPath>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <TypeScriptToolsVersion>1.5</TypeScriptToolsVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="aurelia.protractor.js" />
+    <Content Include="config.js" />
+    <Content Include="index.html" />
+    <Content Include="karma.conf.js" />
+    <Content Include="protractor.conf.js" />
+    <Content Include="src\app.html" />
+    <TypeScriptCompile Include="src\app.ts" />
+    <Content Include="src\nav-bar.html" />
+    <TypeScriptCompile Include="src\nav-bar.ts" />
+    <Content Include="styles\styles.css" />
+    <Content Include="test\e2e\dist\demo.spec.js" />
+    <Content Include="test\e2e\dist\skeleton.po.js" />
+    <Content Include="test\e2e\dist\welcome.po.js" />
+    <Content Include="test\e2e\src\demo.spec.js" />
+    <Content Include="test\e2e\src\skeleton.po.js" />
+    <Content Include="test\e2e\src\welcome.po.js" />
+    <Content Include="test\unit\app.spec.js" />
+    <Content Include="test\unit\child-router.spec.js" />
+    <Content Include="test\unit\flickr.spec.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="typings\aurelia-animator-css\aurelia-animator-css-tests.ts" />
+    <TypeScriptCompile Include="typings\aurelia-animator-css\aurelia-animator-css.d.ts" />
+    <TypeScriptCompile Include="typings\aurelia-binding\aurelia-binding-tests.ts" />
+    <TypeScriptCompile Include="typings\aurelia-binding\aurelia-binding.d.ts" />
+    <TypeScriptCompile Include="typings\aurelia-bootstrapper\aurelia-bootstrapper-tests.ts" />
+    <TypeScriptCompile Include="typings\aurelia-bootstrapper\aurelia-bootstrapper.d.ts" />
+    <TypeScriptCompile Include="typings\aurelia-dependency-injection\aurelia-dependency-injection-tests.ts" />
+    <TypeScriptCompile Include="typings\aurelia-dependency-injection\aurelia-dependency-injection.d.ts" />
+    <TypeScriptCompile Include="typings\aurelia-event-aggregator\aurelia-event-aggregator-tests.ts" />
+    <TypeScriptCompile Include="typings\aurelia-event-aggregator\aurelia-event-aggregator.d.ts" />
+    <TypeScriptCompile Include="typings\aurelia-framework\aurelia-framework-tests.ts" />
+    <TypeScriptCompile Include="typings\aurelia-framework\aurelia-framework.d.ts" />
+    <TypeScriptCompile Include="typings\aurelia-history-browser\aurelia-history-browser-tests.ts" />
+    <TypeScriptCompile Include="typings\aurelia-history-browser\aurelia-history-browser.d.ts" />
+    <TypeScriptCompile Include="typings\aurelia-history\aurelia-history-tests.ts" />
+    <TypeScriptCompile Include="typings\aurelia-history\aurelia-history.d.ts" />
+    <TypeScriptCompile Include="typings\aurelia-http-client\aurelia-http-client-tests.ts" />
+    <TypeScriptCompile Include="typings\aurelia-http-client\aurelia-http-client.d.ts" />
+    <TypeScriptCompile Include="typings\aurelia-loader-default\aurelia-loader-default-tests.ts" />
+    <TypeScriptCompile Include="typings\aurelia-loader-default\aurelia-loader-default.d.ts" />
+    <TypeScriptCompile Include="typings\aurelia-loader\aurelia-loader-tests.ts" />
+    <TypeScriptCompile Include="typings\aurelia-loader\aurelia-loader.d.ts" />
+    <TypeScriptCompile Include="typings\aurelia-logging-console\aurelia-logging-console-tests.ts" />
+    <TypeScriptCompile Include="typings\aurelia-logging-console\aurelia-logging-console.d.ts" />
+    <TypeScriptCompile Include="typings\aurelia-logging\aurelia-logging-tests.ts" />
+    <TypeScriptCompile Include="typings\aurelia-logging\aurelia-logging.d.ts" />
+    <TypeScriptCompile Include="typings\aurelia-metadata\aurelia-metadata-tests.ts" />
+    <TypeScriptCompile Include="typings\aurelia-metadata\aurelia-metadata.d.ts" />
+    <TypeScriptCompile Include="typings\aurelia-path\aurelia-path-tests.ts" />
+    <TypeScriptCompile Include="typings\aurelia-path\aurelia-path.d.ts" />
+    <TypeScriptCompile Include="typings\aurelia-route-recognizer\aurelia-route-recognizer-tests.ts" />
+    <TypeScriptCompile Include="typings\aurelia-route-recognizer\aurelia-route-recognizer.d.ts" />
+    <TypeScriptCompile Include="typings\aurelia-router\aurelia-router-tests.ts" />
+    <TypeScriptCompile Include="typings\aurelia-router\aurelia-router.d.ts" />
+    <TypeScriptCompile Include="typings\aurelia-task-queue\aurelia-task-queue-tests.ts" />
+    <TypeScriptCompile Include="typings\aurelia-task-queue\aurelia-task-queue.d.ts" />
+    <TypeScriptCompile Include="typings\aurelia-templating-binding\aurelia-templating-binding-tests.ts" />
+    <TypeScriptCompile Include="typings\aurelia-templating-binding\aurelia-templating-binding.d.ts" />
+    <TypeScriptCompile Include="typings\aurelia-templating-resources\aurelia-templating-resources-tests.ts" />
+    <TypeScriptCompile Include="typings\aurelia-templating-resources\aurelia-templating-resources.d.ts" />
+    <TypeScriptCompile Include="typings\aurelia-templating-router\aurelia-templating-router-tests.ts" />
+    <TypeScriptCompile Include="typings\aurelia-templating-router\aurelia-templating-router.d.ts" />
+    <TypeScriptCompile Include="typings\aurelia-templating\aurelia-templating-tests.ts" />
+    <TypeScriptCompile Include="typings\aurelia-templating\aurelia-templating.d.ts" />
+    <TypeScriptCompile Include="typings\aurelia-validation\aurelia-validation-tests.ts" />
+    <TypeScriptCompile Include="typings\aurelia-validation\aurelia-validation.d.ts" />
+    <TypeScriptCompile Include="typings\aurelia\aurelia-test.ts" />
+    <TypeScriptCompile Include="typings\aurelia\aurelia.d.ts" />
+    <TypeScriptCompile Include="typings\jquery\jquery.d.ts" />
+    <TypeScriptCompile Include="typings\tsd.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="package.json" />
+    <Content Include="tsd.json" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">12.0</VisualStudioVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RootNamespace>ImperialAssaultCalculatorProj</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\WebApplications\Microsoft.WebApplication.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\WebApplications\Microsoft.WebApplication.targets')" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>51323</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:51323/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+    <TypeScriptRemoveComments>false</TypeScriptRemoveComments>
+    <TypeScriptSourceMap>true</TypeScriptSourceMap>
+    <TypeScriptOutDir>dist</TypeScriptOutDir>
+    <TypeScriptModuleKind>commonjs</TypeScriptModuleKind>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+    <TypeScriptRemoveComments>true</TypeScriptRemoveComments>
+    <TypeScriptSourceMap>false</TypeScriptSourceMap>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+</Project>
