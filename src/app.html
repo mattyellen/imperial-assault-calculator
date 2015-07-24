@@ -3,12 +3,21 @@
         <h1><span class="fa fa-calculator icon"></span>Imperial Assault</h1>
     </div>
     <div class="dice-button-container">
-        <span class="dice-button-row">
-            <button class="btn dice-button dice-button-red dice-button-dark" click.delegate="addDie('red')">${diceCount.red}</button>
-            <button class="btn dice-button dice-button-blue dice-button-dark" click.delegate="addDie('blue')">${diceCount.blue}</button>
-            <button class="btn dice-button dice-button-green dice-button-dark" click.delegate="addDie('green')">${diceCount.green}</button>
-            <button class="btn dice-button dice-button-yellow dice-button-light" click.delegate="addDie('yellow')">${diceCount.yellow}</button>
-            <button class="btn btn-default button-cancel" click.delegate="resetDice()"><span class="fa fa-times"></span></button>
-        </span>
+        <div class="dice-button-row">
+            <span class="dice-button-span">
+                <button class="btn dice-button dice-button-red dice-button-dark" click.delegate="addDie('red')">${diceCount.red}</button>
+                <button class="btn dice-button dice-button-blue dice-button-dark" click.delegate="addDie('blue')">${diceCount.blue}</button>
+                <button class="btn dice-button dice-button-green dice-button-dark" click.delegate="addDie('green')">${diceCount.green}</button>
+                <button class="btn dice-button dice-button-yellow dice-button-light" click.delegate="addDie('yellow')">${diceCount.yellow}</button>
+                <button class="btn btn-default button-cancel" click.delegate="resetAttackDice()"><span class="fa fa-times"></span></button>
+            </span>
+        </div>
+        <div class="dice-button-row">
+            <span class="dice-button-span">
+                <button class="btn dice-button dice-button-black dice-button-dark" click.delegate="addDie('black')">${diceCount.black}</button>
+                <button class="btn dice-button dice-button-white dice-button-light" click.delegate="addDie('white')">${diceCount.white}</button>
+                <button class="btn btn-default button-cancel" click.delegate="resetDefenseDice()"><span class="fa fa-times"></span></button>
+            </span>
+        </div>
     </div>
 </template>

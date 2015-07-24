@@ -9,9 +9,16 @@ body {
 }
 
 .splash .message {
-    font-size: 72px;
-    line-height: 72px;
+    font-size: 30px;
+    line-height: 30px;
     text-shadow: rgba(0, 0, 0, 0.5) 0 0 15px;
+    text-transform: uppercase;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.header h1 {
+    font-size: 26px;
+    font-weight: bold;
     text-transform: uppercase;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
@@ -50,33 +57,40 @@ h1 .icon {
     margin: 0px 10px;
 }
 
+.dice-button-container {
+    display:table;
+    margin:auto;
+}
+
 .dice-button-row {
-    display: table;
-    margin: auto;
+}
+
+.dice-button-span {
+    float:right;
+    margin-top: 20px;
 }
 
 .dice-button {
     width: 50px;
     height: 50px;
     margin: 0px 5px;
-    font-size: 50px;
-    font-weight: bold;
 }
 
 .dice-button-row .dice-button {
-    font-size: 20px;
+    font-size: 30px;
     font-weight: bold;
+    padding: 0px;
 }
 
-.dice-button-row .dice-button-dark, 
-.dice-button-row .dice-button-dark:hover,
-.dice-button-row .dice-button-dark:focus {
+.dice-button-dark, 
+.dice-button-dark:hover,
+.dice-button-dark:focus {
     color: #ffffff;
 }
 
-.dice-button-row .dice-button-light,
-.dice-button-row .dice-button-light:hover, 
-.dice-button-row .dice-button-light:focus { 
+.dice-button-light,
+.dice-button-light:hover, 
+.dice-button-light:focus { 
     color: #000000;
 }
 
@@ -98,6 +112,16 @@ h1 .icon {
 .dice-button-yellow {
     background-color: #FAD952;
     border-color: #E6BF14
+}
+
+.dice-button-white {
+    background-color: #ffffff;
+    border-color: #000000
+}
+
+.dice-button-black {
+    background-color: #000000;
+    border-color: #000000
 }
 
 .button-cancel {

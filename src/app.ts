@@ -5,26 +5,26 @@ export class App {
     diceCount: DiceCount;
 
     constructor() {
-        this.resetDice();
+        this.diceCount = new DiceCount();
+        this.resetAttackDice();
+        this.resetDefenseDice();
     }
 
     addDie(type: string) {
         this.diceCount[type]++;
     }
 
-    resetDice() {
-        this.diceCount = { red: 0, blue: 0, green: 0, yellow: 0 };
+    resetAttackDice() {
+        this.diceCount.red = 0;
+        this.diceCount.blue = 0;
+        this.diceCount.green = 0;
+        this.diceCount.yellow = 0;
     }
 
-    //configureRouter(config, router){
-    //  config.title = 'Aurelia';
-    //  config.map([
-    //    { route: ['','welcome'], name: 'welcome',  moduleId: './welcome',      nav: true, title:'Welcome' },
-    //    { route: 'flickr',       name: 'flickr',   moduleId: './flickr',       nav: true, title:'Flickr' }
-    //  ]);
-
-    //  this.router = router;
-    // }
+    resetDefenseDice() {
+        this.diceCount.black = 0;
+        this.diceCount.white = 0;
+    }
 }
 
 export class DiceCount {
@@ -32,5 +32,7 @@ export class DiceCount {
     blue: Number;
     green: Number;
     yellow: Number;
+    black: Number;
+    white: Number;
 }
 
