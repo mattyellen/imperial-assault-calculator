@@ -23,6 +23,19 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="aurelia.protractor.js" />
+    <Content Include="build\args.js" />
+    <Content Include="build\babel-options.js" />
+    <Content Include="build\paths.js" />
+    <Content Include="build\tasks\build.js" />
+    <Content Include="build\tasks\clean.js" />
+    <Content Include="build\tasks\dev.js" />
+    <Content Include="build\tasks\doc.js" />
+    <Content Include="build\tasks\e2e.js" />
+    <Content Include="build\tasks\lint.js" />
+    <Content Include="build\tasks\prepare-release.js" />
+    <Content Include="build\tasks\serve.js" />
+    <Content Include="build\tasks\test.js" />
+    <Content Include="build\tasks\watch.js" />
     <Content Include="config.js" />
     <Content Include="index.html" />
     <Content Include="protractor.conf.js" />
@@ -40,6 +53,9 @@
     <Content Include="test\unit\flickr.spec.js" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="src\AttackProperty.ts" />
+    <TypeScriptCompile Include="src\PossibleRolls.ts" />
+    <TypeScriptCompile Include="src\RollResult.ts" />
     <TypeScriptCompile Include="typings\aurelia-animator-css\aurelia-animator-css-tests.ts" />
     <TypeScriptCompile Include="typings\aurelia-animator-css\aurelia-animator-css.d.ts" />
     <TypeScriptCompile Include="typings\aurelia-binding\aurelia-binding-tests.ts" />

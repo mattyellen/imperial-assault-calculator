@@ -57,12 +57,13 @@ h1 .icon {
     margin: 0px 10px;
 }
 
-.dice-button-container {
+.main-container {
     display:table;
     margin:auto;
 }
 
 .dice-button-row {
+    display: block;
 }
 
 .dice-button-span {
@@ -128,6 +129,79 @@ h1 .icon {
     margin: 0px 0px 0px 10px
 }
 
+.attack-type-button-col {
+    text-align: center;
+}
+
+.attack-type-button,
+.attack-type-button:focus {
+    width: 64px;
+    height: 64px;
+    color: #333;
+    background-color: #fff;
+    border-color: #ccc;
+}
+
+.attack-type-selected,
+.attack-type-selected:focus {
+    border: 5px solid blue;
+}
+
+.attack-type-button-range,
+.attack-type-button-range:focus {
+    font-size: 30px;
+    font-weight: bold;
+    width: 96px;
+}
+
+.img-icon {
+    height: 40px;
+}
+
+.img-icon-surge {
+    width:30px;
+}
+.img-icon-damage {
+    height: 15px;
+}
+
+.block-button {
+    font-size: 24px;
+    font-weight: bold;
+    margin-left: 5px;
+    height: 50px;
+}
+
+.img-icon-block  {
+    height: 30px;
+}
+
+.surge-button {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.surge-ability-span {
+    margin-top: 10px;
+    display: inline-block;
+    font-size: 24px;
+    float: right;
+}
+
+.add-surge-button-row {
+    margin-top: 10px;
+    text-align: left;
+}
+
+.calculate-button-row {
+    text-align:center;
+}
+
+.calculate-button {
+    font-size: 36px;
+    font-weight: bold;
+    margin-top: 20px;
+}
 
 /* animation definitions */
 @-webkit-keyframes fadeInRight {
