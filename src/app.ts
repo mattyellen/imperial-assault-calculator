@@ -14,6 +14,8 @@ export class App {
     range: number;
     block: number;
 
+    private _chart: LinearInstance;
+
     private _dice: Dice<RollResult[]> = {
         red: [
             new RollResult(1, 0, 0, 0, 0, false, 1 / 6),
@@ -145,8 +147,12 @@ export class App {
             labels.unshift(i);
         }
 
+        if (this._chart !== undefined) {
+            this._chart.destroy();
+        }
+
         let ctx = <CanvasRenderingContext2D>(<HTMLCanvasElement>$("#damageChart").get(0)).getContext("2d");
-        new Chart(ctx).Line({
+        this._chart = new Chart(ctx).Line({
             labels: labels,
             datasets: [
                 {

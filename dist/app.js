@@ -122,8 +122,11 @@ var App = (function () {
             data.unshift(cumulativeProb);
             labels.unshift(i);
         }
+        if (this._chart !== undefined) {
+            this._chart.destroy();
+        }
         var ctx = $("#damageChart").get(0).getContext("2d");
-        new Chart(ctx).Line({
+        this._chart = new Chart(ctx).Line({
             labels: labels,
             datasets: [
                 {
