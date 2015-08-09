@@ -6,7 +6,7 @@ import {AttackProperty} from "AttackProperty";
 import {DefenseProperty} from "DefenseProperty";
 import "Chart.js";
 import 'jquery';
-import 'fastclick';
+import {attach} from 'fastclick';
 
 export class App {
     diceCount: Dice<number>;
@@ -75,7 +75,7 @@ export class App {
     }
 
     attached() {
-        FastClick.attach(document.body);
+        attach(document.body);
     }
 
     selectAttackType(type: string) {

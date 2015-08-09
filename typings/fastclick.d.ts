@@ -1,5 +1,4 @@
-﻿interface IFastClick {
-    attach(element: HTMLElement);
-}
+﻿declare module 'fastclick' {
 
-declare var FastClick: IFastClick;
+    export function attach(element: HTMLElement);
+}

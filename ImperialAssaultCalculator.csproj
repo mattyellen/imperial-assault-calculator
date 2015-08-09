@@ -105,6 +105,45 @@
     <Content Include="jspm_packages\github\components\jquery%402.1.4\jquery-migrate.min.js" />
     <Content Include="jspm_packages\github\components\jquery%402.1.4\jquery.js" />
     <Content Include="jspm_packages\github\components\jquery%402.1.4\jquery.min.js" />
+    <Content Include="jspm_packages\github\ftlabs\fastclick%401.0.6.js" />
+    <Content Include="jspm_packages\github\ftlabs\fastclick%401.0.6\.gitignore" />
+    <Content Include="jspm_packages\github\ftlabs\fastclick%401.0.6\examples\focus.html" />
+    <Content Include="jspm_packages\github\ftlabs\fastclick%401.0.6\examples\input.html" />
+    <Content Include="jspm_packages\github\ftlabs\fastclick%401.0.6\examples\layer.html" />
+    <Content Include="jspm_packages\github\ftlabs\fastclick%401.0.6\lib\fastclick.js" />
+    <Content Include="jspm_packages\github\ftlabs\fastclick%401.0.6\tests\10.html" />
+    <Content Include="jspm_packages\github\ftlabs\fastclick%401.0.6\tests\111.html" />
+    <Content Include="jspm_packages\github\ftlabs\fastclick%401.0.6\tests\160-reduced.html" />
+    <Content Include="jspm_packages\github\ftlabs\fastclick%401.0.6\tests\160.html" />
+    <Content Include="jspm_packages\github\ftlabs\fastclick%401.0.6\tests\176.html" />
+    <Content Include="jspm_packages\github\ftlabs\fastclick%401.0.6\tests\18.html" />
+    <Content Include="jspm_packages\github\ftlabs\fastclick%401.0.6\tests\22.html" />
+    <Content Include="jspm_packages\github\ftlabs\fastclick%401.0.6\tests\226.html" />
+    <Content Include="jspm_packages\github\ftlabs\fastclick%401.0.6\tests\23-reduced.html" />
+    <Content Include="jspm_packages\github\ftlabs\fastclick%401.0.6\tests\23.html" />
+    <Content Include="jspm_packages\github\ftlabs\fastclick%401.0.6\tests\24.html" />
+    <Content Include="jspm_packages\github\ftlabs\fastclick%401.0.6\tests\26.html" />
+    <Content Include="jspm_packages\github\ftlabs\fastclick%401.0.6\tests\27.html" />
+    <Content Include="jspm_packages\github\ftlabs\fastclick%401.0.6\tests\30.html" />
+    <Content Include="jspm_packages\github\ftlabs\fastclick%401.0.6\tests\32.html" />
+    <Content Include="jspm_packages\github\ftlabs\fastclick%401.0.6\tests\36.html" />
+    <Content Include="jspm_packages\github\ftlabs\fastclick%401.0.6\tests\37-reduced.html" />
+    <Content Include="jspm_packages\github\ftlabs\fastclick%401.0.6\tests\37a.html" />
+    <Content Include="jspm_packages\github\ftlabs\fastclick%401.0.6\tests\37b.html" />
+    <Content Include="jspm_packages\github\ftlabs\fastclick%401.0.6\tests\42.html" />
+    <Content Include="jspm_packages\github\ftlabs\fastclick%401.0.6\tests\44.html" />
+    <Content Include="jspm_packages\github\ftlabs\fastclick%401.0.6\tests\45.html" />
+    <Content Include="jspm_packages\github\ftlabs\fastclick%401.0.6\tests\48.html" />
+    <Content Include="jspm_packages\github\ftlabs\fastclick%401.0.6\tests\51-reduced.html" />
+    <Content Include="jspm_packages\github\ftlabs\fastclick%401.0.6\tests\6.html" />
+    <Content Include="jspm_packages\github\ftlabs\fastclick%401.0.6\tests\60.html" />
+    <Content Include="jspm_packages\github\ftlabs\fastclick%401.0.6\tests\62.html" />
+    <Content Include="jspm_packages\github\ftlabs\fastclick%401.0.6\tests\68.html" />
+    <Content Include="jspm_packages\github\ftlabs\fastclick%401.0.6\tests\6b.html" />
+    <Content Include="jspm_packages\github\ftlabs\fastclick%401.0.6\tests\7.html" />
+    <Content Include="jspm_packages\github\ftlabs\fastclick%401.0.6\tests\83-reduced.html" />
+    <Content Include="jspm_packages\github\ftlabs\fastclick%401.0.6\tests\83.html" />
+    <Content Include="jspm_packages\github\ftlabs\fastclick%401.0.6\tests\84.html" />
     <Content Include="jspm_packages\github\jspm\nodelibs-assert%400.1.0.js" />
     <Content Include="jspm_packages\github\jspm\nodelibs-assert%400.1.0\index.js" />
     <Content Include="jspm_packages\github\jspm\nodelibs-buffer%400.1.0.js" />
@@ -1478,6 +1517,7 @@
     <TypeScriptCompile Include="typings\aurelia\aurelia-validation.d.ts" />
     <TypeScriptCompile Include="typings\chartjs\chart.d.ts" />
     <TypeScriptCompile Include="typings\core-js\core-js.d.ts" />
+    <TypeScriptCompile Include="typings\fastclick.d.ts" />
     <TypeScriptCompile Include="typings\jquery\jquery.d.ts" />
     <TypeScriptCompile Include="typings\tsd.d.ts" />
   </ItemGroup>
@@ -1880,6 +1920,17 @@
     <Folder Include="jspm_packages\github\jspm\nodelibs-http%401.7.1\test\" />
     <Folder Include="jspm_packages\npm\base64-js%400.0.8\bench\" />
     <Folder Include="jspm_packages\npm\buffer%403.2.2\bin\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="jspm_packages\github\ftlabs\fastclick%401.0.6\.jspm-hash" />
+    <Content Include="jspm_packages\github\ftlabs\fastclick%401.0.6\.jspm.json" />
+    <Content Include="jspm_packages\github\ftlabs\fastclick%401.0.6\.npmignore" />
+    <Content Include="jspm_packages\github\ftlabs\fastclick%401.0.6\bower.json" />
+    <Content Include="jspm_packages\github\ftlabs\fastclick%401.0.6\component.json" />
+    <Content Include="jspm_packages\github\ftlabs\fastclick%401.0.6\LICENSE" />
+    <Content Include="jspm_packages\github\ftlabs\fastclick%401.0.6\Makefile" />
+    <Content Include="jspm_packages\github\ftlabs\fastclick%401.0.6\package.json" />
+    <Content Include="jspm_packages\github\ftlabs\fastclick%401.0.6\README.md" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">12.0</VisualStudioVersion>

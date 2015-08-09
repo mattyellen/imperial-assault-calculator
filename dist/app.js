@@ -5,7 +5,7 @@ var PossibleRolls_1 = require("PossibleRolls");
 var AttackProperty_1 = require("AttackProperty");
 require("Chart.js");
 require('jquery');
-require('fastclick');
+var fastclick_1 = require('fastclick');
 var App = (function () {
     function App() {
         this._dice = {
@@ -61,7 +61,7 @@ var App = (function () {
         this.range = 0;
     }
     App.prototype.attached = function () {
-        FastClick.attach(document.body);
+        fastclick_1.attach(document.body);
     };
     App.prototype.selectAttackType = function (type) {
         this.attack_type = type;
