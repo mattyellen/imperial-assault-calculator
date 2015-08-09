@@ -3,6 +3,8 @@ require('bootstrap/css/bootstrap.css!');
 var RollResult_1 = require("RollResult");
 var PossibleRolls_1 = require("PossibleRolls");
 var AttackProperty_1 = require("AttackProperty");
+require("Chart.js");
+require('jquery');
 var App = (function () {
     function App() {
         this._dice = {
@@ -107,6 +109,35 @@ var App = (function () {
         possibleRolls.showProb();
         var damageResults = possibleRolls.getEffectiveDamage(this.surgeAbilities, this.fixedAttackAbility, this.range, this.block);
         console.log(damageResults);
+        var minValue = 1;
+        var maxValue = 0;
+        for (var v in damageResults) {
+            maxValue = Math.max(maxValue, v);
+        }
+        var labels = [];
+        var data = [];
+        var cumulativeProb = 0;
+        for (var i = maxValue; i >= minValue; i--) {
+            cumulativeProb += (damageResults[i] === undefined) ? 0 : damageResults[i];
+            data.unshift(cumulativeProb);
+            labels.unshift(i);
+        }
+        var ctx = $("#damageChart").get(0).getContext("2d");
+        new Chart(ctx).Line({
+            labels: labels,
+            datasets: [
+                {
+                    label: "Cumulative Damage Probablity",
+                    fillColor: "rgba(220,0,0,0.2)",
+                    strokeColor: "rgba(220,0,0,1)",
+                    pointColor: "rgba(220,0,0,1)",
+                    pointStrokeColor: "#fff",
+                    pointHighlightFill: "#fff",
+                    pointHighlightStroke: "rgba(220,0,0,1)",
+                    data: data
+                }
+            ]
+        });
     };
     return App;
 })();

@@ -3,6 +3,8 @@ import 'bootstrap/css/bootstrap.css!';
 import {RollResult} from "RollResult";
 import {PossibleRolls} from "PossibleRolls";
 import {AttackProperty} from "AttackProperty";
+import "Chart.js";
+import 'jquery';
 
 export class App {
     diceCount: Dice<number>;
@@ -127,6 +129,38 @@ export class App {
 
         let damageResults = possibleRolls.getEffectiveDamage(this.surgeAbilities, this.fixedAttackAbility, this.range, this.block);
         console.log(damageResults);
+
+        let minValue = 1;
+        let maxValue = 0;
+        for (let v in damageResults) {
+            maxValue = Math.max(maxValue, v);
+        }
+
+        let labels = [];
+        let data = [];
+        let cumulativeProb = 0;
+        for (let i = maxValue; i >= minValue; i--) {
+            cumulativeProb += (damageResults[i] === undefined) ? 0 : damageResults[i];
+            data.unshift(cumulativeProb);
+            labels.unshift(i);
+        }
+
+        let ctx = <CanvasRenderingContext2D>(<HTMLCanvasElement>$("#damageChart").get(0)).getContext("2d");
+        new Chart(ctx).Line({
+            labels: labels,
+            datasets: [
+                {
+                    label: "Cumulative Damage Probablity",
+                    fillColor: "rgba(220,0,0,0.2)",
+                    strokeColor: "rgba(220,0,0,1)",
+                    pointColor: "rgba(220,0,0,1)",
+                    pointStrokeColor: "#fff",
+                    pointHighlightFill: "#fff",
+                    pointHighlightStroke: "rgba(220,0,0,1)",
+                    data: data
+                }
+            ]
+        });
     }
 }
 

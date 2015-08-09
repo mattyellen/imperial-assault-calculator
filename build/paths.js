@@ -7,6 +7,7 @@ module.exports = {
   root: appRoot,
   source: appRoot + '**/*.js',
   source_ts: appRoot + '**/*.ts',
+  typings: 'typings/tsd.d.ts',
   html: appRoot + '**/*.html',
   style: 'styles/**/*.css',
   output: outputRoot,

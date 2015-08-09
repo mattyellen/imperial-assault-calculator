@@ -24,7 +24,7 @@ gulp.task('build-system', function () {
 });
 
 gulp.task('build-ts', function () {
-    return gulp.src(paths.source_ts)
+    return gulp.src([paths.source_ts, paths.typings])
     .pipe(plumber())
     .pipe(changed(paths.output, {extension: '.ts'}))
     .pipe(sourcemaps.init({ loadMaps: true }))

@@ -16,6 +16,7 @@ System.config({
 
 System.config({
   "map": {
+    "Chart.js": "github:nnnick/Chart.js@1.0.2",
     "aurelia-animator-css": "github:aurelia/animator-css@0.13.0",
     "aurelia-bootstrapper": "github:aurelia/bootstrapper@0.14.0",
     "aurelia-dependency-injection": "github:aurelia/dependency-injection@0.9.0",
@@ -28,6 +29,7 @@ System.config({
     "core-js": "npm:core-js@0.9.18",
     "css": "github:systemjs/plugin-css@0.1.12",
     "font-awesome": "npm:font-awesome@4.3.0",
+    "jquery": "github:components/jquery@2.1.4",
     "github:aurelia/animator-css@0.13.0": {
       "aurelia-templating": "github:aurelia/templating@0.13.0"
     },
