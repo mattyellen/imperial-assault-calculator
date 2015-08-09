@@ -27,3 +27,4 @@
 /// <reference path="aurelia/aurelia-templating.d.ts" />
 /// <reference path="aurelia/aurelia-validation.d.ts" />
 /// <reference path="core-js/core-js.d.ts" />
+/// <reference path="fastclick.d.ts" />
