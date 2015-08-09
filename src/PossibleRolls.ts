@@ -65,8 +65,10 @@ export class PossibleRolls {
             calcDamageResult.block += fixedDefenseAbility.block;
             calcDamageResult.block -= Math.min(fixedAttackAbility.pierce, calcDamageResult.block);
 
+            console.log("%s: %f", prKey, this._possibleRolls[prKey].probability);
+
             while ((calcDamageResult.surge > 0) && (surgeAbilitiesToUse.length > 0)) {
-                var bestSurgeEffect: SurgeResult;
+                var bestSurgeEffect: SurgeResult = undefined;
 
                 for (let surge of surgeAbilitiesToUse) {
                     let surgeEffect = this.calculateSurgeEffect(calcDamageResult, surge, needRange);
@@ -76,6 +78,10 @@ export class PossibleRolls {
                         bestSurgeEffect = surgeEffect;
                     }
                 }
+
+                if (bestSurgeEffect !== undefined)
+                    console.log("found surge effect that hits: %O => +%d", bestSurgeEffect, bestSurgeEffect.effectiveDamage);
+
 
                 if (bestSurgeEffect === undefined) {
                     //Failed to fund a surge to use...  none must give enough range.
@@ -87,7 +93,12 @@ export class PossibleRolls {
                             bestSurgeEffect = surgeEffect;
                         }
                     }
+
+                    if (bestSurgeEffect !== undefined)
+                        console.log("found surge effect for improved range: %O => remaining %d", bestSurgeEffect, bestSurgeEffect.remainingRange);
                 }
+
+
 
                 if (bestSurgeEffect !== undefined) {
                     calcDamageResult.damage += bestSurgeEffect.surge.damage;

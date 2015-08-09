@@ -164,9 +164,11 @@ h1 .img-icon-header {
 
 .img-icon-surge {
     width:30px;
+    margin-top: -3px;
 }
 .img-icon-damage {
     height: 20px;
+    margin-top: -3px;
 }
 
 .defense-button {
@@ -181,6 +183,7 @@ h1 .img-icon-header {
 
 .img-icon-defense  {
     height: 15px;
+    margin-top: -2px;
 }
 
 .surge-button {

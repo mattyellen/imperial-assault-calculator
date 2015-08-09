@@ -114,7 +114,7 @@ var App = (function () {
                 possibleRolls.applyNewRoll(this._dice[dieColor]);
             }
         }
-        possibleRolls.showProb();
+        //possibleRolls.showProb();
         var damageResults = possibleRolls.getEffectiveDamage(this.surgeAbilities, this.fixedAttackAbility, this.fixedDefenseAbility, this.range);
         console.log(damageResults);
         var minValue = 1;

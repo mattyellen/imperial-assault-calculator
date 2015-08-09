@@ -54,8 +54,9 @@ var PossibleRolls = (function () {
             calcDamageResult.range += fixedAttackAbility.accuracy;
             calcDamageResult.block += fixedDefenseAbility.block;
             calcDamageResult.block -= Math.min(fixedAttackAbility.pierce, calcDamageResult.block);
+            console.log("%s: %f", prKey, this._possibleRolls[prKey].probability);
             while ((calcDamageResult.surge > 0) && (surgeAbilitiesToUse.length > 0)) {
-                var bestSurgeEffect;
+                var bestSurgeEffect = undefined;
                 for (var _a = 0; _a < surgeAbilitiesToUse.length; _a++) {
                     var surge = surgeAbilitiesToUse[_a];
                     var surgeEffect = this.calculateSurgeEffect(calcDamageResult, surge, needRange);
@@ -65,6 +66,8 @@ var PossibleRolls = (function () {
                         bestSurgeEffect = surgeEffect;
                     }
                 }
+                if (bestSurgeEffect !== undefined)
+                    console.log("found surge effect that hits: %O => +%d", bestSurgeEffect, bestSurgeEffect.effectiveDamage);
                 if (bestSurgeEffect === undefined) {
                     //Failed to fund a surge to use...  none must give enough range.
                     //Just find the one with the best range.
@@ -76,6 +79,8 @@ var PossibleRolls = (function () {
                             bestSurgeEffect = surgeEffect;
                         }
                     }
+                    if (bestSurgeEffect !== undefined)
+                        console.log("found surge effect for improved range: %O => remaining %d", bestSurgeEffect, bestSurgeEffect.remainingRange);
                 }
                 if (bestSurgeEffect !== undefined) {
                     calcDamageResult.damage += bestSurgeEffect.surge.damage;

@@ -137,7 +137,7 @@ export class App {
             }
         }
 
-        possibleRolls.showProb();
+        //possibleRolls.showProb();
 
         let damageResults = possibleRolls.getEffectiveDamage(this.surgeAbilities, this.fixedAttackAbility, this.fixedDefenseAbility, this.range);
         console.log(damageResults);
