@@ -1447,6 +1447,7 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="src\AttackProperty.ts" />
+    <TypeScriptCompile Include="src\DefenseProperty.ts" />
     <TypeScriptCompile Include="src\PossibleRolls.ts" />
     <TypeScriptCompile Include="src\RollResult.ts" />
     <TypeScriptCompile Include="typings\aurelia\aurelia-animator-css.d.ts" />

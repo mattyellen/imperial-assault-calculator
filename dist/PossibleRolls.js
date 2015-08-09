@@ -30,7 +30,7 @@ var PossibleRolls = (function () {
         }
         console.log("total: %f", total);
     };
-    PossibleRolls.prototype.getEffectiveDamage = function (surgeAbilities, fixedAbility, needRange, block) {
+    PossibleRolls.prototype.getEffectiveDamage = function (surgeAbilities, fixedAbility, fixedDefenseAbility, needRange) {
         var effectiveDamage = {};
         for (var prKey in this._possibleRolls) {
             var rollResult = this._possibleRolls[prKey];
@@ -47,11 +47,12 @@ var PossibleRolls = (function () {
                 var surge = surgeAbilities[_i];
                 surgeAbilitiesToUse.push(surge);
             }
-            calcDamageResult.surge -= calcDamageResult.block_surge;
+            calcDamageResult.surge -= fixedDefenseAbility.evade;
+            calcDamageResult.surge -= calcDamageResult.evade;
             calcDamageResult.damage += fixedAbility.damage;
             calcDamageResult.range += fixedAbility.accuracy;
-            calcDamageResult.block_damage += block;
-            calcDamageResult.block_damage -= Math.min(fixedAbility.pierce, calcDamageResult.block_damage);
+            calcDamageResult.block += fixedDefenseAbility.block;
+            calcDamageResult.block -= Math.min(fixedAbility.pierce, calcDamageResult.block);
             while ((calcDamageResult.surge > 0) && (surgeAbilitiesToUse.length > 0)) {
                 var bestSurgeEffect;
                 for (var _a = 0; _a < surgeAbilitiesToUse.length; _a++) {
@@ -77,7 +78,7 @@ var PossibleRolls = (function () {
                 }
                 if (bestSurgeEffect !== undefined) {
                     calcDamageResult.damage += bestSurgeEffect.surge.damage;
-                    calcDamageResult.block_damage -= Math.min(bestSurgeEffect.surge.pierce, calcDamageResult.block_damage);
+                    calcDamageResult.block -= Math.min(bestSurgeEffect.surge.pierce, calcDamageResult.block);
                     calcDamageResult.range += bestSurgeEffect.surge.accuracy;
                     calcDamageResult.surge--;
                     surgeAbilitiesToUse = surgeAbilitiesToUse.filter(function (s) { return s != bestSurgeEffect.surge; });
@@ -87,7 +88,7 @@ var PossibleRolls = (function () {
                 this.updateValue(effectiveDamage, 0, calcDamageResult.probability);
             }
             else {
-                this.updateValue(effectiveDamage, Math.max(calcDamageResult.damage - calcDamageResult.block_damage, 0), calcDamageResult.probability);
+                this.updateValue(effectiveDamage, Math.max(calcDamageResult.damage - calcDamageResult.block, 0), calcDamageResult.probability);
             }
         }
         return effectiveDamage;
@@ -102,7 +103,7 @@ var PossibleRolls = (function () {
         var result = new SurgeResult();
         result.surge = surge;
         result.remainingRange = Math.max(needRange - (rollResult.range + surge.accuracy), 0);
-        var effectOfPierce = Math.min(surge.pierce, rollResult.block_damage);
+        var effectOfPierce = Math.min(surge.pierce, rollResult.block);
         result.effectiveDamage = effectOfPierce + surge.damage;
         return result;
     };

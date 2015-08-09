@@ -64,6 +64,7 @@ h1 .icon {
 
 .dice-button-row {
     display: block;
+    margin: 0px;
 }
 
 .dice-button-span {
@@ -74,7 +75,7 @@ h1 .icon {
 .dice-button {
     width: 50px;
     height: 50px;
-    margin: 0px 5px;
+    margin: 0px 3px;
 }
 
 .dice-button-row .dice-button {
@@ -165,15 +166,18 @@ h1 .icon {
     height: 15px;
 }
 
-.block-button {
-    font-size: 24px;
+.defense-button {
+    font-size: 20px;
     font-weight: bold;
-    margin-left: 5px;
+    margin-left: 3px;
+    margin-right: 3px;
     height: 50px;
+    width: 60px;
+    padding: 1px;
 }
 
-.img-icon-block  {
-    height: 30px;
+.img-icon-defense  {
+    height: 15px;
 }
 
 .surge-button {
@@ -189,7 +193,7 @@ h1 .icon {
 }
 
 .add-surge-button-row {
-    margin-top: 10px;
+    margin: 10px 0px 0px 0px;
     text-align: left;
 }
 

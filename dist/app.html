@@ -67,9 +67,13 @@
             <span class="dice-button-span">
                 <button class="btn dice-button dice-button-black dice-button-dark" click.delegate="addDie('black')">${diceCount.black}</button>
                 <button class="btn dice-button dice-button-white dice-button-light" click.delegate="addDie('white')">${diceCount.white}</button>
-                <button class="btn btn-default block-button" click.delegate="addBlock()">
-                    +${block}
-                    <img class="img-icon-block" src="images/block.png" />
+                <button class="btn btn-default defense-button" click.delegate="addDefenseProperty('block')">
+                    +${fixedDefenseAbility.block}
+                    <img class="img-icon-defense" src="images/block.png" />
+                </button>
+                <button class="btn btn-default defense-button" click.delegate="addDefenseProperty('evade')">
+                    +${fixedDefenseAbility.evade}
+                    <img class="img-icon-defense" src="images/evade.png" />
                 </button>
                 <button class="btn btn-default button-cancel" click.delegate="resetDefenseDice()"><span class="fa fa-times"></span></button>
             </span>

@@ -3,6 +3,7 @@ import 'bootstrap/css/bootstrap.css!';
 import {RollResult} from "RollResult";
 import {PossibleRolls} from "PossibleRolls";
 import {AttackProperty} from "AttackProperty";
+import {DefenseProperty} from "DefenseProperty";
 import "Chart.js";
 import 'jquery';
 
@@ -10,9 +11,9 @@ export class App {
     diceCount: Dice<number>;
     surgeAbilities: AttackProperty[];
     fixedAttackAbility: AttackProperty;
+    fixedDefenseAbility: DefenseProperty;
     attack_type: string;
     range: number;
-    block: number;
 
     private _chart: LinearInstance;
 
@@ -89,8 +90,8 @@ export class App {
         this.diceCount[type]++;
     }
 
-    addBlock() {
-        this.block++;
+    addDefenseProperty(type: string) {
+        this.fixedDefenseAbility[type]++;
     }
 
     addNewSurge() {
@@ -116,7 +117,10 @@ export class App {
     resetDefenseDice() {
         this.diceCount.black = 0;
         this.diceCount.white = 0;
-        this.block = 0;
+        this.fixedDefenseAbility = {
+            block: 0,
+            evade: 0
+        };
     }
 
     calculateResult() {
@@ -129,7 +133,7 @@ export class App {
 
         possibleRolls.showProb();
 
-        let damageResults = possibleRolls.getEffectiveDamage(this.surgeAbilities, this.fixedAttackAbility, this.range, this.block);
+        let damageResults = possibleRolls.getEffectiveDamage(this.surgeAbilities, this.fixedAttackAbility, this.fixedDefenseAbility, this.range);
         console.log(damageResults);
 
         let minValue = 1;

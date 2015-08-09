@@ -1,5 +1,6 @@
 ﻿import {RollResult} from "RollResult";
 import {AttackProperty} from "AttackProperty";
+import {DefenseProperty} from "DefenseProperty";
 
 export class PossibleRolls {
     private _possibleRolls: { [key: string]: RollResult } = {};
@@ -36,7 +37,7 @@ export class PossibleRolls {
         console.log("total: %f", total);
     }
 
-    getEffectiveDamage(surgeAbilities: AttackProperty[], fixedAbility: AttackProperty, needRange: number, block: number): { [damage: number]: number } {
+    getEffectiveDamage(surgeAbilities: AttackProperty[], fixedAbility: AttackProperty, fixedDefenseAbility: DefenseProperty, needRange: number): { [damage: number]: number } {
         let effectiveDamage: { [damage: number]: number } = {};
 
         for (let prKey in this._possibleRolls) {
@@ -56,11 +57,12 @@ export class PossibleRolls {
                 surgeAbilitiesToUse.push(surge);
             }
 
-            calcDamageResult.surge -= calcDamageResult.block_surge;
+            calcDamageResult.surge -= fixedDefenseAbility.evade;
+            calcDamageResult.surge -= calcDamageResult.evade;
             calcDamageResult.damage += fixedAbility.damage;
             calcDamageResult.range += fixedAbility.accuracy;
-            calcDamageResult.block_damage += block;
-            calcDamageResult.block_damage -= Math.min(fixedAbility.pierce, calcDamageResult.block_damage);
+            calcDamageResult.block += fixedDefenseAbility.block;
+            calcDamageResult.block -= Math.min(fixedAbility.pierce, calcDamageResult.block);
 
             while ((calcDamageResult.surge > 0) && (surgeAbilitiesToUse.length > 0)) {
                 var bestSurgeEffect: SurgeResult;
@@ -88,7 +90,7 @@ export class PossibleRolls {
 
                 if (bestSurgeEffect !== undefined) {
                     calcDamageResult.damage += bestSurgeEffect.surge.damage;
-                    calcDamageResult.block_damage -= Math.min(bestSurgeEffect.surge.pierce, calcDamageResult.block_damage);
+                    calcDamageResult.block -= Math.min(bestSurgeEffect.surge.pierce, calcDamageResult.block);
                     calcDamageResult.range += bestSurgeEffect.surge.accuracy
 
                     calcDamageResult.surge--;
@@ -99,7 +101,7 @@ export class PossibleRolls {
             if (calcDamageResult.range < needRange) {
                 this.updateValue(effectiveDamage, 0, calcDamageResult.probability);
             } else {
-                this.updateValue(effectiveDamage, Math.max(calcDamageResult.damage - calcDamageResult.block_damage, 0), calcDamageResult.probability);
+                this.updateValue(effectiveDamage, Math.max(calcDamageResult.damage - calcDamageResult.block, 0), calcDamageResult.probability);
             }
         }
 
@@ -118,7 +120,7 @@ export class PossibleRolls {
         result.surge = surge;
 
         result.remainingRange = Math.max(needRange - (rollResult.range + surge.accuracy), 0);
-        let effectOfPierce = Math.min(surge.pierce, rollResult.block_damage);
+        let effectOfPierce = Math.min(surge.pierce, rollResult.block);
         result.effectiveDamage = effectOfPierce + surge.damage;
 
         return result;

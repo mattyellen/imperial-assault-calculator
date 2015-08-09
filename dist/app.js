@@ -74,8 +74,8 @@ var App = (function () {
     App.prototype.addDie = function (type) {
         this.diceCount[type]++;
     };
-    App.prototype.addBlock = function () {
-        this.block++;
+    App.prototype.addDefenseProperty = function (type) {
+        this.fixedDefenseAbility[type]++;
     };
     App.prototype.addNewSurge = function () {
         this.surgeAbilities.unshift(new AttackProperty_1.AttackProperty());
@@ -97,7 +97,10 @@ var App = (function () {
     App.prototype.resetDefenseDice = function () {
         this.diceCount.black = 0;
         this.diceCount.white = 0;
-        this.block = 0;
+        this.fixedDefenseAbility = {
+            block: 0,
+            evade: 0
+        };
     };
     App.prototype.calculateResult = function () {
         var possibleRolls = new PossibleRolls_1.PossibleRolls();
@@ -107,7 +110,7 @@ var App = (function () {
             }
         }
         possibleRolls.showProb();
-        var damageResults = possibleRolls.getEffectiveDamage(this.surgeAbilities, this.fixedAttackAbility, this.range, this.block);
+        var damageResults = possibleRolls.getEffectiveDamage(this.surgeAbilities, this.fixedAttackAbility, this.fixedDefenseAbility, this.range);
         console.log(damageResults);
         var minValue = 1;
         var maxValue = 0;
