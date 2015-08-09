@@ -37,7 +37,7 @@ export class PossibleRolls {
         console.log("total: %f", total);
     }
 
-    getEffectiveDamage(surgeAbilities: AttackProperty[], fixedAbility: AttackProperty, fixedDefenseAbility: DefenseProperty, needRange: number): { [damage: number]: number } {
+    getEffectiveDamage(surgeAbilities: AttackProperty[], fixedAttackAbility: AttackProperty, fixedDefenseAbility: DefenseProperty, needRange: number): { [damage: number]: number } {
         let effectiveDamage: { [damage: number]: number } = {};
 
         for (let prKey in this._possibleRolls) {
@@ -57,12 +57,13 @@ export class PossibleRolls {
                 surgeAbilitiesToUse.push(surge);
             }
 
+            calcDamageResult.surge += fixedAttackAbility.surge;
             calcDamageResult.surge -= fixedDefenseAbility.evade;
             calcDamageResult.surge -= calcDamageResult.evade;
-            calcDamageResult.damage += fixedAbility.damage;
-            calcDamageResult.range += fixedAbility.accuracy;
+            calcDamageResult.damage += fixedAttackAbility.damage;
+            calcDamageResult.range += fixedAttackAbility.accuracy;
             calcDamageResult.block += fixedDefenseAbility.block;
-            calcDamageResult.block -= Math.min(fixedAbility.pierce, calcDamageResult.block);
+            calcDamageResult.block -= Math.min(fixedAttackAbility.pierce, calcDamageResult.block);
 
             while ((calcDamageResult.surge > 0) && (surgeAbilitiesToUse.length > 0)) {
                 var bestSurgeEffect: SurgeResult;

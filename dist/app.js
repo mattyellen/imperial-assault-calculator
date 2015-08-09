@@ -78,7 +78,7 @@ var App = (function () {
         this.fixedDefenseAbility[type]++;
     };
     App.prototype.addNewSurge = function () {
-        this.surgeAbilities.unshift(new AttackProperty_1.AttackProperty());
+        this.surgeAbilities.push(new AttackProperty_1.AttackProperty());
     };
     App.prototype.removeSurge = function (surge) {
         this.surgeAbilities = this.surgeAbilities.filter(function (p) { return p != surge; });
@@ -91,7 +91,8 @@ var App = (function () {
         this.fixedAttackAbility = {
             damage: 0,
             pierce: 0,
-            accuracy: 0
+            accuracy: 0,
+            surge: 0
         };
     };
     App.prototype.resetDefenseDice = function () {
@@ -122,7 +123,7 @@ var App = (function () {
         var cumulativeProb = 0;
         for (var i = maxValue; i >= minValue; i--) {
             cumulativeProb += (damageResults[i] === undefined) ? 0 : damageResults[i];
-            data.unshift(cumulativeProb);
+            data.unshift(Math.round(cumulativeProb * 100));
             labels.unshift(i);
         }
         if (this._chart !== undefined) {

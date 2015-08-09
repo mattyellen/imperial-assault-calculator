@@ -95,7 +95,7 @@ export class App {
     }
 
     addNewSurge() {
-        this.surgeAbilities.unshift(new AttackProperty());
+        this.surgeAbilities.push(new AttackProperty());
     }
 
     removeSurge(surge: AttackProperty) {
@@ -110,7 +110,8 @@ export class App {
         this.fixedAttackAbility = {
             damage: 0,
             pierce: 0,
-            accuracy: 0
+            accuracy: 0,
+            surge: 0
         }
     }
 
@@ -147,7 +148,7 @@ export class App {
         let cumulativeProb = 0;
         for (let i = maxValue; i >= minValue; i--) {
             cumulativeProb += (damageResults[i] === undefined) ? 0 : damageResults[i];
-            data.unshift(cumulativeProb);
+            data.unshift(Math.round(cumulativeProb*100));
             labels.unshift(i);
         }
 

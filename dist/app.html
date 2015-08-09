@@ -9,7 +9,7 @@
         ga('send', 'pageview');
     </script>
     <div class="header">
-        <h1><span class="fa fa-calculator icon"></span>Imperial Assault</h1>
+        <h1><img class="img-icon-header" src="images/imperial_small.png" />Imperial Assault</h1>
     </div>
     <div class="main-container">
         <div class="row">
@@ -38,7 +38,6 @@
         </div>
         <div class="row dice-button-row">
             <span class="surge-ability-span">
-                Always:
                 <button class="btn btn-default surge-button" click.delegate="addAttackProperty(fixedAttackAbility, 'damage')">
                     +${fixedAttackAbility.damage}
                     <img class="img-icon-damage" src="images/damage.png" />
@@ -50,10 +49,14 @@
                 <button class="btn btn-default surge-button" click.delegate="addAttackProperty(fixedAttackAbility, 'accuracy')">
                     +${fixedAttackAbility.accuracy} A
                 </button>
+                <button class="btn btn-default surge-button" click.delegate="addAttackProperty(fixedAttackAbility, 'surge')">
+                    +${fixedAttackAbility.surge}
+                    <img class="img-icon-surge" src="images/surge.png" />
+                </button>
             </span>
         </div>
         <div class="row add-surge-button-row">
-            <button class="btn btn-default surge-button" click.delegate="addNewSurge()">+ <img class="img-icon-surge" src="images/surge.png" /></button>
+            <button class="btn btn-default surge-button" click.delegate="addNewSurge()">+ <img class="img-icon-surge" src="images/surge.png" /> Ability</button>
         </div>
         <div class="row dice-button-row" repeat.for="surge of surgeAbilities">
             <span class="surge-ability-span">

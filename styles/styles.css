@@ -53,8 +53,11 @@ section {
     margin: auto;
 }
 
-h1 .icon {
+h1 .img-icon-header {
     margin: 0px 10px;
+    width: 32px;
+    height: 32px;
+    margin-top: -4px;
 }
 
 .main-container {
@@ -163,7 +166,7 @@ h1 .icon {
     width:30px;
 }
 .img-icon-damage {
-    height: 15px;
+    height: 20px;
 }
 
 .defense-button {
