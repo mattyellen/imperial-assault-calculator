@@ -147,9 +147,16 @@ h1 .img-icon-header {
 }
 
 .attack-type-selected,
-.attack-type-selected:focus {
+.attack-type-selected:focus,
+.attack-type-selected:hover,
+.attack-type-selected:active {
     border: 5px solid blue;
 }
+
+.attack-type-selected:focus.attack-type-selected:hover {
+    background-color: #e6e6e6;
+}
+
 
 .attack-type-button-range,
 .attack-type-button-range:focus {
