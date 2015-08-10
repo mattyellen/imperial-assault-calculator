@@ -7,6 +7,7 @@ import {DefenseProperty} from "DefenseProperty";
 import "Chart.js";
 import 'jquery';
 import {attach} from 'fastclick';
+import 'bootstrap';
 
 export class App {
     diceCount: Dice<number>;
@@ -76,6 +77,7 @@ export class App {
 
     attached() {
         attach(document.body);
+        $('[data-toggle="tooltip"]').tooltip({delay: 500});
     }
 
     selectAttackType(type: string) {

@@ -28,3 +28,4 @@
 /// <reference path="aurelia/aurelia-validation.d.ts" />
 /// <reference path="core-js/core-js.d.ts" />
 /// <reference path="fastclick.d.ts" />
+/// <reference path="bootstrap.d.ts" />

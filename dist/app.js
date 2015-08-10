@@ -6,6 +6,7 @@ var AttackProperty_1 = require("AttackProperty");
 require("Chart.js");
 require('jquery');
 var fastclick_1 = require('fastclick');
+require('bootstrap');
 var App = (function () {
     function App() {
         this._dice = {
@@ -62,6 +63,7 @@ var App = (function () {
     }
     App.prototype.attached = function () {
         fastclick_1.attach(document.body);
+        $('[data-toggle="tooltip"]').tooltip({ delay: 500 });
     };
     App.prototype.selectAttackType = function (type) {
         this.attack_type = type;

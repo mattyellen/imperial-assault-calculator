@@ -15,12 +15,16 @@
         <div class="row">
             <div class="col-xs-6 attack-type-button-col">
                 <button class="btn btn-default attack-type-button ${(attack_type == 'melee') ? 'attack-type-selected' : ''}"
+                        data-toggle="tooltip"
+                        title="Melee Attack"
                         click.delegate="selectAttackType('melee')">
                     <img class="img-icon" src="images/melee.png" />
                 </button>
             </div>
             <div class="col-xs-6 attack-type-button-col">
                 <button class="btn btn-default attack-type-button attack-type-button-range ${(attack_type == 'range') ? 'attack-type-selected' : ''}"
+                        data-toggle="tooltip"
+                        title="Ranged Attack"
                         click.delegate="selectAttackType('range')">
                     ${range}
                     <img class="img-icon" src="images/ranged.png" />
@@ -29,70 +33,149 @@
         </div>
         <div class="row dice-button-row">
             <span class="dice-button-span">
-                <button class="btn dice-button dice-button-red dice-button-dark" click.delegate="addDie('red')">${diceCount.red}</button>
-                <button class="btn dice-button dice-button-blue dice-button-dark" click.delegate="addDie('blue')">${diceCount.blue}</button>
-                <button class="btn dice-button dice-button-green dice-button-dark" click.delegate="addDie('green')">${diceCount.green}</button>
-                <button class="btn dice-button dice-button-yellow dice-button-light" click.delegate="addDie('yellow')">${diceCount.yellow}</button>
-                <button class="btn btn-default button-cancel" click.delegate="resetAttackDice()"><span class="fa fa-times"></span></button>
+                <button class="btn dice-button dice-button-red dice-button-dark" 
+                        data-toggle="tooltip" 
+                        title="Red Dice"
+                        click.delegate="addDie('red')">${diceCount.red}</button>
+                <button class="btn dice-button dice-button-blue dice-button-dark" 
+                        data-toggle="tooltip"
+                        title="Blue Dice"
+                        click.delegate="addDie('blue')">
+                    ${diceCount.blue}
+                </button>
+                <button class="btn dice-button dice-button-green dice-button-dark" 
+                        data-toggle="tooltip"
+                        title="Green Dice"
+                        click.delegate="addDie('green')">
+                    ${diceCount.green}
+                </button>
+                <button class="btn dice-button dice-button-yellow dice-button-light"
+                        data-toggle="tooltip"
+                        title="Yellow Dice"
+                        click.delegate="addDie('yellow')">
+                    ${diceCount.yellow}
+                </button>
+                <button class="btn btn-default button-cancel"
+                        data-toggle="tooltip"
+                        title="Clear Attack Values"
+                        click.delegate="resetAttackDice()">
+                    <span class="fa fa-times"></span>
+                </button>
             </span>
         </div>
         <div class="row dice-button-row">
             <span class="surge-ability-span">
-                <button class="btn btn-default surge-button" click.delegate="addAttackProperty(fixedAttackAbility, 'damage')">
+                <button class="btn btn-default surge-button"
+                        data-toggle="tooltip"
+                        title="Add Damage"
+                        click.delegate="addAttackProperty(fixedAttackAbility, 'damage')">
                     +${fixedAttackAbility.damage}
                     <img class="img-icon-damage" src="images/damage.png" />
                 </button>
-                <button class="btn btn-default surge-button" click.delegate="addAttackProperty(fixedAttackAbility, 'pierce')">
+                <button class="btn btn-default surge-button"
+                        data-toggle="tooltip"
+                        title="Add Pierce"
+                        click.delegate="addAttackProperty(fixedAttackAbility, 'pierce')">
                     P
                     ${fixedAttackAbility.pierce}
                 </button>
-                <button class="btn btn-default surge-button" click.delegate="addAttackProperty(fixedAttackAbility, 'accuracy')">
+                <button class="btn btn-default surge-button"
+                        data-toggle="tooltip"
+                        title="Add Accuracy"
+                        click.delegate="addAttackProperty(fixedAttackAbility, 'accuracy')">
                     +${fixedAttackAbility.accuracy} A
                 </button>
-                <button class="btn btn-default surge-button" click.delegate="addAttackProperty(fixedAttackAbility, 'surge')">
+                <button class="btn btn-default surge-button"
+                        data-toggle="tooltip"
+                        title="Add Surges"
+                        click.delegate="addAttackProperty(fixedAttackAbility, 'surge')">
                     +${fixedAttackAbility.surge}
                     <img class="img-icon-surge" src="images/surge.png" />
                 </button>
             </span>
         </div>
         <div class="row add-surge-button-row">
-            <button class="btn btn-default surge-button" click.delegate="addNewSurge()">+ <img class="img-icon-surge" src="images/surge.png" /> Ability</button>
+            <button class="btn btn-default surge-button"
+                    data-toggle="tooltip"
+                    title="Add New Surge Ability"
+                    click.delegate="addNewSurge()">
+                + <img class="img-icon-surge" src="images/surge.png" /> Ability
+            </button>
         </div>
         <div class="row dice-button-row" repeat.for="surge of surgeAbilities">
             <span class="surge-ability-span">
                 <img class="img-icon-surge" src="images/surge.png" />
-                <button class="btn btn-default surge-button" click.delegate="$parent.addAttackProperty(surge, 'damage')">
+                <button class="btn btn-default surge-button"
+                        data-toggle="tooltip"
+                        title="Surge For Damage"
+                        click.delegate="$parent.addAttackProperty(surge, 'damage')">
                     +${surge.damage}
                     <img class="img-icon-damage" src="images/damage.png" />
                 </button>
-                <button class="btn btn-default surge-button" click.delegate="$parent.addAttackProperty(surge, 'pierce')">
+                <button class="btn btn-default surge-button"
+                        data-toggle="tooltip"
+                        title="Surge For Pierce"
+                        click.delegate="$parent.addAttackProperty(surge, 'pierce')">
                     P
                     ${surge.pierce}
                 </button>
-                <button class="btn btn-default surge-button" click.delegate="$parent.addAttackProperty(surge, 'accuracy')">
+                <button class="btn btn-default surge-button"
+                        data-toggle="tooltip"
+                        title="Surge For Accuracy"
+                        click.delegate="$parent.addAttackProperty(surge, 'accuracy')">
                     +${surge.accuracy} A
                 </button>
-                <button class="btn btn-default button-cancel" click.delegate="$parent.removeSurge(surge)"><span class="fa fa-times"></span></button>
+                <button class="btn btn-default button-cancel"
+                        data-toggle="tooltip"
+                        title="Remove Surge Ability"
+                        click.delegate="$parent.removeSurge(surge)">
+                    <span class="fa fa-times"></span>
+                </button>
             </span>
         </div>
         <div class="row dice-button-row">
             <span class="dice-button-span">
-                <button class="btn dice-button dice-button-black dice-button-dark" click.delegate="addDie('black')">${diceCount.black}</button>
-                <button class="btn dice-button dice-button-white dice-button-light" click.delegate="addDie('white')">${diceCount.white}</button>
-                <button class="btn btn-default defense-button" click.delegate="addDefenseProperty('block')">
+                <button class="btn dice-button dice-button-black dice-button-dark"
+                        data-toggle="tooltip"
+                        title="Black Dice"
+                        click.delegate="addDie('black')">
+                    ${diceCount.black}
+                </button>
+                <button class="btn dice-button dice-button-white dice-button-light"
+                        data-toggle="tooltip"
+                        title="White Dice"
+                        click.delegate="addDie('white')">
+                    ${diceCount.white}
+                </button>
+                <button class="btn btn-default defense-button"
+                        data-toggle="tooltip"
+                        title="Add Block"
+                        click.delegate="addDefenseProperty('block')">
                     +${fixedDefenseAbility.block}
                     <img class="img-icon-defense" src="images/block.png" />
                 </button>
-                <button class="btn btn-default defense-button" click.delegate="addDefenseProperty('evade')">
+                <button class="btn btn-default defense-button"
+                        data-toggle="tooltip"
+                        title="Add Evade"
+                        click.delegate="addDefenseProperty('evade')">
                     +${fixedDefenseAbility.evade}
                     <img class="img-icon-defense" src="images/evade.png" />
                 </button>
-                <button class="btn btn-default button-cancel" click.delegate="resetDefenseDice()"><span class="fa fa-times"></span></button>
+                <button class="btn btn-default button-cancel"
+                        data-toggle="tooltip"
+                        title="Clear Defense Values"
+                        click.delegate="resetDefenseDice()">
+                    <span class="fa fa-times"></span>
+                </button>
             </span>
         </div>
         <div class="row calculate-button-row">
             <button class="btn btn-default calculate-button" click.delegate="calculateResult()">CALCULATE</button>
         </div>
-        <canvas id="damageChart" class="damage-chart"></canvas>
+        <canvas id="damageChart"
+                data-toggle="tooltip"
+                data-placement="bottom"
+                title="% Chance to do at least X Damage"
+                class="damage-chart"></canvas>
     </div>
 </template>
