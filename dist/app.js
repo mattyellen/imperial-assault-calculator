@@ -63,7 +63,7 @@ var App = (function () {
     }
     App.prototype.attached = function () {
         fastclick_1.attach(document.body);
-        $('[data-toggle="tooltip"]').tooltip({ delay: 500 });
+        $('[data-toggle="tooltip"]').tooltip({ delay: { show: 500 } });
     };
     App.prototype.selectAttackType = function (type) {
         this.attack_type = type;

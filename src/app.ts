@@ -6,7 +6,7 @@ import {AttackProperty} from "AttackProperty";
 import {DefenseProperty} from "DefenseProperty";
 import "Chart.js";
 import 'jquery';
-import {attach} from 'fastclick';
+import {attach as attachFastClick} from 'fastclick';
 import 'bootstrap';
 
 export class App {
@@ -76,8 +76,8 @@ export class App {
     }
 
     attached() {
-        attach(document.body);
-        $('[data-toggle="tooltip"]').tooltip({delay: 500});
+        attachFastClick(document.body);
+        $('[data-toggle="tooltip"]').tooltip({delay: { show: 500 } });
     }
 
     selectAttackType(type: string) {
