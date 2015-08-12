@@ -54,12 +54,22 @@ var App = (function () {
                 new RollResult_1.RollResult(0, 0, 0, 0, 0, true, 1 / 6)
             ]
         };
+        this._currentColor = 0;
+        this._colors = [
+            [220, 0, 0],
+            [0, 220, 0],
+            [0, 0, 220],
+            [220, 220, 0],
+            [0, 220, 220],
+            [220, 0, 220]
+        ];
         this.diceCount = new Dice();
         this.resetAttackDice();
         this.resetDefenseDice();
         this.surgeAbilities = [];
         this.attack_type = "melee";
         this.range = 0;
+        this.resetChart();
     }
     App.prototype.attached = function () {
         fastclick_1.attach(document.body);
@@ -109,6 +119,19 @@ var App = (function () {
             evade: 0
         };
     };
+    App.prototype.resetChart = function () {
+        this._chartMaxDamage = 0;
+        this._currentColor = 0;
+        this._datasets = [];
+    };
+    App.prototype.getColor = function (alpha) {
+        var i = this._currentColor % this._colors.length;
+        var color = this._colors[i];
+        var r = color[0];
+        var g = color[1];
+        var b = color[2];
+        return "rgba(" + r + "," + g + "," + b + "," + alpha + ")";
+    };
     App.prototype.calculateResult = function () {
         var possibleRolls = new PossibleRolls_1.PossibleRolls();
         for (var dieColor in this.diceCount) {
@@ -120,10 +143,11 @@ var App = (function () {
         var damageResults = possibleRolls.getEffectiveDamage(this.surgeAbilities, this.fixedAttackAbility, this.fixedDefenseAbility, this.range);
         console.log(damageResults);
         var minValue = 1;
-        var maxValue = 0;
+        var maxValue = this._chartMaxDamage;
         for (var v in damageResults) {
             maxValue = Math.max(maxValue, v);
         }
+        this._chartMaxDamage = maxValue;
         var labels = [];
         var data = [];
         var cumulativeProb = 0;
@@ -132,24 +156,24 @@ var App = (function () {
             data.unshift(Math.round(cumulativeProb * 100));
             labels.unshift(i);
         }
+        this._datasets.push({
+            label: "Cumulative Damage Probablity",
+            fillColor: this.getColor(0.2),
+            strokeColor: this.getColor(1),
+            pointColor: this.getColor(1),
+            pointStrokeColor: "#fff",
+            pointHighlightFill: "#fff",
+            pointHighlightStroke: this.getColor(1),
+            data: data
+        });
+        this._currentColor++;
         if (this._chart !== undefined) {
             this._chart.destroy();
         }
         var ctx = $("#damageChart").get(0).getContext("2d");
         this._chart = new Chart(ctx).Line({
             labels: labels,
-            datasets: [
-                {
-                    label: "Cumulative Damage Probablity",
-                    fillColor: "rgba(220,0,0,0.2)",
-                    strokeColor: "rgba(220,0,0,1)",
-                    pointColor: "rgba(220,0,0,1)",
-                    pointStrokeColor: "#fff",
-                    pointHighlightFill: "#fff",
-                    pointHighlightStroke: "rgba(220,0,0,1)",
-                    data: data
-                }
-            ]
+            datasets: this._datasets
         });
     };
     return App;

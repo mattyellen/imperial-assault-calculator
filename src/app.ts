@@ -18,6 +18,9 @@ export class App {
     range: number;
 
     private _chart: LinearInstance;
+    private _datasets: any[];
+    private _chartMaxDamage;
+
 
     private _dice: Dice<RollResult[]> = {
         red: [
@@ -73,6 +76,8 @@ export class App {
         this.surgeAbilities = [];
         this.attack_type = "melee";
         this.range = 0;
+
+        this.resetChart();
     }
 
     attached() {
@@ -131,6 +136,31 @@ export class App {
         };
     }
 
+    resetChart() {
+        this._chartMaxDamage = 0;
+        this._currentColor = 0;
+        this._datasets = [];
+    }
+
+    private _currentColor: number = 0;
+    private _colors: number[][] = [
+        [220, 0, 0],
+        [0, 220, 0],
+        [0, 0, 220],
+        [220, 220, 0],
+        [0, 220, 220],
+        [220, 0, 220]
+    ]
+
+    getColor(alpha: number): string {
+        let i = this._currentColor % this._colors.length;
+        let color = this._colors[i];
+        let r = color[0];
+        let g = color[1];
+        let b = color[2];
+        return `rgba(${r},${g},${b},${alpha})`;
+    }
+
     calculateResult() {
         let possibleRolls = new PossibleRolls();
         for (let dieColor in this.diceCount) {
@@ -145,10 +175,12 @@ export class App {
         console.log(damageResults);
 
         let minValue = 1;
-        let maxValue = 0;
+        let maxValue = this._chartMaxDamage;
         for (let v in damageResults) {
             maxValue = Math.max(maxValue, v);
         }
+
+        this._chartMaxDamage = maxValue;
 
         let labels = [];
         let data = [];
@@ -159,6 +191,19 @@ export class App {
             labels.unshift(i);
         }
 
+        this._datasets.push({
+            label: "Cumulative Damage Probablity",
+            fillColor: this.getColor(0.2),
+            strokeColor: this.getColor(1),
+            pointColor: this.getColor(1),
+            pointStrokeColor: "#fff",
+            pointHighlightFill: "#fff",
+            pointHighlightStroke: this.getColor(1),
+            data: data
+        });
+
+        this._currentColor++;
+
         if (this._chart !== undefined) {
             this._chart.destroy();
         }
@@ -166,18 +211,7 @@ export class App {
         let ctx = <CanvasRenderingContext2D>(<HTMLCanvasElement>$("#damageChart").get(0)).getContext("2d");
         this._chart = new Chart(ctx).Line({
             labels: labels,
-            datasets: [
-                {
-                    label: "Cumulative Damage Probablity",
-                    fillColor: "rgba(220,0,0,0.2)",
-                    strokeColor: "rgba(220,0,0,1)",
-                    pointColor: "rgba(220,0,0,1)",
-                    pointStrokeColor: "#fff",
-                    pointHighlightFill: "#fff",
-                    pointHighlightStroke: "rgba(220,0,0,1)",
-                    data: data
-                }
-            ]
+            datasets: this._datasets
         });
     }
 }
