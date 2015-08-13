@@ -170,12 +170,25 @@
             </span>
         </div>
         <div class="row calculate-button-row">
-            <button class="btn btn-default calculate-button" click.delegate="calculateResult()">CALCULATE</button>
+            <span class="dice-button-span">
+                <button class="btn btn-default calculate-button" click.delegate="calculateResult()">CALCULATE</button>
+                <button class="btn btn-default button-cancel"
+                        data-toggle="tooltip"
+                        title="Clear Chart"
+                        click.delegate="resetChart()">
+                    <span class="fa fa-times"></span>
+                </button>
+            </span>
         </div>
-        <canvas id="damageChart"
-                data-toggle="tooltip"
-                data-placement="bottom"
-                title="% Chance to do at least X Damage"
-                class="damage-chart"></canvas>
+        <div class="row legend-item-row">
+            <div repeat.for="item of legend" class="legend-item" style="background-color: ${item.color}; color: ${item.textColor}">${item.value}</div>
+        </div>
+        <div>
+            <canvas id="damageChart"
+                    data-toggle="tooltip"
+                    data-placement="bottom"
+                    title="% Chance to do at least X Damage"
+                    class="damage-chart"></canvas>
+        </div>
     </div>
 </template>

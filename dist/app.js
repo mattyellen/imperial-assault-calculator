@@ -56,12 +56,12 @@ var App = (function () {
         };
         this._currentColor = 0;
         this._colors = [
-            [220, 0, 0],
-            [0, 220, 0],
-            [0, 0, 220],
-            [220, 220, 0],
-            [0, 220, 220],
-            [220, 0, 220]
+            [220, 0, 0, "white"],
+            [0, 220, 0, "white"],
+            [0, 0, 220, "white"],
+            [220, 220, 0, "black"],
+            [0, 220, 220, "black"],
+            [220, 0, 220, "white"]
         ];
         this.diceCount = new Dice();
         this.resetAttackDice();
@@ -123,6 +123,10 @@ var App = (function () {
         this._chartMaxDamage = 0;
         this._currentColor = 0;
         this._datasets = [];
+        this.legend = [];
+        if (this._chart !== undefined) {
+            this._chart.destroy();
+        }
     };
     App.prototype.getColor = function (alpha) {
         var i = this._currentColor % this._colors.length;
@@ -131,6 +135,11 @@ var App = (function () {
         var g = color[1];
         var b = color[2];
         return "rgba(" + r + "," + g + "," + b + "," + alpha + ")";
+    };
+    App.prototype.getTextColor = function () {
+        var i = this._currentColor % this._colors.length;
+        var color = this._colors[i];
+        return color[3];
     };
     App.prototype.calculateResult = function () {
         var possibleRolls = new PossibleRolls_1.PossibleRolls();
@@ -141,7 +150,7 @@ var App = (function () {
         }
         //possibleRolls.showProb();
         var damageResults = possibleRolls.getEffectiveDamage(this.surgeAbilities, this.fixedAttackAbility, this.fixedDefenseAbility, this.range);
-        console.log(damageResults);
+        //console.log(damageResults);
         var minValue = 1;
         var maxValue = this._chartMaxDamage;
         for (var v in damageResults) {
@@ -166,6 +175,19 @@ var App = (function () {
             pointHighlightStroke: this.getColor(1),
             data: data
         });
+        for (var _i = 0, _a = this._datasets; _i < _a.length; _i++) {
+            var ds = _a[_i];
+            while (ds.data.length < maxValue) {
+                ds.data.push(0);
+            }
+        }
+        if (this.legend.length < 12) {
+            this.legend.push({
+                value: this._datasets.length,
+                color: this.getColor(1),
+                textColor: this.getTextColor()
+            });
+        }
         this._currentColor++;
         if (this._chart !== undefined) {
             this._chart.destroy();
@@ -185,4 +207,10 @@ var Dice = (function () {
     return Dice;
 })();
 exports.Dice = Dice;
+var LegendInfo = (function () {
+    function LegendInfo() {
+    }
+    return LegendInfo;
+})();
+exports.LegendInfo = LegendInfo;
 //# sourceMappingURL=app.js.map

@@ -16,6 +16,7 @@ export class App {
     fixedDefenseAbility: DefenseProperty;
     attack_type: string;
     range: number;
+    legend: LegendInfo[];
 
     private _chart: LinearInstance;
     private _datasets: any[];
@@ -140,16 +141,21 @@ export class App {
         this._chartMaxDamage = 0;
         this._currentColor = 0;
         this._datasets = [];
+        this.legend = [];
+
+        if (this._chart !== undefined) {
+            this._chart.destroy();
+        }
     }
 
     private _currentColor: number = 0;
-    private _colors: number[][] = [
-        [220, 0, 0],
-        [0, 220, 0],
-        [0, 0, 220],
-        [220, 220, 0],
-        [0, 220, 220],
-        [220, 0, 220]
+    private _colors: any[][] = [
+        [220, 0, 0, "white"],
+        [0, 220, 0, "white"],
+        [0, 0, 220, "white"],
+        [220, 220, 0, "black"],
+        [0, 220, 220, "black"],
+        [220, 0, 220, "white"]
     ]
 
     getColor(alpha: number): string {
@@ -159,6 +165,12 @@ export class App {
         let g = color[1];
         let b = color[2];
         return `rgba(${r},${g},${b},${alpha})`;
+    }
+
+    getTextColor(): string {
+        let i = this._currentColor % this._colors.length;
+        let color = this._colors[i];
+        return color[3];
     }
 
     calculateResult() {
@@ -172,7 +184,7 @@ export class App {
         //possibleRolls.showProb();
 
         let damageResults = possibleRolls.getEffectiveDamage(this.surgeAbilities, this.fixedAttackAbility, this.fixedDefenseAbility, this.range);
-        console.log(damageResults);
+        //console.log(damageResults);
 
         let minValue = 1;
         let maxValue = this._chartMaxDamage;
@@ -202,6 +214,20 @@ export class App {
             data: data
         });
 
+        for (let ds of this._datasets) {
+            while (ds.data.length < maxValue) {
+                ds.data.push(0);
+            }
+        } 
+
+        if (this.legend.length < 12) {
+            this.legend.push({
+                value: this._datasets.length,
+                color: this.getColor(1),
+                textColor: this.getTextColor()
+            });
+        }
+
         this._currentColor++;
 
         if (this._chart !== undefined) {
@@ -224,4 +250,11 @@ export class Dice<T> {
     black: T;
     white: T;
 }
+
+export class LegendInfo {
+    value: number;
+    color: string;
+    textColor: string;
+}
+
 
