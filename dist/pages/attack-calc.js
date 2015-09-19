@@ -1,8 +1,8 @@
 require('bootstrap');
 require('bootstrap/css/bootstrap.css!');
-var PossibleRolls_1 = require("PossibleRolls");
-var AttackProperty_1 = require("AttackProperty");
-var Dice_1 = require("Dice");
+var PossibleRolls_1 = require("../util/PossibleRolls");
+var AttackProperty_1 = require("../util/AttackProperty");
+var Dice_1 = require("../util/Dice");
 require("Chart.js");
 require('jquery');
 var fastclick_1 = require('fastclick');

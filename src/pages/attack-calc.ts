@@ -1,10 +1,9 @@
 import 'bootstrap';
 import 'bootstrap/css/bootstrap.css!';
-import {RollResult} from "RollResult";
-import {PossibleRolls} from "PossibleRolls";
-import {AttackProperty} from "AttackProperty";
-import {DefenseProperty} from "DefenseProperty";
-import {Dice} from "Dice";
+import {PossibleRolls} from "../util/PossibleRolls";
+import {AttackProperty} from "../util/AttackProperty";
+import {DefenseProperty} from "../util/DefenseProperty";
+import {Dice} from "../util/Dice";
 import "Chart.js";
 import 'jquery';
 import {attach as attachFastClick} from 'fastclick';

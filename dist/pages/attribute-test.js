@@ -1,5 +1,5 @@
-var Dice_1 = require("Dice");
-var PossibleRolls_1 = require("PossibleRolls");
+var Dice_1 = require("../util/Dice");
+var PossibleRolls_1 = require("../util/PossibleRolls");
 var AttributeTest = (function () {
     function AttributeTest() {
         this.diceCount = new Dice_1.Dice();

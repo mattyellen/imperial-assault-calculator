@@ -1,5 +1,5 @@
-﻿import {Dice} from "Dice";
-import {PossibleRolls} from "PossibleRolls";
+﻿import {Dice} from "../util/Dice";
+import {PossibleRolls} from "../util/PossibleRolls";
 
 export class AttributeTest {
     diceCount: Dice<number>;

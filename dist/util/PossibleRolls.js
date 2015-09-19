@@ -1,4 +1,4 @@
-var RollResult_1 = require("RollResult");
+var RollResult_1 = require("./RollResult");
 var PossibleRolls = (function () {
     function PossibleRolls() {
         this._dice = {

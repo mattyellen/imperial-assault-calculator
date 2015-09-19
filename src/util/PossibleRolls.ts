@@ -1,7 +1,7 @@
-﻿import {RollResult} from "RollResult";
-import {AttackProperty} from "AttackProperty";
-import {DefenseProperty} from "DefenseProperty";
-import {Dice} from "Dice";
+﻿import {RollResult} from "./RollResult";
+import {AttackProperty} from "./AttackProperty";
+import {DefenseProperty} from "./DefenseProperty";
+import {Dice} from "./Dice";
 
 export class PossibleRolls {
 
@@ -133,7 +133,7 @@ export class PossibleRolls {
                     let surgeEffect = this.calculateSurgeEffect(calcDamageResult, surge, needRange);
                     if ((surgeEffect.remainingRange == 0) &&
                         ((bestSurgeEffect === undefined) ||
-                        (surgeEffect.effectiveDamage > bestSurgeEffect.effectiveDamage))) {
+                            (surgeEffect.effectiveDamage > bestSurgeEffect.effectiveDamage))) {
                         bestSurgeEffect = surgeEffect;
                     }
                 }
