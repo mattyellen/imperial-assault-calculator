@@ -1,10 +1,62 @@
 var RollResult_1 = require("RollResult");
 var PossibleRolls = (function () {
     function PossibleRolls() {
+        this._dice = {
+            red: [
+                new RollResult_1.RollResult(1, 0, 0, 0, 0, false, 1 / 6),
+                new RollResult_1.RollResult(2, 0, 0, 0, 0, false, 2 / 6),
+                new RollResult_1.RollResult(2, 1, 0, 0, 0, false, 1 / 6),
+                new RollResult_1.RollResult(3, 0, 0, 0, 0, false, 2 / 6)
+            ],
+            blue: [
+                new RollResult_1.RollResult(1, 0, 2, 0, 0, false, 1 / 6),
+                new RollResult_1.RollResult(0, 1, 2, 0, 0, false, 1 / 6),
+                new RollResult_1.RollResult(2, 0, 3, 0, 0, false, 1 / 6),
+                new RollResult_1.RollResult(1, 1, 3, 0, 0, false, 1 / 6),
+                new RollResult_1.RollResult(2, 0, 4, 0, 0, false, 1 / 6),
+                new RollResult_1.RollResult(1, 0, 5, 0, 0, false, 1 / 6)
+            ],
+            green: [
+                new RollResult_1.RollResult(0, 1, 1, 0, 0, false, 1 / 6),
+                new RollResult_1.RollResult(1, 1, 1, 0, 0, false, 1 / 6),
+                new RollResult_1.RollResult(2, 0, 1, 0, 0, false, 1 / 6),
+                new RollResult_1.RollResult(2, 0, 2, 0, 0, false, 1 / 6),
+                new RollResult_1.RollResult(1, 1, 2, 0, 0, false, 1 / 6),
+                new RollResult_1.RollResult(2, 0, 3, 0, 0, false, 1 / 6)
+            ],
+            yellow: [
+                new RollResult_1.RollResult(0, 1, 0, 0, 0, false, 1 / 6),
+                new RollResult_1.RollResult(1, 2, 0, 0, 0, false, 1 / 6),
+                new RollResult_1.RollResult(1, 1, 1, 0, 0, false, 1 / 6),
+                new RollResult_1.RollResult(2, 0, 1, 0, 0, false, 1 / 6),
+                new RollResult_1.RollResult(0, 1, 2, 0, 0, false, 1 / 6),
+                new RollResult_1.RollResult(1, 0, 2, 0, 0, false, 1 / 6)
+            ],
+            black: [
+                new RollResult_1.RollResult(0, 0, 0, 1, 0, false, 2 / 6),
+                new RollResult_1.RollResult(0, 0, 0, 2, 0, false, 2 / 6),
+                new RollResult_1.RollResult(0, 0, 0, 3, 0, false, 1 / 6),
+                new RollResult_1.RollResult(0, 0, 0, 0, 1, false, 1 / 6)
+            ],
+            white: [
+                new RollResult_1.RollResult(0, 0, 0, 0, 0, false, 1 / 6),
+                new RollResult_1.RollResult(0, 0, 0, 1, 0, false, 1 / 6),
+                new RollResult_1.RollResult(0, 0, 0, 0, 1, false, 1 / 6),
+                new RollResult_1.RollResult(0, 0, 0, 1, 1, false, 2 / 6),
+                new RollResult_1.RollResult(0, 0, 0, 0, 0, true, 1 / 6)
+            ]
+        };
         this._possibleRolls = {};
         var initRollResult = new RollResult_1.RollResult();
         this._possibleRolls[initRollResult.getHashCode()] = initRollResult;
     }
+    PossibleRolls.prototype.applyAllRolls = function (diceCount) {
+        for (var dieColor in diceCount) {
+            for (var i = 0; i < diceCount[dieColor]; i++) {
+                this.applyNewRoll(this._dice[dieColor]);
+            }
+        }
+    };
     PossibleRolls.prototype.applyNewRoll = function (newRoll) {
         var newPossibleRolls = {};
         for (var prKey in this._possibleRolls) {

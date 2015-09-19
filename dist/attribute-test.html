@@ -1,0 +1,57 @@
+<template>
+    <div class="main-container">
+        <div class="row dice-button-row">
+            <span class="dice-button-span">
+                <button class="btn dice-button dice-button-red dice-button-dark"
+                        data-toggle="tooltip"
+                        title="Red Dice"
+                        click.delegate="addDie('red')">
+                    ${diceCount.red}
+                </button>
+                <button class="btn dice-button dice-button-blue dice-button-dark"
+                        data-toggle="tooltip"
+                        title="Blue Dice"
+                        click.delegate="addDie('blue')">
+                    ${diceCount.blue}
+                </button>
+                <button class="btn dice-button dice-button-green dice-button-dark"
+                        data-toggle="tooltip"
+                        title="Green Dice"
+                        click.delegate="addDie('green')">
+                    ${diceCount.green}
+                </button>
+                <button class="btn dice-button dice-button-yellow dice-button-light"
+                        data-toggle="tooltip"
+                        title="Yellow Dice"
+                        click.delegate="addDie('yellow')">
+                    ${diceCount.yellow}
+                </button>
+                <button class="btn btn-default button-cancel"
+                        data-toggle="tooltip"
+                        title="Clear Attack Values"
+                        click.delegate="resetDice()">
+                    <span class="fa fa-times"></span>
+                </button>
+            </span>
+        </div>
+        <div class="row calculate-button-row">
+            <span class="dice-button-span">
+                <button class="btn btn-default calculate-button" click.delegate="calculateResult()">CALCULATE</button>
+                <button class="btn btn-default button-cancel"
+                        data-toggle="tooltip"
+                        title="Clear Chart"
+                        click.delegate="resetChart()">
+                    <span class="fa fa-times"></span>
+                </button>
+            </span>
+        </div>
+        <div id="chartContainer" style="display:none">
+            <canvas id="attributeTestChart"
+                    data-toggle="tooltip"
+                    data-placement="bottom"
+                    title="% Chance to get X Successes"
+                    class="damage-chart"></canvas>
+            <div class="chart-label">Number of Successes</div>
+        </div>
+    </div>
+</template>

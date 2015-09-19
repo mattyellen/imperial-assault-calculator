@@ -1453,6 +1453,7 @@
     <Content Include="jspm_packages\system.src.js" />
     <Content Include="protractor.conf.js" />
     <Content Include="src\app.html" />
+    <Content Include="src\attack-calc.html" />
     <TypeScriptCompile Include="jspm_packages\github\aurelia\animator-css%400.13.0\aurelia-animator-css.d.ts" />
     <TypeScriptCompile Include="jspm_packages\github\aurelia\binding%400.8.0\aurelia-binding.d.ts" />
     <TypeScriptCompile Include="jspm_packages\github\aurelia\dependency-injection%400.9.0\aurelia-dependency-injection.d.ts" />
@@ -1473,6 +1474,8 @@
     <TypeScriptCompile Include="jspm_packages\github\aurelia\templating%400.13.0\aurelia-templating.d.ts" />
     <TypeScriptCompile Include="jspm_packages\github\aurelia\templating-binding%400.13.0\aurelia-templating-binding.d.ts" />
     <TypeScriptCompile Include="src\app.ts" />
+    <TypeScriptCompile Include="src\attack-calc.ts" />
+    <Content Include="src\attribute-test.html" />
     <Content Include="styles\styles.css" />
     <Content Include="test\e2e\dist\demo.spec.js" />
     <Content Include="test\e2e\dist\skeleton.po.js" />
@@ -1486,7 +1489,9 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="src\AttackProperty.ts" />
+    <TypeScriptCompile Include="src\attribute-test.ts" />
     <TypeScriptCompile Include="src\DefenseProperty.ts" />
+    <TypeScriptCompile Include="src\Dice.ts" />
     <TypeScriptCompile Include="src\PossibleRolls.ts" />
     <TypeScriptCompile Include="src\RollResult.ts" />
     <TypeScriptCompile Include="typings\aurelia\aurelia-animator-css.d.ts" />

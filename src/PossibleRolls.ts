@@ -1,16 +1,75 @@
 ﻿import {RollResult} from "RollResult";
 import {AttackProperty} from "AttackProperty";
 import {DefenseProperty} from "DefenseProperty";
+import {Dice} from "Dice";
 
 export class PossibleRolls {
+
+    private _dice: Dice<RollResult[]> = {
+        red: [
+            new RollResult(1, 0, 0, 0, 0, false, 1 / 6),
+            new RollResult(2, 0, 0, 0, 0, false, 2 / 6),
+            new RollResult(2, 1, 0, 0, 0, false, 1 / 6),
+            new RollResult(3, 0, 0, 0, 0, false, 2 / 6)
+        ],
+        blue: [
+            new RollResult(1, 0, 2, 0, 0, false, 1 / 6),
+            new RollResult(0, 1, 2, 0, 0, false, 1 / 6),
+            new RollResult(2, 0, 3, 0, 0, false, 1 / 6),
+            new RollResult(1, 1, 3, 0, 0, false, 1 / 6),
+            new RollResult(2, 0, 4, 0, 0, false, 1 / 6),
+            new RollResult(1, 0, 5, 0, 0, false, 1 / 6)
+        ],
+        green: [
+            new RollResult(0, 1, 1, 0, 0, false, 1 / 6),
+            new RollResult(1, 1, 1, 0, 0, false, 1 / 6),
+            new RollResult(2, 0, 1, 0, 0, false, 1 / 6),
+            new RollResult(2, 0, 2, 0, 0, false, 1 / 6),
+            new RollResult(1, 1, 2, 0, 0, false, 1 / 6),
+            new RollResult(2, 0, 3, 0, 0, false, 1 / 6)
+        ],
+        yellow: [
+            new RollResult(0, 1, 0, 0, 0, false, 1 / 6),
+            new RollResult(1, 2, 0, 0, 0, false, 1 / 6),
+            new RollResult(1, 1, 1, 0, 0, false, 1 / 6),
+            new RollResult(2, 0, 1, 0, 0, false, 1 / 6),
+            new RollResult(0, 1, 2, 0, 0, false, 1 / 6),
+            new RollResult(1, 0, 2, 0, 0, false, 1 / 6)
+        ],
+        black: [
+            new RollResult(0, 0, 0, 1, 0, false, 2 / 6),
+            new RollResult(0, 0, 0, 2, 0, false, 2 / 6),
+            new RollResult(0, 0, 0, 3, 0, false, 1 / 6),
+            new RollResult(0, 0, 0, 0, 1, false, 1 / 6)
+        ],
+        white: [
+            new RollResult(0, 0, 0, 0, 0, false, 1 / 6),
+            new RollResult(0, 0, 0, 1, 0, false, 1 / 6),
+            new RollResult(0, 0, 0, 0, 1, false, 1 / 6),
+            new RollResult(0, 0, 0, 1, 1, false, 2 / 6),
+            new RollResult(0, 0, 0, 0, 0, true, 1 / 6)
+        ]
+    }
+
+
     private _possibleRolls: { [key: string]: RollResult } = {};
+
+
 
     constructor() {
         let initRollResult = new RollResult();
         this._possibleRolls[initRollResult.getHashCode()] = initRollResult;
     }
 
-    applyNewRoll(newRoll: RollResult[]) {
+    applyAllRolls(diceCount: Dice<number>) {
+        for (let dieColor in diceCount) {
+            for (let i = 0; i < diceCount[dieColor]; i++) {
+                this.applyNewRoll(this._dice[dieColor]);
+            }
+        }
+    }
+
+    private applyNewRoll(newRoll: RollResult[]) {
         let newPossibleRolls: { [key: string]: RollResult } = {};
         for (let prKey in this._possibleRolls) {
             for (let rollResult of newRoll) {

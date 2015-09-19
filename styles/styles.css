@@ -16,11 +16,15 @@ body {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-.header h1 {
-    font-size: 26px;
-    font-weight: bold;
-    text-transform: uppercase;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+.navbar-header .navbar-brand {
+    font-size: 20px;
+    color: black;
+}
+
+.navbar-header .img-icon-header {
+    margin: -6px 3px 0px 0px;
+    width: 32px;
+    height: 32px;
 }
 
 .splash .img-icon-spinner {
@@ -30,22 +34,8 @@ body {
     margin-top: 50px;
 }
 
-.page-host {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 50px;
-    bottom: 0;
-    overflow-x: hidden;
-    overflow-y: auto;
-}
-
 section {
     margin: 0 20px;
-}
-
-.mobile {
-    width: 320px
 }
 
 .header {
@@ -53,16 +43,16 @@ section {
     margin: auto;
 }
 
-h1 .img-icon-header {
-    margin: 0px 10px;
-    width: 32px;
-    height: 32px;
-    margin-top: -4px;
-}
-
 .main-container {
     display:table;
-    margin:auto;
+    width: 308px;
+    margin-top:50px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.attack-type-row {
+    margin-top: 15px;
 }
 
 .dice-button-row {
@@ -239,6 +229,11 @@ h1 .img-icon-header {
 .damage-chart {
     width: 100%;
     height: 200px;
+}
+
+.chart-label {
+    margin: -5px 0px 5px 0px;
+    text-align: center;
 }
 
 /* animation definitions */
