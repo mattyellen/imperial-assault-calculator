@@ -1,4 +1,6 @@
 <template>
+    <require from='../components/probability-chart'></require>
+
     <div class="main-container">
         <div class="row attack-type-row">
             <div class="col-xs-6 attack-type-button-col">
@@ -163,21 +165,11 @@
                 <button class="btn btn-default button-cancel"
                         data-toggle="tooltip"
                         title="Clear Chart"
-                        click.delegate="resetChart()">
+                        click.delegate="probabilityChart.resetChart()">
                     <span class="fa fa-times"></span>
                 </button>
             </span>
         </div>
-        <div class="row legend-item-row">
-            <div repeat.for="item of legend" class="legend-item" css="background-color: ${item.color}; color: ${item.textColor}">${item.value}</div>
-        </div>
-        <div id="chartContainer" style="display:none;">
-            <canvas id="damageChart"
-                    data-toggle="tooltip"
-                    data-placement="bottom"
-                    title="% Chance to do at least X Damage"
-                    class="damage-chart"></canvas>
-            <div class="chart-label">Total damage</div>
-        </div>
+        <probability-chart title="% Chance to do at least X Damage" x-label="Total damage" probability-chart.ref="probabilityChart"/>
     </div>
 </template>

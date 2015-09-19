@@ -14,12 +14,6 @@ var AttributeTest = (function () {
     AttributeTest.prototype.addDie = function (type) {
         this.diceCount[type]++;
     };
-    AttributeTest.prototype.resetChart = function () {
-        this.setChartDisplay(false);
-        if (this._chart !== undefined) {
-            this._chart.destroy();
-        }
-    };
     AttributeTest.prototype.setChartDisplay = function (val) {
         var chartContainer = $("#chartContainer").get(0);
         if (chartContainer !== undefined) {
@@ -29,6 +23,7 @@ var AttributeTest = (function () {
     AttributeTest.prototype.calculateResult = function () {
         var possibleRolls = new PossibleRolls_1.PossibleRolls();
         possibleRolls.applyAllRolls(this.diceCount);
+        this.probabilityChart.addChartData(possibleRolls.getTotalSurges());
     };
     return AttributeTest;
 })();

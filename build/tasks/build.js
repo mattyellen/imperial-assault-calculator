@@ -31,7 +31,10 @@ gulp.task('build-ts', function () {
     .pipe(tsc({
             module: "CommonJS",
             sourcemap: true,
-            emitError: false
+            emitError: false,
+            emitDecoratorMetadata: true,
+            experimentalDecorators: true,
+            target: "ES5"
           }))
     .pipe(gulp.dest(paths.output));
 });

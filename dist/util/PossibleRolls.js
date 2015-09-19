@@ -82,6 +82,14 @@ var PossibleRolls = (function () {
         }
         console.log("total: %f", total);
     };
+    PossibleRolls.prototype.getTotalSurges = function () {
+        var totalSurges = {};
+        for (var prKey in this._possibleRolls) {
+            var rollResult = this._possibleRolls[prKey];
+            this.updateValue(totalSurges, rollResult.surge, rollResult.probability);
+        }
+        return totalSurges;
+    };
     PossibleRolls.prototype.getEffectiveDamage = function (surgeAbilities, fixedAttackAbility, fixedDefenseAbility, needRange) {
         var effectiveDamage = {};
         for (var prKey in this._possibleRolls) {

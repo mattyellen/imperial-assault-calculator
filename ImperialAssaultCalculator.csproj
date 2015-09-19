@@ -1453,6 +1453,7 @@
     <Content Include="jspm_packages\system.src.js" />
     <Content Include="protractor.conf.js" />
     <Content Include="src\app.html" />
+    <Content Include="src\components\probability-chart.html" />
     <Content Include="src\pages\attack-calc.html" />
     <TypeScriptCompile Include="jspm_packages\github\aurelia\animator-css%400.13.0\aurelia-animator-css.d.ts" />
     <TypeScriptCompile Include="jspm_packages\github\aurelia\binding%400.8.0\aurelia-binding.d.ts" />
@@ -1474,6 +1475,7 @@
     <TypeScriptCompile Include="jspm_packages\github\aurelia\templating%400.13.0\aurelia-templating.d.ts" />
     <TypeScriptCompile Include="jspm_packages\github\aurelia\templating-binding%400.13.0\aurelia-templating-binding.d.ts" />
     <TypeScriptCompile Include="src\app.ts" />
+    <TypeScriptCompile Include="src\components\probability-chart.ts" />
     <TypeScriptCompile Include="src\pages\attack-calc.ts" />
     <Content Include="src\pages\attribute-test.html" />
     <Content Include="styles\styles.css" />
@@ -1522,7 +1524,6 @@
     <TypeScriptCompile Include="typings\aurelia\aurelia-validation.d.ts" />
     <TypeScriptCompile Include="typings\bootstrap.d.ts" />
     <TypeScriptCompile Include="typings\chartjs\chart.d.ts" />
-    <TypeScriptCompile Include="typings\core-js\core-js.d.ts" />
     <TypeScriptCompile Include="typings\fastclick.d.ts" />
     <TypeScriptCompile Include="typings\jquery\jquery.d.ts" />
     <TypeScriptCompile Include="typings\tsd.d.ts" />
@@ -1926,7 +1927,6 @@
     <Folder Include="jspm_packages\github\jspm\nodelibs-http%401.7.1\test\" />
     <Folder Include="jspm_packages\npm\base64-js%400.0.8\bench\" />
     <Folder Include="jspm_packages\npm\buffer%403.2.2\bin\" />
-    <Folder Include="src\components\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="jspm_packages\github\ftlabs\fastclick%401.0.6\.jspm-hash" />

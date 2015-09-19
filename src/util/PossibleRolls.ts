@@ -54,8 +54,6 @@ export class PossibleRolls {
 
     private _possibleRolls: { [key: string]: RollResult } = {};
 
-
-
     constructor() {
         let initRollResult = new RollResult();
         this._possibleRolls[initRollResult.getHashCode()] = initRollResult;
@@ -94,6 +92,17 @@ export class PossibleRolls {
         }
 
         console.log("total: %f", total);
+    }
+
+    getTotalSurges(): { [surges: number]: number } {
+        let totalSurges: { [surges: number]: number } = {};
+
+        for (let prKey in this._possibleRolls) {
+            let rollResult = this._possibleRolls[prKey];
+            this.updateValue(totalSurges, rollResult.surge, rollResult.probability);
+        }
+
+        return totalSurges;
     }
 
     getEffectiveDamage(surgeAbilities: AttackProperty[], fixedAttackAbility: AttackProperty, fixedDefenseAbility: DefenseProperty, needRange: number): { [damage: number]: number } {

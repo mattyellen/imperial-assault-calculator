@@ -1,4 +1,6 @@
 ﻿<template>
+    <require from='../components/probability-chart'></require>
+
     <div class="main-container">
         <div class="row dice-button-row">
             <span class="dice-button-span">
@@ -40,18 +42,13 @@
                 <button class="btn btn-default button-cancel"
                         data-toggle="tooltip"
                         title="Clear Chart"
-                        click.delegate="resetChart()">
+                        click.delegate="probabilityChart.resetChart()">
                     <span class="fa fa-times"></span>
                 </button>
             </span>
         </div>
-        <div id="chartContainer" style="display:none">
-            <canvas id="attributeTestChart"
-                    data-toggle="tooltip"
-                    data-placement="bottom"
-                    title="% Chance to get X Successes"
-                    class="damage-chart"></canvas>
-            <div class="chart-label">Number of Successes</div>
-        </div>
+        <probability-chart title="% Chance to get X Successes" 
+                           x-label="Number of Successes" 
+                           probability-chart.ref="probabilityChart" />
     </div>
 </template>

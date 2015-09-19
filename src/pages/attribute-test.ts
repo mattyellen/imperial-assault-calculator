@@ -1,9 +1,11 @@
 ﻿import {Dice} from "../util/Dice";
 import {PossibleRolls} from "../util/PossibleRolls";
+import {ProbabilityChart} from "../components/probability-chart";
 
 export class AttributeTest {
     diceCount: Dice<number>;
-    private _chart: LinearInstance;
+
+    probabilityChart: ProbabilityChart;
 
     constructor() {
         this.diceCount = new Dice<number>();
@@ -21,14 +23,6 @@ export class AttributeTest {
         this.diceCount[type]++;
     }
 
-    resetChart() {
-        this.setChartDisplay(false);
-
-        if (this._chart !== undefined) {
-            this._chart.destroy();
-        }
-    }
-
     private setChartDisplay(val: boolean) {
         let chartContainer = $("#chartContainer").get(0);
         if (chartContainer !== undefined) {
@@ -39,5 +33,7 @@ export class AttributeTest {
     calculateResult() {
         let possibleRolls = new PossibleRolls();
         possibleRolls.applyAllRolls(this.diceCount);
+
+        this.probabilityChart.addChartData(possibleRolls.getTotalSurges());
     }
 }
