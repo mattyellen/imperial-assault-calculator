@@ -1,3 +1,4 @@
+"use strict";
 var AttackProperty = (function () {
     function AttackProperty(damage, pierce, accuracy, surge) {
         if (damage === void 0) { damage = 0; }
@@ -10,6 +11,6 @@ var AttackProperty = (function () {
         this.surge = surge;
     }
     return AttackProperty;
-})();
+}());
 exports.AttackProperty = AttackProperty;
 //# sourceMappingURL=AttackProperty.js.map

@@ -1,3 +1,4 @@
+"use strict";
 var DefenseProperty = (function () {
     function DefenseProperty(block, evade) {
         if (block === void 0) { block = 0; }
@@ -6,6 +7,6 @@ var DefenseProperty = (function () {
         this.evade = evade;
     }
     return DefenseProperty;
-})();
+}());
 exports.DefenseProperty = DefenseProperty;
 //# sourceMappingURL=DefenseProperty.js.map

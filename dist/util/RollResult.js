@@ -1,3 +1,4 @@
+"use strict";
 var RollResult = (function () {
     function RollResult(damage, surge, range, block, evade, miss, probability) {
         if (damage === void 0) { damage = 0; }
@@ -22,6 +23,6 @@ var RollResult = (function () {
         return new RollResult(this.damage + rollResult.damage, this.surge + rollResult.surge, this.range + rollResult.range, this.block + rollResult.block, this.evade + rollResult.evade, this.miss || rollResult.miss, this.probability * rollResult.probability);
     };
     return RollResult;
-})();
+}());
 exports.RollResult = RollResult;
 //# sourceMappingURL=RollResult.js.map

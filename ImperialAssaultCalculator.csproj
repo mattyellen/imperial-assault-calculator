@@ -10,7 +10,7 @@
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <DebugType>full</DebugType>
     <DebugSymbols>true</DebugSymbols>
-    <TypeScriptToolsVersion>1.5</TypeScriptToolsVersion>
+    <TypeScriptToolsVersion>1.6</TypeScriptToolsVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
@@ -1488,6 +1488,40 @@
     <Content Include="test\unit\app.spec.js" />
     <Content Include="test\unit\child-router.spec.js" />
     <Content Include="test\unit\flickr.spec.js" />
+    <TypeScriptCompile Include="typings\local\aurelia.d.ts" />
+    <TypeScriptCompile Include="typings\local\aurelia\aurelia-animator-css.d.ts" />
+    <TypeScriptCompile Include="typings\local\aurelia\aurelia-app-contacts.d.ts" />
+    <TypeScriptCompile Include="typings\local\aurelia\aurelia-binding.d.ts" />
+    <TypeScriptCompile Include="typings\local\aurelia\aurelia-bootstrapper.d.ts" />
+    <TypeScriptCompile Include="typings\local\aurelia\aurelia-dependency-injection.d.ts" />
+    <TypeScriptCompile Include="typings\local\aurelia\aurelia-event-aggregator.d.ts" />
+    <TypeScriptCompile Include="typings\local\aurelia\aurelia-framework.d.ts" />
+    <TypeScriptCompile Include="typings\local\aurelia\aurelia-history-browser.d.ts" />
+    <TypeScriptCompile Include="typings\local\aurelia\aurelia-history.d.ts" />
+    <TypeScriptCompile Include="typings\local\aurelia\aurelia-http-client.d.ts" />
+    <TypeScriptCompile Include="typings\local\aurelia\aurelia-loader-default.d.ts" />
+    <TypeScriptCompile Include="typings\local\aurelia\aurelia-loader.d.ts" />
+    <TypeScriptCompile Include="typings\local\aurelia\aurelia-logging-console.d.ts" />
+    <TypeScriptCompile Include="typings\local\aurelia\aurelia-logging.d.ts" />
+    <TypeScriptCompile Include="typings\local\aurelia\aurelia-metadata.d.ts" />
+    <TypeScriptCompile Include="typings\local\aurelia\aurelia-path.d.ts" />
+    <TypeScriptCompile Include="typings\local\aurelia\aurelia-route-recognizer.d.ts" />
+    <TypeScriptCompile Include="typings\local\aurelia\aurelia-router.d.ts" />
+    <TypeScriptCompile Include="typings\local\aurelia\aurelia-skeleton-navigation.d.ts" />
+    <TypeScriptCompile Include="typings\local\aurelia\aurelia-skeleton-plugin.d.ts" />
+    <TypeScriptCompile Include="typings\local\aurelia\aurelia-task-queue.d.ts" />
+    <TypeScriptCompile Include="typings\local\aurelia\aurelia-templating-binding.d.ts" />
+    <TypeScriptCompile Include="typings\local\aurelia\aurelia-templating-resources.d.ts" />
+    <TypeScriptCompile Include="typings\local\aurelia\aurelia-templating-router.d.ts" />
+    <TypeScriptCompile Include="typings\local\aurelia\aurelia-templating.d.ts" />
+    <TypeScriptCompile Include="typings\local\aurelia\aurelia-validation.d.ts" />
+    <TypeScriptCompile Include="typings\local\bootstrap.d.ts" />
+    <TypeScriptCompile Include="typings\local\fastclick.d.ts" />
+    <TypeScriptCompile Include="typings\tsd\chartjs\chart.d.ts" />
+    <TypeScriptCompile Include="typings\tsd\core-js\core-js.d.ts" />
+    <TypeScriptCompile Include="typings\tsd\jquery\jquery.d.ts" />
+    <TypeScriptCompile Include="typings\tsd\tsd.d.ts" />
+    <TypeScriptCompile Include="typings\typings.d.ts" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="src\util\AttackProperty.ts" />
@@ -1496,37 +1530,6 @@
     <TypeScriptCompile Include="src\util\Dice.ts" />
     <TypeScriptCompile Include="src\util\PossibleRolls.ts" />
     <TypeScriptCompile Include="src\util\RollResult.ts" />
-    <TypeScriptCompile Include="typings\aurelia\aurelia-animator-css.d.ts" />
-    <TypeScriptCompile Include="typings\aurelia\aurelia-app-contacts.d.ts" />
-    <TypeScriptCompile Include="typings\aurelia\aurelia-binding.d.ts" />
-    <TypeScriptCompile Include="typings\aurelia\aurelia-bootstrapper.d.ts" />
-    <TypeScriptCompile Include="typings\aurelia\aurelia-dependency-injection.d.ts" />
-    <TypeScriptCompile Include="typings\aurelia\aurelia-event-aggregator.d.ts" />
-    <TypeScriptCompile Include="typings\aurelia\aurelia-framework.d.ts" />
-    <TypeScriptCompile Include="typings\aurelia\aurelia-history-browser.d.ts" />
-    <TypeScriptCompile Include="typings\aurelia\aurelia-history.d.ts" />
-    <TypeScriptCompile Include="typings\aurelia\aurelia-http-client.d.ts" />
-    <TypeScriptCompile Include="typings\aurelia\aurelia-loader-default.d.ts" />
-    <TypeScriptCompile Include="typings\aurelia\aurelia-loader.d.ts" />
-    <TypeScriptCompile Include="typings\aurelia\aurelia-logging-console.d.ts" />
-    <TypeScriptCompile Include="typings\aurelia\aurelia-logging.d.ts" />
-    <TypeScriptCompile Include="typings\aurelia\aurelia-metadata.d.ts" />
-    <TypeScriptCompile Include="typings\aurelia\aurelia-path.d.ts" />
-    <TypeScriptCompile Include="typings\aurelia\aurelia-route-recognizer.d.ts" />
-    <TypeScriptCompile Include="typings\aurelia\aurelia-router.d.ts" />
-    <TypeScriptCompile Include="typings\aurelia\aurelia-skeleton-navigation.d.ts" />
-    <TypeScriptCompile Include="typings\aurelia\aurelia-skeleton-plugin.d.ts" />
-    <TypeScriptCompile Include="typings\aurelia\aurelia-task-queue.d.ts" />
-    <TypeScriptCompile Include="typings\aurelia\aurelia-templating-binding.d.ts" />
-    <TypeScriptCompile Include="typings\aurelia\aurelia-templating-resources.d.ts" />
-    <TypeScriptCompile Include="typings\aurelia\aurelia-templating-router.d.ts" />
-    <TypeScriptCompile Include="typings\aurelia\aurelia-templating.d.ts" />
-    <TypeScriptCompile Include="typings\aurelia\aurelia-validation.d.ts" />
-    <TypeScriptCompile Include="typings\bootstrap.d.ts" />
-    <TypeScriptCompile Include="typings\chartjs\chart.d.ts" />
-    <TypeScriptCompile Include="typings\fastclick.d.ts" />
-    <TypeScriptCompile Include="typings\jquery\jquery.d.ts" />
-    <TypeScriptCompile Include="typings\tsd.d.ts" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="package.json" />
@@ -1970,6 +1973,7 @@
     <TypeScriptSourceMap>true</TypeScriptSourceMap>
     <TypeScriptOutDir>dist</TypeScriptOutDir>
     <TypeScriptModuleKind>commonjs</TypeScriptModuleKind>
+    <TypeScriptExperimentalDecorators>true</TypeScriptExperimentalDecorators>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)' == 'Release'">
     <TypeScriptRemoveComments>true</TypeScriptRemoveComments>

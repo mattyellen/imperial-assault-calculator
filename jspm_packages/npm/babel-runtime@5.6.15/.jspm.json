@@ -37,9 +37,15 @@
   },
   "jspm": {
     "main": false,
-    "dependencies": {}
+    "dependencies": {},
+    "optionalDependencies": {
+      "core-js": "^1.2.0"
+    }
   },
   "main": false,
+  "optionalDependencies": {
+    "core-js": "^1.2.0"
+  },
   "format": "cjs",
   "ignore": [
     "node_modules"

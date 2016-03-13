@@ -63,6 +63,7 @@
       "stream": "stream-browserify/index",
       "util": "@empty"
     },
+    "systemjs": {},
     "dependencies": {
       "core-util-is": "~1.0.0",
       "inherits": "~2.0.1",
@@ -75,6 +76,7 @@
     "stream": "stream-browserify/index",
     "util": "@empty"
   },
+  "systemjs": {},
   "format": "cjs",
   "ignore": [
     "node_modules"
@@ -87,9 +89,9 @@
     "string_decoder": "string_decoder@~0.10.0",
     "stream-browserify": "stream-browserify@^1.0.0",
     "process": "github:jspm/nodelibs-process@^0.1.0",
+    "stream": "github:jspm/nodelibs-stream@^0.1.0",
     "buffer": "github:jspm/nodelibs-buffer@^0.1.0",
     "events": "github:jspm/nodelibs-events@^0.1.0",
-    "stream": "github:jspm/nodelibs-stream@^0.1.0",
     "util": "github:jspm/nodelibs-util@^0.1.0"
   }
 }

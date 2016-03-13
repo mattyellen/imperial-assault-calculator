@@ -1,3 +1,4 @@
+"use strict";
 var App = (function () {
     function App() {
     }
@@ -10,6 +11,6 @@ var App = (function () {
         this.router = router;
     };
     return App;
-})();
+}());
 exports.App = App;
 //# sourceMappingURL=app.js.map

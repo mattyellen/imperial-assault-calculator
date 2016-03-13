@@ -65,9 +65,13 @@
     "node": ">=0.10.1"
   },
   "files": [
-    "css",
+    "dist",
     "fonts",
-    "js"
+    "js",
+    "css",
+    "less",
+    "grunt",
+    "LICENSE"
   ],
   "jspm": {
     "main": "js/bootstrap",
@@ -90,10 +94,25 @@
       "jquery": "github:components/jquery"
     },
     "files": [
-      "css",
+      "dist",
       "fonts",
-      "js"
-    ]
+      "js",
+      "css",
+      "less",
+      "grunt",
+      "LICENSE"
+    ],
+    "systemjs": {
+      "main": "dist/js/bootstrap.js",
+      "modules": {
+        "dist/js/bootstrap.js": {
+          "deps": [
+            "jquery"
+          ],
+          "exports": "$"
+        }
+      }
+    }
   },
   "directories": {
     "example": "examples",
@@ -109,6 +128,17 @@
   },
   "buildConfig": {
     "uglify": true
+  },
+  "systemjs": {
+    "main": "dist/js/bootstrap.js",
+    "modules": {
+      "dist/js/bootstrap.js": {
+        "deps": [
+          "jquery"
+        ],
+        "exports": "$"
+      }
+    }
   },
   "registry": "github",
   "dependencies": {

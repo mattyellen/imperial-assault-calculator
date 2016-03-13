@@ -1,3 +1,4 @@
+"use strict";
 var RollResult_1 = require("./RollResult");
 var PossibleRolls = (function () {
     function PossibleRolls() {
@@ -60,8 +61,8 @@ var PossibleRolls = (function () {
     PossibleRolls.prototype.applyNewRoll = function (newRoll) {
         var newPossibleRolls = {};
         for (var prKey in this._possibleRolls) {
-            for (var _i = 0; _i < newRoll.length; _i++) {
-                var rollResult = newRoll[_i];
+            for (var _i = 0, newRoll_1 = newRoll; _i < newRoll_1.length; _i++) {
+                var rollResult = newRoll_1[_i];
                 var newRollResult = this._possibleRolls[prKey].apply(rollResult);
                 var key = newRollResult.getHashCode();
                 if (newPossibleRolls[key] === undefined) {
@@ -103,8 +104,8 @@ var PossibleRolls = (function () {
                 calcDamageResult[key] = rollResult[key];
             }
             var surgeAbilitiesToUse = [];
-            for (var _i = 0; _i < surgeAbilities.length; _i++) {
-                var surge = surgeAbilities[_i];
+            for (var _i = 0, surgeAbilities_1 = surgeAbilities; _i < surgeAbilities_1.length; _i++) {
+                var surge = surgeAbilities_1[_i];
                 surgeAbilitiesToUse.push(surge);
             }
             calcDamageResult.surge += fixedAttackAbility.surge;
@@ -117,8 +118,8 @@ var PossibleRolls = (function () {
             //console.log("%s: %f", prKey, this._possibleRolls[prKey].probability);
             while ((calcDamageResult.surge > 0) && (surgeAbilitiesToUse.length > 0)) {
                 var bestSurgeEffect = undefined;
-                for (var _a = 0; _a < surgeAbilitiesToUse.length; _a++) {
-                    var surge = surgeAbilitiesToUse[_a];
+                for (var _a = 0, surgeAbilitiesToUse_1 = surgeAbilitiesToUse; _a < surgeAbilitiesToUse_1.length; _a++) {
+                    var surge = surgeAbilitiesToUse_1[_a];
                     var surgeEffect = this.calculateSurgeEffect(calcDamageResult, surge, needRange);
                     if ((surgeEffect.remainingRange == 0) &&
                         ((bestSurgeEffect === undefined) ||
@@ -131,8 +132,8 @@ var PossibleRolls = (function () {
                 if (bestSurgeEffect === undefined) {
                     //Failed to fund a surge to use...  none must give enough range.
                     //Just find the one with the best range.
-                    for (var _b = 0; _b < surgeAbilitiesToUse.length; _b++) {
-                        var surge = surgeAbilitiesToUse[_b];
+                    for (var _b = 0, surgeAbilitiesToUse_2 = surgeAbilitiesToUse; _b < surgeAbilitiesToUse_2.length; _b++) {
+                        var surge = surgeAbilitiesToUse_2[_b];
                         var surgeEffect = this.calculateSurgeEffect(calcDamageResult, surge, needRange);
                         if ((bestSurgeEffect === undefined) ||
                             (surgeEffect.remainingRange < bestSurgeEffect.remainingRange)) {
@@ -172,12 +173,12 @@ var PossibleRolls = (function () {
         return result;
     };
     return PossibleRolls;
-})();
+}());
 exports.PossibleRolls = PossibleRolls;
 var SurgeResult = (function () {
     function SurgeResult() {
     }
     return SurgeResult;
-})();
+}());
 exports.SurgeResult = SurgeResult;
 //# sourceMappingURL=PossibleRolls.js.map

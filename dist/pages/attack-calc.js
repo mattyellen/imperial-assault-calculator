@@ -1,3 +1,4 @@
+"use strict";
 require('bootstrap');
 require('bootstrap/css/bootstrap.css!');
 var PossibleRolls_1 = require("../util/PossibleRolls");
@@ -72,6 +73,6 @@ var AttackCalc = (function () {
         this.probabilityChart.addChartData(damageResults);
     };
     return AttackCalc;
-})();
+}());
 exports.AttackCalc = AttackCalc;
 //# sourceMappingURL=attack-calc.js.map
