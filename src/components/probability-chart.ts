@@ -65,7 +65,7 @@ export class ProbabilityChart {
         let minValue = 1;
         let maxValue = this._chartMaxDamage;
         for (let v in newChartData) {
-            maxValue = Math.max(maxValue, v);
+            maxValue = Math.max(maxValue, Number(v));
         }
 
         this._chartMaxDamage = maxValue;

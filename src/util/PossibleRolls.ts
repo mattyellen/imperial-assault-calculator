@@ -1,5 +1,5 @@
 ﻿import {RollResult} from "./RollResult";
-import {AttackProperty} from "./AttackProperty";
+import {FixedAttackProperty, SurgeAttackProperty} from "./AttackProperty";
 import {DefenseProperty} from "./DefenseProperty";
 import {Dice} from "./Dice";
 
@@ -105,8 +105,9 @@ export class PossibleRolls {
         return totalSurges;
     }
 
-    getEffectiveDamage(surgeAbilities: AttackProperty[], fixedAttackAbility: AttackProperty, fixedDefenseAbility: DefenseProperty, needRange: number): { [damage: number]: number } {
+    getEffectiveDamage(surgeAbilities: SurgeAttackProperty[], fixedAttackAbility: FixedAttackProperty, fixedDefenseAbility: DefenseProperty, needRange: number): { [damage: number]: number } {
         let effectiveDamage: { [damage: number]: number } = {};
+        let surgeSetCache: { [surgeCount: number]: SurgeAttackProperty[][] } = {};
 
         for (let prKey in this._possibleRolls) {
             let rollResult = this._possibleRolls[prKey];
@@ -115,16 +116,7 @@ export class PossibleRolls {
                 continue;
             }
 
-            let calcDamageResult = new RollResult();
-            for (let key in rollResult) {
-                calcDamageResult[key] = rollResult[key];
-            }
-
-            let surgeAbilitiesToUse: AttackProperty[] = [];
-            for (let surge of surgeAbilities) {
-                surgeAbilitiesToUse.push(surge);
-            }
-
+            let calcDamageResult: RollResult = Object.assign({}, rollResult);
             calcDamageResult.surge += fixedAttackAbility.surge;
             calcDamageResult.surge -= fixedDefenseAbility.evade;
             calcDamageResult.surge -= calcDamageResult.evade;
@@ -135,57 +127,72 @@ export class PossibleRolls {
 
             //console.log("%s: %f", prKey, this._possibleRolls[prKey].probability);
 
-            while ((calcDamageResult.surge > 0) && (surgeAbilitiesToUse.length > 0)) {
-                var bestSurgeEffect: SurgeResult = undefined;
-
-                for (let surge of surgeAbilitiesToUse) {
-                    let surgeEffect = this.calculateSurgeEffect(calcDamageResult, surge, needRange);
-                    if ((surgeEffect.remainingRange == 0) &&
-                        ((bestSurgeEffect === undefined) ||
-                            (surgeEffect.effectiveDamage > bestSurgeEffect.effectiveDamage))) {
-                        bestSurgeEffect = surgeEffect;
-                    }
-                }
-
-                //if (bestSurgeEffect !== undefined)
-                //    console.log("found surge effect that hits: %O => +%d", bestSurgeEffect, bestSurgeEffect.effectiveDamage);
-
-
-                if (bestSurgeEffect === undefined) {
-                    //Failed to fund a surge to use...  none must give enough range.
-                    //Just find the one with the best range.
-                    for (let surge of surgeAbilitiesToUse) {
-                        let surgeEffect = this.calculateSurgeEffect(calcDamageResult, surge, needRange);
-                        if ((bestSurgeEffect === undefined) ||
-                            (surgeEffect.remainingRange < bestSurgeEffect.remainingRange)) {
-                            bestSurgeEffect = surgeEffect;
-                        }
-                    }
-
-                    //if (bestSurgeEffect !== undefined)
-                    //    console.log("found surge effect for improved range: %O => remaining %d", bestSurgeEffect, bestSurgeEffect.remainingRange);
-                }
-
-
-
-                if (bestSurgeEffect !== undefined) {
-                    calcDamageResult.damage += bestSurgeEffect.surge.damage;
-                    calcDamageResult.block -= Math.min(bestSurgeEffect.surge.pierce, calcDamageResult.block);
-                    calcDamageResult.range += bestSurgeEffect.surge.accuracy
-
-                    calcDamageResult.surge--;
-                    surgeAbilitiesToUse = surgeAbilitiesToUse.filter(s => s != bestSurgeEffect.surge);
-                }
+            let surgeSets = surgeSetCache[calcDamageResult.surge];
+            if (surgeSets === undefined) {
+                surgeSets = this.getAllPossibleSurgeAbilitySets(surgeAbilities, calcDamageResult.surge);
+                surgeSetCache[calcDamageResult.surge] = surgeSets;
             }
+                
+            //for (let ss of surgeSets) {
+            //    console.log(ss.map(s => s.damage).join(","));
+            //}
 
-            if (calcDamageResult.range < needRange) {
-                this.updateValue(effectiveDamage, 0, calcDamageResult.probability);
-            } else {
-                this.updateValue(effectiveDamage, Math.max(calcDamageResult.damage - calcDamageResult.block, 0), calcDamageResult.probability);
+            let maxDamage = this.getDamage(calcDamageResult, needRange);
+            for (let surgeSet of surgeSets) {
+                let checkCalcDamageResult: RollResult = Object.assign({}, calcDamageResult);
+                for (let surgeAbility of surgeSet) {
+                    this.applySurgeAbility(checkCalcDamageResult, surgeAbility);
+                }
+
+                maxDamage = Math.max(maxDamage, this.getDamage(checkCalcDamageResult, needRange));
             }
+            //console.log("maxDamage: %d", maxDamage);
+
+            this.updateValue(effectiveDamage, maxDamage, calcDamageResult.probability);
         }
 
         return effectiveDamage;
+    }
+
+    private getDamage(rollResult: RollResult, needRange: number): number {
+        if (rollResult.range < needRange) {
+            return 0;
+        } else {
+            return Math.max(rollResult.damage - rollResult.block, 0);
+        }
+    }
+
+    private applySurgeAbility(rollResult: RollResult, surgeAbility: SurgeAttackProperty): void {
+        rollResult.damage += surgeAbility.damage;
+        rollResult.block = Math.max(rollResult.block - surgeAbility.pierce, 0);
+        rollResult.range += surgeAbility.accuracy;
+    }
+
+    private getAllPossibleSurgeAbilitySets(availableSurgeAbilities: SurgeAttackProperty[],
+                                           surgeCount: number,
+                                           initialSurgeAbilities: SurgeAttackProperty[] = []): SurgeAttackProperty[][] {
+        let results: SurgeAttackProperty[][] = [];
+        let localAvailableSurgeAbilities = availableSurgeAbilities.slice();
+
+        let checkSurge: SurgeAttackProperty;
+        while ((checkSurge = localAvailableSurgeAbilities.shift()) !== undefined) {
+            if (checkSurge.surgeCost <= surgeCount) {
+                Array.prototype.push.apply(
+                    results,
+                    this.getAllPossibleSurgeAbilitySets(
+                        localAvailableSurgeAbilities,
+                        surgeCount - checkSurge.surgeCost,
+                        initialSurgeAbilities.concat([checkSurge]))
+                );
+            }
+        }
+
+        if (results.length === 0) {
+            return [initialSurgeAbilities];
+        }
+        else {
+            return results;
+        }
     }
 
     private updateValue(dict: { [key: number]: number }, key: number, value: number) {
@@ -194,21 +201,4 @@ export class PossibleRolls {
         }
         dict[key] += value;
     }
-
-    private calculateSurgeEffect(rollResult: RollResult, surge: AttackProperty, needRange: number): SurgeResult {
-        let result = new SurgeResult();
-        result.surge = surge;
-
-        result.remainingRange = Math.max(needRange - (rollResult.range + surge.accuracy), 0);
-        let effectOfPierce = Math.min(surge.pierce, rollResult.block);
-        result.effectiveDamage = effectOfPierce + surge.damage;
-
-        return result;
-    }
-}
-
-export class SurgeResult {
-    effectiveDamage: number;
-    remainingRange: number;
-    surge: AttackProperty;
 }

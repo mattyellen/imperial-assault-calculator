@@ -1,3 +1,4 @@
+"use strict";
 var Dice_1 = require("../util/Dice");
 var PossibleRolls_1 = require("../util/PossibleRolls");
 var AttributeTest = (function () {
@@ -26,6 +27,6 @@ var AttributeTest = (function () {
         this.probabilityChart.addChartData(possibleRolls.getTotalSurges());
     };
     return AttributeTest;
-})();
+}());
 exports.AttributeTest = AttributeTest;
 //# sourceMappingURL=attribute-test.js.map

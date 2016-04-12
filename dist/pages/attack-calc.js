@@ -1,3 +1,4 @@
+"use strict";
 require('bootstrap');
 require('bootstrap/css/bootstrap.css!');
 var PossibleRolls_1 = require("../util/PossibleRolls");
@@ -38,8 +39,8 @@ var AttackCalc = (function () {
     AttackCalc.prototype.addDefenseProperty = function (type) {
         this.fixedDefenseAbility[type]++;
     };
-    AttackCalc.prototype.addNewSurge = function () {
-        this.surgeAbilities.push(new AttackProperty_1.AttackProperty());
+    AttackCalc.prototype.addNewSurge = function (surgeCost) {
+        this.surgeAbilities.push(new AttackProperty_1.SurgeAttackProperty(surgeCost));
     };
     AttackCalc.prototype.removeSurge = function (surge) {
         this.surgeAbilities = this.surgeAbilities.filter(function (p) { return p != surge; });
@@ -72,6 +73,6 @@ var AttackCalc = (function () {
         this.probabilityChart.addChartData(damageResults);
     };
     return AttackCalc;
-})();
+}());
 exports.AttackCalc = AttackCalc;
 //# sourceMappingURL=attack-calc.js.map

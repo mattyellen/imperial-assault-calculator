@@ -56,12 +56,15 @@
   ],
   "dist": {
     "shasum": "f6eef764f514c89e2b9e23146a75ba106756d23e",
-    "tarball": "http://registry.npmjs.org/readable-stream/-/readable-stream-1.1.13.tgz"
+    "tarball": "https://registry.npmjs.org/readable-stream/-/readable-stream-1.1.13.tgz"
   },
   "jspm": {
     "map": {
       "stream": "stream-browserify/index",
       "util": "@empty"
+    },
+    "systemjs": {
+      "main": "readable.js"
     },
     "dependencies": {
       "core-util-is": "~1.0.0",
@@ -75,6 +78,9 @@
     "stream": "stream-browserify/index",
     "util": "@empty"
   },
+  "systemjs": {
+    "main": "readable.js"
+  },
   "format": "cjs",
   "ignore": [
     "node_modules"
@@ -87,9 +93,9 @@
     "string_decoder": "string_decoder@~0.10.0",
     "stream-browserify": "stream-browserify@^1.0.0",
     "process": "github:jspm/nodelibs-process@^0.1.0",
+    "stream": "github:jspm/nodelibs-stream@^0.1.0",
     "buffer": "github:jspm/nodelibs-buffer@^0.1.0",
     "events": "github:jspm/nodelibs-events@^0.1.0",
-    "stream": "github:jspm/nodelibs-stream@^0.1.0",
     "util": "github:jspm/nodelibs-util@^0.1.0"
   }
 }
