@@ -1,7 +1,7 @@
 import 'bootstrap';
 import 'bootstrap/css/bootstrap.css!';
 import {PossibleRolls} from "../util/PossibleRolls";
-import {AttackProperty} from "../util/AttackProperty";
+import {SurgeAttackProperty, FixedAttackProperty} from "../util/AttackProperty";
 import {DefenseProperty} from "../util/DefenseProperty";
 import {Dice} from "../util/Dice";
 import {ProbabilityChart} from "../components/probability-chart";
@@ -13,8 +13,8 @@ import 'bootstrap';
 export class AttackCalc {
     diceCount: Dice<number>;
 
-    surgeAbilities: AttackProperty[];
-    fixedAttackAbility: AttackProperty;
+    surgeAbilities: SurgeAttackProperty[];
+    fixedAttackAbility: FixedAttackProperty;
     fixedDefenseAbility: DefenseProperty;
     attack_type: string;
     range: number;
@@ -46,7 +46,7 @@ export class AttackCalc {
         }
     }
 
-    addAttackProperty(surge: AttackProperty, type: string) {
+    addAttackProperty(surge: FixedAttackProperty, type: string) {
         surge[type]++;
     }
 
@@ -58,11 +58,11 @@ export class AttackCalc {
         this.fixedDefenseAbility[type]++;
     }
 
-    addNewSurge() {
-        this.surgeAbilities.push(new AttackProperty());
+    addNewSurge(surgeCost: number) {
+        this.surgeAbilities.push(new SurgeAttackProperty(surgeCost));
     }
 
-    removeSurge(surge: AttackProperty) {
+    removeSurge(surge: SurgeAttackProperty) {
         this.surgeAbilities = this.surgeAbilities.filter(p => p != surge);
     }
 

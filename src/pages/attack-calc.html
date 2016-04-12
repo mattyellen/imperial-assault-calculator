@@ -85,16 +85,26 @@
             </span>
         </div>
         <div class="row add-surge-button-row">
-            <button class="btn btn-default surge-button"
-                    data-toggle="tooltip"
-                    title="Add New Surge Ability"
-                    click.delegate="addNewSurge()">
-                + <img class="img-icon-surge" src="images/surge.png" /> Ability
-            </button>
-        </div>
+            <div class="col-xs-6 surge-ability-button-col">
+                <button class="btn btn-default surge-button"
+                        data-toggle="tooltip"
+                        title="Add New Surge Ability"
+                        click.delegate="addNewSurge(1)">
+                    + <img class="img-icon-surge" src="images/surge.png" /> Ability
+                </button>
+            </div>
+            <div class="col-xs-6 surge-ability-button-col">
+                <button class="btn btn-default surge-button"
+                        data-toggle="tooltip"
+                        title="Add New Double Surge Ability"
+                        click.delegate="addNewSurge(2)">
+                    + <img class="img-icon-surge" src="images/double_surge.png" /> Ability
+                </button>
+            </div>
         <div class="row dice-button-row" repeat.for="surge of surgeAbilities">
             <span class="surge-ability-span">
-                <img class="img-icon-surge" src="images/surge.png" />
+                <img class="img-icon-surge" src="images/surge.png" if.bind="surge.surgeCost == 1"/>
+                <img class="img-icon-surge" src="images/double_surge.png" if.bind="surge.surgeCost == 2"/>
                 <button class="btn btn-default surge-button"
                         data-toggle="tooltip"
                         title="Surge For Damage"

@@ -1479,15 +1479,6 @@
     <TypeScriptCompile Include="src\pages\attack-calc.ts" />
     <Content Include="src\pages\attribute-test.html" />
     <Content Include="styles\styles.css" />
-    <Content Include="test\e2e\dist\demo.spec.js" />
-    <Content Include="test\e2e\dist\skeleton.po.js" />
-    <Content Include="test\e2e\dist\welcome.po.js" />
-    <Content Include="test\e2e\src\demo.spec.js" />
-    <Content Include="test\e2e\src\skeleton.po.js" />
-    <Content Include="test\e2e\src\welcome.po.js" />
-    <Content Include="test\unit\app.spec.js" />
-    <Content Include="test\unit\child-router.spec.js" />
-    <Content Include="test\unit\flickr.spec.js" />
     <TypeScriptCompile Include="typings\local\aurelia.d.ts" />
     <TypeScriptCompile Include="typings\local\aurelia\aurelia-animator-css.d.ts" />
     <TypeScriptCompile Include="typings\local\aurelia\aurelia-app-contacts.d.ts" />
@@ -1930,6 +1921,7 @@
     <Folder Include="jspm_packages\github\jspm\nodelibs-http%401.7.1\test\" />
     <Folder Include="jspm_packages\npm\base64-js%400.0.8\bench\" />
     <Folder Include="jspm_packages\npm\buffer%403.2.2\bin\" />
+    <Folder Include="test\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="jspm_packages\github\ftlabs\fastclick%401.0.6\.jspm-hash" />

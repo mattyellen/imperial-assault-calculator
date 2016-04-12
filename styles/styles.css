@@ -127,6 +127,9 @@ section {
     text-align: center;
 }
 
+.surge-ability-button-col {
+    padding-left: 7px;
+}
 .attack-type-button,
 .attack-type-button:focus {
     width: 64px;
