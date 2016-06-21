@@ -1,4 +1,7 @@
-﻿export class App {
+﻿import 'jquery';
+import {attach as attachFastClick} from 'fastclick';
+
+export class App {
     public router: any;
 
     configureRouter(config, router) {
@@ -9,5 +12,9 @@
         ]);
 
         this.router = router;
+    }
+
+    attached() {
+        attachFastClick(document.body);
     }
 }

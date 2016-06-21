@@ -6,8 +6,6 @@ var AttackProperty_1 = require("../util/AttackProperty");
 var Dice_1 = require("../util/Dice");
 require("Chart.js");
 require('jquery');
-var fastclick_1 = require('fastclick');
-require('bootstrap');
 var AttackCalc = (function () {
     function AttackCalc() {
         this.diceCount = new Dice_1.Dice();
@@ -18,7 +16,6 @@ var AttackCalc = (function () {
         this.range = 0;
     }
     AttackCalc.prototype.attached = function () {
-        fastclick_1.attach(document.body);
         $('[data-toggle="tooltip"]').tooltip({ container: "body", delay: { show: 500 } });
     };
     AttackCalc.prototype.selectAttackType = function (type) {

@@ -1,6 +1,10 @@
-﻿import {Dice} from "../util/Dice";
+﻿import 'bootstrap';
+import 'bootstrap/css/bootstrap.css!';
+import {Dice} from "../util/Dice";
 import {PossibleRolls} from "../util/PossibleRolls";
 import {ProbabilityChart} from "../components/probability-chart";
+import 'jquery';
+import "Chart.js";
 
 export class AttributeTest {
     diceCount: Dice<number>;
@@ -10,6 +14,10 @@ export class AttributeTest {
     constructor() {
         this.diceCount = new Dice<number>();
         this.resetDice();
+    }
+
+    attached() {
+        $('[data-toggle="tooltip"]').tooltip({container: "body", delay: { show: 500 } });
     }
 
     resetDice() {

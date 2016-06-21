@@ -217,16 +217,34 @@ section {
 
 .legend-item-row {
     display: block;
-    margin: 10px 0px 5px 0px;
+    margin: 10px 0px 0px 0px;
+}
+
+.legend-item-col {
+    padding: 9px 5px;
+}
+
+.legend-item-button-col {
+    padding-left: 0px;
 }
 
 .legend-item {
     width: 20px;
     height: 20px;
+    font-size: 14px;
+    font-weight: normal;
     text-align: center;
     border-radius: 10px;
     display: inline-block;
-    margin-right: 5px;
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+.combine-datasets-button {
+    font-size: 20px;
+    font-weight: bold;
+    padding-top: 2px;
+    text-align: center;
 }
 
 .damage-chart {
