@@ -7,8 +7,6 @@ import {Dice} from "../util/Dice";
 import {ProbabilityChart} from "../components/probability-chart";
 import "Chart.js";
 import 'jquery';
-import {attach as attachFastClick} from 'fastclick';
-import 'bootstrap';
 
 export class AttackCalc {
     diceCount: Dice<number>;
@@ -21,7 +19,6 @@ export class AttackCalc {
 
     probabilityChart: ProbabilityChart;
 
-
     constructor() {
         this.diceCount = new Dice<number>();
         this.resetAttackDice();
@@ -33,7 +30,6 @@ export class AttackCalc {
     }
 
     attached() {
-        attachFastClick(document.body);
         $('[data-toggle="tooltip"]').tooltip({container: "body", delay: { show: 500 } });
     }
 

@@ -1,11 +1,18 @@
 "use strict";
+require('bootstrap');
+require('bootstrap/css/bootstrap.css!');
 var Dice_1 = require("../util/Dice");
 var PossibleRolls_1 = require("../util/PossibleRolls");
+require('jquery');
+require("Chart.js");
 var AttributeTest = (function () {
     function AttributeTest() {
         this.diceCount = new Dice_1.Dice();
         this.resetDice();
     }
+    AttributeTest.prototype.attached = function () {
+        $('[data-toggle="tooltip"]').tooltip({ container: "body", delay: { show: 500 } });
+    };
     AttributeTest.prototype.resetDice = function () {
         this.diceCount.red = 0;
         this.diceCount.blue = 0;

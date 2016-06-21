@@ -1,4 +1,6 @@
 "use strict";
+require('jquery');
+var fastclick_1 = require('fastclick');
 var App = (function () {
     function App() {
     }
@@ -9,6 +11,9 @@ var App = (function () {
             { route: 'attribute-test', name: 'attribute-test', moduleId: 'pages/attribute-test', nav: true, title: 'Attribute Test' },
         ]);
         this.router = router;
+    };
+    App.prototype.attached = function () {
+        fastclick_1.attach(document.body);
     };
     return App;
 }());
