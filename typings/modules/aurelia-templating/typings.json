@@ -1,0 +1,9 @@
+{
+  "resolution": "main",
+  "tree": {
+    "src": "https://raw.githubusercontent.com/aurelia/templating/1.4.2/typings.json",
+    "raw": "github:aurelia/templating#1.4.2",
+    "main": "dist/aurelia-templating.d.ts",
+    "name": "aurelia-templating"
+  }
+}

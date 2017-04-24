@@ -1,0 +1,17 @@
+{
+  "resolution": "main",
+  "tree": {
+    "src": "https://raw.githubusercontent.com/aurelia/metadata/1.0.3/typings.json",
+    "raw": "github:aurelia/metadata#1.0.3",
+    "main": "dist/aurelia-metadata.d.ts",
+    "dependencies": {
+      "aurelia-pal": {
+        "src": "https://raw.githubusercontent.com/aurelia/pal/master/typings.json",
+        "raw": "github:aurelia/pal",
+        "main": "dist/aurelia-pal.d.ts",
+        "name": "aurelia-pal"
+      }
+    },
+    "name": "aurelia-metadata"
+  }
+}

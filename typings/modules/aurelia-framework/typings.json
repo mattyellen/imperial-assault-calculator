@@ -1,0 +1,9 @@
+{
+  "resolution": "main",
+  "tree": {
+    "src": "https://raw.githubusercontent.com/aurelia/framework/1.1.2/typings.json",
+    "raw": "github:aurelia/framework#1.1.2",
+    "main": "dist/aurelia-framework.d.ts",
+    "name": "aurelia-framework"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "name": "imperial-assault-calculator",
+  "globalDependencies": {
+    "bootstrap": "registry:dt/bootstrap#3.3.5+20160726204056",
+    "core-js": "github:DefinitelyTyped/DefinitelyTyped/core-js/core-js.d.ts#6f6e5c7dd9effe21fee14eb65fe340ecbbc8580a",
+    "fastclick": "registry:dt/fastclick#1.0.3+20160510002910",
+    "jquery": "github:DefinitelyTyped/DefinitelyTyped/jquery/jquery.d.ts#8f51d25ad3523cd01f2d92e343247852f6b70dff"
+  },
+  "dependencies": {
+    "aurelia-binding": "github:aurelia/binding#1.2.1",
+    "aurelia-bootstrapper": "github:aurelia/bootstrapper#2.1.1",
+    "aurelia-dependency-injection": "github:aurelia/dependency-injection#1.3.1",
+    "aurelia-framework": "github:aurelia/framework#1.1.2",
+    "aurelia-loader": "github:aurelia/loader#1.0.0",
+    "aurelia-logging": "github:aurelia/logging#1.3.1",
+    "aurelia-metadata": "github:aurelia/metadata#1.0.3",
+    "aurelia-pal": "github:aurelia/pal#1.3.0",
+    "aurelia-path": "github:aurelia/path#1.1.1",
+    "aurelia-task-queue": "github:aurelia/task-queue#1.2.0",
+    "aurelia-templating": "github:aurelia/templating#1.4.2",
+    "chart.js": "registry:dt/chart.js#2.4.0+20170322003647"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "resolution": "main",
+  "tree": {
+    "src": "https://raw.githubusercontent.com/aurelia/pal/1.3.0/typings.json",
+    "raw": "github:aurelia/pal#1.3.0",
+    "main": "dist/aurelia-pal.d.ts",
+    "name": "aurelia-pal"
+  }
+}
