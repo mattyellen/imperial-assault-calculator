@@ -5,7 +5,6 @@ import {SurgeAttackProperty, FixedAttackProperty} from "../util/AttackProperty";
 import {DefenseProperty} from "../util/DefenseProperty";
 import {Dice} from "../util/Dice";
 import {ProbabilityChart} from "../components/probability-chart";
-import "Chart.js";
 import 'jquery';
 
 export class AttackCalc {

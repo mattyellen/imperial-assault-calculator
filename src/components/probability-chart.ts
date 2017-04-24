@@ -1,6 +1,7 @@
 ﻿import {bindable} from 'aurelia-framework';
 import {inject} from 'aurelia-dependency-injection';
 import 'jquery';
+import {Chart} from 'chartjs';
 
 type ChartData = { [damage: number]: number };
 
@@ -14,7 +15,7 @@ export class ProbabilityChart {
     private _maxDatasets: number = 8;
 
     private _chartMaxDamage: number;
-    private _chart: LinearInstance;
+    private _chart: any;
     private _datasets: any[];
     private _labels: string[];
     private _rawChartData: ChartData[];
@@ -59,9 +60,12 @@ export class ProbabilityChart {
 
     private refreshChart() {
         let ctx = <CanvasRenderingContext2D>(<HTMLCanvasElement>$(this._element).find("#damageChart").get(0)).getContext("2d");
-        this._chart = new Chart(ctx).Line({
-            labels: this._labels,
-            datasets: this._datasets
+        this._chart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: this._labels,
+                datasets: this._datasets
+            }
         });
     }
 
