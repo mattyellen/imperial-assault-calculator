@@ -1,6 +1,7 @@
 "use strict";
-require('jquery');
-var fastclick_1 = require('fastclick');
+Object.defineProperty(exports, "__esModule", { value: true });
+require("jquery");
+var fastclick_1 = require("fastclick");
 var App = (function () {
     function App() {
     }
@@ -13,7 +14,7 @@ var App = (function () {
         this.router = router;
     };
     App.prototype.attached = function () {
-        fastclick_1.attach(document.body);
+        fastclick_1.FastClick.attach(document.body);
     };
     return App;
 }());

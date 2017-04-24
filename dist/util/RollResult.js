@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 var RollResult = (function () {
     function RollResult(damage, surge, range, block, evade, miss, probability) {
         if (damage === void 0) { damage = 0; }

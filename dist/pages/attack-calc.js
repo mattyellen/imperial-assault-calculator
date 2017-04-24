@@ -1,11 +1,11 @@
 "use strict";
-require('bootstrap');
-require('bootstrap/css/bootstrap.css!');
+Object.defineProperty(exports, "__esModule", { value: true });
+require("bootstrap");
+require("bootstrap/css/bootstrap.css!");
 var PossibleRolls_1 = require("../util/PossibleRolls");
 var AttackProperty_1 = require("../util/AttackProperty");
 var Dice_1 = require("../util/Dice");
-require("Chart.js");
-require('jquery');
+require("jquery");
 var AttackCalc = (function () {
     function AttackCalc() {
         this.diceCount = new Dice_1.Dice();

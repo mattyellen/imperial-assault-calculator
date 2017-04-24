@@ -1,9 +1,10 @@
 "use strict";
-require('bootstrap');
-require('bootstrap/css/bootstrap.css!');
+Object.defineProperty(exports, "__esModule", { value: true });
+require("bootstrap");
+require("bootstrap/css/bootstrap.css!");
 var Dice_1 = require("../util/Dice");
 var PossibleRolls_1 = require("../util/PossibleRolls");
-require('jquery');
+require("jquery");
 require("Chart.js");
 var AttributeTest = (function () {
     function AttributeTest() {
