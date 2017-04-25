@@ -40,4 +40,3 @@ var FixedAttackProperty = (function (_super) {
     return FixedAttackProperty;
 }(AttackProperty));
 exports.FixedAttackProperty = FixedAttackProperty;
-//# sourceMappingURL=AttackProperty.js.map

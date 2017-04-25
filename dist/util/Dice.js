@@ -6,4 +6,3 @@ var Dice = (function () {
     return Dice;
 }());
 exports.Dice = Dice;
-//# sourceMappingURL=Dice.js.map

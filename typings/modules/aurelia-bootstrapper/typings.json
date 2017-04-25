@@ -1,9 +1,0 @@
-{
-  "resolution": "main",
-  "tree": {
-    "src": "https://raw.githubusercontent.com/aurelia/bootstrapper/2.1.1/typings.json",
-    "raw": "github:aurelia/bootstrapper#2.1.1",
-    "main": "dist/aurelia-bootstrapper.d.ts",
-    "name": "aurelia-bootstrapper"
-  }
-}

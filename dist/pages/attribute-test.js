@@ -5,7 +5,6 @@ require("bootstrap/css/bootstrap.css!");
 var Dice_1 = require("../util/Dice");
 var PossibleRolls_1 = require("../util/PossibleRolls");
 require("jquery");
-require("Chart.js");
 var AttributeTest = (function () {
     function AttributeTest() {
         this.diceCount = new Dice_1.Dice();
@@ -37,4 +36,3 @@ var AttributeTest = (function () {
     return AttributeTest;
 }());
 exports.AttributeTest = AttributeTest;
-//# sourceMappingURL=attribute-test.js.map

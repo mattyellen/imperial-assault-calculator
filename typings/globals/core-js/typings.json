@@ -1,8 +1,0 @@
-{
-  "resolution": "main",
-  "tree": {
-    "src": "https://raw.githubusercontent.com/DefinitelyTyped/DefinitelyTyped/6f6e5c7dd9effe21fee14eb65fe340ecbbc8580a/core-js/core-js.d.ts",
-    "raw": "github:DefinitelyTyped/DefinitelyTyped/core-js/core-js.d.ts#6f6e5c7dd9effe21fee14eb65fe340ecbbc8580a",
-    "typings": "https://raw.githubusercontent.com/DefinitelyTyped/DefinitelyTyped/6f6e5c7dd9effe21fee14eb65fe340ecbbc8580a/core-js/core-js.d.ts"
-  }
-}

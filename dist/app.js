@@ -19,4 +19,3 @@ var App = (function () {
     return App;
 }());
 exports.App = App;
-//# sourceMappingURL=app.js.map

@@ -26,4 +26,3 @@ var RollResult = (function () {
     return RollResult;
 }());
 exports.RollResult = RollResult;
-//# sourceMappingURL=RollResult.js.map

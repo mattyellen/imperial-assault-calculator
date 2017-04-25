@@ -10,4 +10,3 @@ var DefenseProperty = (function () {
     return DefenseProperty;
 }());
 exports.DefenseProperty = DefenseProperty;
-//# sourceMappingURL=DefenseProperty.js.map

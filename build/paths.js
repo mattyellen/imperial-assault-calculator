@@ -5,9 +5,8 @@ var outputRoot = 'dist/';
 
 module.exports = {
   root: appRoot,
+  tsConfig: './tsconfig.json',
   source: appRoot + '**/*.js',
-  source_ts: appRoot + '**/*.ts',
-  typings: 'typings/index.d.ts',
   html: appRoot + '**/*.html',
   style: 'styles/**/*.css',
   output: outputRoot,

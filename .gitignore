@@ -1,10 +1,5 @@
 node_modules
-bower_components
-.idea
-.DS_STORE
-/dist/*.map
-/obj
-build/reports
-ImperialAssaultCalculator.csproj.user
-.vs
-typings/tsd
+dist/*.map
+typings
+jspm_modules
+dist

@@ -72,4 +72,3 @@ var AttackCalc = (function () {
     return AttackCalc;
 }());
 exports.AttackCalc = AttackCalc;
-//# sourceMappingURL=attack-calc.js.map

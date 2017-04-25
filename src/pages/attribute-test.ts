@@ -4,7 +4,6 @@ import {Dice} from "../util/Dice";
 import {PossibleRolls} from "../util/PossibleRolls";
 import {ProbabilityChart} from "../components/probability-chart";
 import 'jquery';
-import "Chart.js";
 
 export class AttributeTest {
     diceCount: Dice<number>;

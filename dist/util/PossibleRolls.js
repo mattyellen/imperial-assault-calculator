@@ -172,4 +172,3 @@ var PossibleRolls = (function () {
     return PossibleRolls;
 }());
 exports.PossibleRolls = PossibleRolls;
-//# sourceMappingURL=PossibleRolls.js.map

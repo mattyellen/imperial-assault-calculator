@@ -180,4 +180,3 @@ var LegendInfo = (function () {
     return LegendInfo;
 }());
 exports.LegendInfo = LegendInfo;
-//# sourceMappingURL=probability-chart.js.map

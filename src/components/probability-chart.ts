@@ -15,7 +15,7 @@ export class ProbabilityChart {
     private _maxDatasets: number = 8;
 
     private _chartMaxDamage: number;
-    private _chart: any;
+    private _chart: Chart;
     private _datasets: any[];
     private _labels: string[];
     private _rawChartData: ChartData[];

@@ -1,13 +1,15 @@
 {
     "compilerOptions": {
-            "module": "commonjs",
-            "sourceMap": true,
-            "emitDecoratorMetadata": true,
-            "experimentalDecorators": true,
-            "target": "ES5"
-          },
+        "module": "commonjs",
+        "sourceMap": true,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "target": "ES5"
+    },
     "include": [
-        "src/**/*"
+        "src/**/*.ts",
+        "typings_local/**/*.ts",
+        "typings/index.d.ts"
     ],
     "exclude": [
         "node_modules",
