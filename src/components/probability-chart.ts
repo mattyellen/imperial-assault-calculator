@@ -65,6 +65,13 @@ export class ProbabilityChart {
             data: {
                 labels: this._labels,
                 datasets: this._datasets
+            },
+            options: {
+                responsive: false,
+                maintainAspectRatio: false,
+                legend: {
+                    display: false
+                }
             }
         });
     }
@@ -150,12 +157,13 @@ export class ProbabilityChart {
 
         this._labels = labels;
         this._datasets.push({
-            fillColor: this.getColor(0.2),
-            strokeColor: this.getColor(1),
-            pointColor: this.getColor(1),
-            pointStrokeColor: "#fff",
-            pointHighlightFill: "#fff",
-            pointHighlightStroke: this.getColor(1),
+            backgroundColor: this.getColor(0.2),
+            borderColor: this.getColor(1),
+            pointBackgroundColor: this.getColor(1),
+            pointBorderColor: "#fff",
+            pointHoverBackgroundColor: "#fff",
+            pointHoverBorderColor: this.getColor(1),
+            pointRadius: 4,
             data: data
         });
 
