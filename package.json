@@ -9,7 +9,7 @@
     "url": "http://github.com/mattyellen/imperial-assault-calculator"
   },
   "scripts": {
-    "install-all": "npm install && jspm install && tsd install"
+    "install-all": "npm install && jspm install && typings install"
   },
   "devDependencies": {
     "aurelia-tools": "^0.1.3",
