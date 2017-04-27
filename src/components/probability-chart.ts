@@ -10,7 +10,8 @@ export class ProbabilityChart {
     @bindable xLabel: string;
 
     legend: LegendInfo[];
-    combineIcons: LegendInfo[];
+    combineIcon1: LegendInfo;
+    combineIcon2: LegendInfo;
 
     private _maxDatasets: number = 8;
 
@@ -70,11 +71,15 @@ export class ProbabilityChart {
         this._datasets.pop();
         this._rawChartData.pop();
         this.legend.pop();
-        if (this.legend.length > 1) {
-            this.combineIcons.unshift(this.legend[this.legend.length - 2])
-        }
-        this.combineIcons.pop();
+        this.setCombineIcons();
         this._currentColor--;
+    }
+
+    private setCombineIcons() {
+        if (this.legend.length > 1) {
+            this.combineIcon1 = this.legend[this.legend.length - 2];
+            this.combineIcon2 = this.legend[this.legend.length - 1];
+        }
     }
 
     resetChart() {
@@ -83,7 +88,6 @@ export class ProbabilityChart {
         this._datasets = [];
         this._rawChartData = [];
         this.legend = [];
-        this.combineIcons = [];
         this.setChartDisplay(false);
 
         if (this._chart !== undefined) {
@@ -168,10 +172,7 @@ export class ProbabilityChart {
             textColor: this.getTextColor()
         };
         this.legend.push(newLegendIcon);
-        this.combineIcons.push(newLegendIcon);
-        if (this.combineIcons.length > 2) {
-            this.combineIcons.shift();
-        }
+        this.setCombineIcons();
 
         this._currentColor++;
 
