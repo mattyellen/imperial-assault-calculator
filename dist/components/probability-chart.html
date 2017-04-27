@@ -1,0 +1,27 @@
+<template>
+    <div class="row legend-item-row">
+        <div class="col-xs-8 legend-item-col">
+            <div repeat.for="item of legend" class="legend-item" css="background-color: ${item.color}; color: ${item.textColor}">${item.value}</div>
+        </div>
+        <div class="col-xs-4 legend-item-button-col">
+            <button show.bind="legend.length >= 2"
+                    data-toggle="tooltip"
+                    title="Combine Graphs" 
+                    class="btn btn-default combine-datasets-button" 
+                    click.delegate="combineChartData()">
+                <div class="legend-item" css="background-color: ${combineIcon1.color}; color: ${combineIcon1.textColor}">${combineIcon1.value}</div>
+                +
+                <div class="legend-item" css="background-color: ${combineIcon2.color}; color: ${combineIcon2.textColor}">${combineIcon2.value}</div>
+            </button>
+        </div>
+    </div>
+    <div id="chartContainer" style="display:none;">
+        <canvas id="damageChart"
+                height=220
+                data-toggle="tooltip"
+                data-placement="bottom"
+                title.bind="title"
+                class="damage-chart"></canvas>
+        <div class="chart-label">${xLabel}</div>
+    </div>
+</template>
