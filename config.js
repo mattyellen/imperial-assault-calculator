@@ -21,7 +21,7 @@ System.config({
     "babel": "npm:babel-core@5.8.38",
     "babel-runtime": "npm:babel-runtime@5.8.38",
     "bootstrap": "github:twbs/bootstrap@3.3.7",
-    "chartjs": "github:chartjs/Chart.js@2.5.0",
+    "chartjs": "github:chartjs/Chart.js@1.0.2",
     "core-js": "npm:core-js@1.2.7",
     "css": "github:systemjs/plugin-css@0.1.33",
     "fastclick": "npm:fastclick@1.0.6",

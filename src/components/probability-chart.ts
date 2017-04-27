@@ -1,7 +1,7 @@
 ﻿import {bindable} from 'aurelia-framework';
 import {inject} from 'aurelia-dependency-injection';
 import 'jquery';
-import {Chart} from 'chartjs';
+import 'chartjs';
 
 type ChartData = { [damage: number]: number };
 
@@ -15,7 +15,7 @@ export class ProbabilityChart {
     private _maxDatasets: number = 8;
 
     private _chartMaxDamage: number;
-    private _chart: Chart;
+    private _chart: LinearInstance;
     private _datasets: any[];
     private _labels: string[];
     private _rawChartData: ChartData[];
@@ -60,19 +60,9 @@ export class ProbabilityChart {
 
     private refreshChart() {
         let ctx = <CanvasRenderingContext2D>(<HTMLCanvasElement>$(this._element).find("#damageChart").get(0)).getContext("2d");
-        this._chart = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: this._labels,
-                datasets: this._datasets
-            },
-            options: {
-                responsive: false,
-                maintainAspectRatio: false,
-                legend: {
-                    display: false
-                }
-            }
+        this._chart = new Chart(ctx).Line({
+            labels: this._labels,
+            datasets: this._datasets
         });
     }
 
@@ -157,13 +147,12 @@ export class ProbabilityChart {
 
         this._labels = labels;
         this._datasets.push({
-            backgroundColor: this.getColor(0.2),
-            borderColor: this.getColor(1),
-            pointBackgroundColor: this.getColor(1),
-            pointBorderColor: "#fff",
-            pointHoverBackgroundColor: "#fff",
-            pointHoverBorderColor: this.getColor(1),
-            pointRadius: 4,
+            fillColor: this.getColor(0.2),
+            strokeColor: this.getColor(1),
+            pointColor: this.getColor(1),
+            pointStrokeColor: "#fff",
+            pointHighlightFill: "#fff",
+            pointHighlightStroke: this.getColor(1),
             data: data
         });
 

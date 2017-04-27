@@ -2,6 +2,7 @@
   "name": "imperial-assault-calculator",
   "globalDependencies": {
     "bootstrap": "registry:dt/bootstrap#3.3.5+20160726204056",
+    "chartjs": "github:DefinitelyTyped/DefinitelyTyped/chartjs/chart.d.ts#3b0f362204ea965952dafdb682a5274d527ef9d0",
     "core-js": "github:DefinitelyTyped/DefinitelyTyped/core-js/core-js.d.ts#6f6e5c7dd9effe21fee14eb65fe340ecbbc8580a",
     "fastclick": "registry:dt/fastclick#1.0.3+20160510002910",
     "jquery": "github:DefinitelyTyped/DefinitelyTyped/jquery/jquery.d.ts#8f51d25ad3523cd01f2d92e343247852f6b70dff"
