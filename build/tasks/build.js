@@ -3,7 +3,7 @@ var runSequence = require('run-sequence');
 var changed = require('gulp-changed');
 var plumber = require('gulp-plumber');
 var to5 = require('gulp-babel');
-var tsc = require('gulp-tsc');
+var ts = require('gulp-typescript');
 var sourcemaps = require('gulp-sourcemaps');
 var paths = require('../paths');
 var compilerOptions = require('../babel-options');
@@ -23,21 +23,28 @@ gulp.task('build-system', function () {
     .pipe(gulp.dest(paths.output));
 });
 
-gulp.task('build-ts', function () {
-    return gulp.src([paths.source_ts, paths.typings])
-    .pipe(plumber())
-    .pipe(changed(paths.output, {extension: '.ts'}))
-    .pipe(sourcemaps.init({ loadMaps: true }))
-    .pipe(tsc({
-            module: "CommonJS",
-            sourcemap: true,
-            emitError: false,
-            emitDecoratorMetadata: true,
-            experimentalDecorators: true,
-            target: "ES5"
-          }))
-    .pipe(gulp.dest(paths.output));
+var tsProject = ts.createProject(paths.tsConfig);
+gulp.task('build-ts', function() {
+    var tsResult = tsProject.src()
+        .pipe(tsProject());
+ 
+    return tsResult.js.pipe(gulp.dest(paths.output));
 });
+// gulp.task('build-ts', function () {
+//     return gulp.src([paths.source_ts, paths.typings])
+//     .pipe(plumber())
+//     .pipe(changed(paths.output, {extension: '.ts'}))
+//     .pipe(sourcemaps.init({ loadMaps: true }))
+//     .pipe(tsc({
+//             module: "CommonJS",
+//             sourcemap: true,
+//             emitError: false,
+//             emitDecoratorMetadata: true,
+//             experimentalDecorators: true,
+//             target: "ES5"
+//           }))
+//     .pipe(gulp.dest(paths.output));
+// });
 
 // copies changed html files to the output directory
 gulp.task('build-html', function () {
