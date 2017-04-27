@@ -1,5 +1,3 @@
 node_modules
 dist/*.map
 typings
-jspm_packages
-dist
