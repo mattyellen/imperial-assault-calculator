@@ -189,5 +189,7 @@
     "util": "npm:util@^0.10.3"
   },
   "npm:base64-js@1.2.0": {},
-  "npm:ieee754@1.1.8": {}
+  "npm:ieee754@1.1.8": {},
+  "github:systemjs/plugin-text@0.0.9": {},
+  "github:github/fetch@2.0.3": {}
 }
