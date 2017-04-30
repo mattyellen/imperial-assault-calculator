@@ -1,3 +1,7 @@
 node_modules
-dist/*.map
 typings
+dist
+!dist/aurelia.js
+!dist/calculator.js
+jspm_packages
+!jspm_packages\npm\font-awesome*
