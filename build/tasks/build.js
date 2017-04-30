@@ -30,21 +30,6 @@ gulp.task('build-ts', function() {
  
     return tsResult.js.pipe(gulp.dest(paths.output));
 });
-// gulp.task('build-ts', function () {
-//     return gulp.src([paths.source_ts, paths.typings])
-//     .pipe(plumber())
-//     .pipe(changed(paths.output, {extension: '.ts'}))
-//     .pipe(sourcemaps.init({ loadMaps: true }))
-//     .pipe(tsc({
-//             module: "CommonJS",
-//             sourcemap: true,
-//             emitError: false,
-//             emitDecoratorMetadata: true,
-//             experimentalDecorators: true,
-//             target: "ES5"
-//           }))
-//     .pipe(gulp.dest(paths.output));
-// });
 
 // copies changed html files to the output directory
 gulp.task('build-html', function () {
