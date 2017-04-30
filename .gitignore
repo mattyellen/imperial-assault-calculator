@@ -4,4 +4,5 @@ dist
 !dist/aurelia.js
 !dist/calculator.js
 jspm_packages
+!jspm_packages\github\twbs\bootstrap*
 !jspm_packages\npm\font-awesome*
