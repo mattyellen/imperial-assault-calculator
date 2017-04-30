@@ -2,9 +2,9 @@ module.exports = {
   "bundles": {
     "dist/app-build": {
       "includes": [
-        "[dist/**/*.js]",
-        "dist/**/*.html!text",
-        "dist/**/*.css!text",
+        "[**/*.js]",
+        "**/*.html!text",
+        "**/*.css!text",
         "bootstrap",
         "chartjs/Chart.js",
         "core-js",
@@ -13,9 +13,6 @@ module.exports = {
         "font-awesome",
         "jquery"
       ],
-      // excludes: [
-      //   "config.js" // So our wildcard globbing doesn't include this config file
-      // ],
       "options": {
         "inject": true,
         "minify": true,
@@ -29,6 +26,13 @@ module.exports = {
         "aurelia-bootstrapper",
         "aurelia-dependency-injection",
         "aurelia-pal-browser",
+        "aurelia-loader-default",
+        "aurelia-event-aggregator",
+        "aurelia-history-browser",
+        "aurelia-templating-router",
+        "aurelia-templating-binding",
+        "aurelia-templating-resources",
+        "aurelia-logging-console",
         "fetch"
       ],
       "options": {
