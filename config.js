@@ -201,7 +201,7 @@ System.config({
     }
   },
   bundles: {
-    "app-build.js": [
+    "calculator.js": [
       "app.html!github:systemjs/plugin-text@0.0.9.js",
       "app.js",
       "components/probability-chart.html!github:systemjs/plugin-text@0.0.9.js",
