@@ -269,6 +269,10 @@ section {
 
 .save-load-dialog {
     width: 300px;
+}
+
+.load-dialog {
+    width: 300px;
     min-height: 500px;
 }
 

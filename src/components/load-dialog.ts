@@ -1,7 +1,6 @@
 import { inject } from 'aurelia-dependency-injection';
 import { DialogController } from 'aurelia-dialog';
 import { Config } from '../util/Config';
-import { SurgeAttackProperty } from "../util/AttackProperty";
 
 export class LoadDialog {
     controller: DialogController;

@@ -10,6 +10,7 @@ import { Dice } from "../util/Dice";
 import { ProbabilityChart } from "../components/probability-chart";
 import { LoadDialog } from "../components/load-dialog";
 import { Config } from "../util/Config";
+import { SaveDialog } from "../components/save-dialog";
 
 export class AttackCalc {
     private _dialogService: DialogService;
@@ -94,7 +95,7 @@ export class AttackCalc {
     private loadConfig(config: Config) {
         if (config.hasAttackConfig) {
             this.loadAttackDice(config);
-            
+
             this.surgeAbilities = config.surgeAbilities;
             this.attack_type = config.attack_type;
             this.range = config.range;
@@ -104,6 +105,9 @@ export class AttackCalc {
         }
     }
 
+    private saveConfig(saveOptions: any) {
+    }
+    
     calculateResult() {
         let possibleRolls = new PossibleRolls();
         possibleRolls.applyAllRolls(this.diceCount);
@@ -125,7 +129,13 @@ export class AttackCalc {
     }
 
     save() {
-        console.log("save")
+        this._dialogService
+            .open({ viewModel: SaveDialog, model: {}, lock: true })
+            .whenClosed((response: DialogCloseResult) => {
+                if (!response.wasCancelled) {
+                    this.saveConfig(response.output);
+                }
+            });
     }
 }
 
