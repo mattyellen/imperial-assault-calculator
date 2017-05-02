@@ -52,7 +52,13 @@ section {
 }
 
 .attack-type-row {
+    display: flex;
+    align-items: center;
     margin-top: 15px;
+}
+
+.option-button {
+    padding: 6px 12px 3px 12px
 }
 
 .dice-button-row {
@@ -255,6 +261,32 @@ section {
 .chart-label {
     margin: -5px 0px 5px 0px;
     text-align: center;
+}
+.save-load-menu {
+    right: 20px;
+    min-width: 70px;
+}
+
+.save-load-dialog {
+    width: 300px;
+    min-height: 500px;
+}
+
+.dialog-button-cancel {
+    float: right;
+}
+
+.load-config-body {
+    margin: 25px 0px 0px 0px;
+}
+
+ux-dialog-container>div {
+    padding: 30px 7px 0px 0px !important;
+}
+
+.config-dialog-text {
+    font-size: 20px;
+    font-weight: bold;
 }
 
 /* animation definitions */

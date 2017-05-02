@@ -1,13 +1,19 @@
 import 'bootstrap';
 import 'bootstrap/css/bootstrap.css!';
-import {PossibleRolls} from "../util/PossibleRolls";
-import {SurgeAttackProperty, FixedAttackProperty} from "../util/AttackProperty";
-import {DefenseProperty} from "../util/DefenseProperty";
-import {Dice} from "../util/Dice";
-import {ProbabilityChart} from "../components/probability-chart";
 import 'jquery';
+import { DialogService, DialogCloseResult } from 'aurelia-dialog';
+import { inject } from 'aurelia-dependency-injection';
+import { PossibleRolls } from "../util/PossibleRolls";
+import { SurgeAttackProperty, FixedAttackProperty } from "../util/AttackProperty";
+import { DefenseProperty } from "../util/DefenseProperty";
+import { Dice } from "../util/Dice";
+import { ProbabilityChart } from "../components/probability-chart";
+import { LoadDialog } from "../components/load-dialog";
+import { Config } from "../util/Config";
 
 export class AttackCalc {
+    private _dialogService: DialogService;
+
     diceCount: Dice<number>;
 
     surgeAbilities: SurgeAttackProperty[];
@@ -18,7 +24,7 @@ export class AttackCalc {
 
     probabilityChart: ProbabilityChart;
 
-    constructor() {
+    constructor( @inject dialogService: DialogService) {
         this.diceCount = new Dice<number>();
         this.resetAttackDice();
         this.resetDefenseDice();
@@ -26,10 +32,12 @@ export class AttackCalc {
         this.surgeAbilities = [];
         this.attack_type = "melee";
         this.range = 0;
+
+        this._dialogService = dialogService;
     }
 
     attached() {
-        $('[data-toggle="tooltip"]').tooltip({container: "body", delay: { show: 500 } });
+        $('[data-toggle="tooltip"]').tooltip({ container: "body", delay: { show: 500 } });
     }
 
     selectAttackType(type: string) {
@@ -62,25 +70,38 @@ export class AttackCalc {
     }
 
     resetAttackDice() {
-        this.diceCount.red = 0;
-        this.diceCount.blue = 0;
-        this.diceCount.green = 0;
-        this.diceCount.yellow = 0;
-        this.fixedAttackAbility = {
-            damage: 0,
-            pierce: 0,
-            accuracy: 0,
-            surge: 0
-        }
+        this.loadAttackDice(new Config())
     }
 
     resetDefenseDice() {
-        this.diceCount.black = 0;
-        this.diceCount.white = 0;
-        this.fixedDefenseAbility = {
-            block: 0,
-            evade: 0
-        };
+        this.loadDefenseDice(new Config())
+    }
+
+    private loadAttackDice(config: Config) {
+        this.diceCount.red = config.diceCount.red;
+        this.diceCount.blue = config.diceCount.blue;
+        this.diceCount.green = config.diceCount.green;
+        this.diceCount.yellow = config.diceCount.yellow;
+        this.fixedAttackAbility = config.fixedAttackAbility;
+    }
+
+    private loadDefenseDice(config: Config) {
+        this.diceCount.black = config.diceCount.black;
+        this.diceCount.white = config.diceCount.white;
+        this.fixedDefenseAbility = config.fixedDefenseAbility;
+    }
+
+    private loadConfig(config: Config) {
+        if (config.hasAttackConfig) {
+            this.loadAttackDice(config);
+            
+            this.surgeAbilities = config.surgeAbilities;
+            this.attack_type = config.attack_type;
+            this.range = config.range;
+        }
+        if (config.hasDefenseConfig) {
+            this.loadDefenseDice(config);
+        }
     }
 
     calculateResult() {
@@ -91,6 +112,20 @@ export class AttackCalc {
 
         let damageResults = possibleRolls.getEffectiveDamage(this.surgeAbilities, this.fixedAttackAbility, this.fixedDefenseAbility, this.range);
         this.probabilityChart.addChartData(damageResults);
+    }
+
+    load() {
+        this._dialogService
+            .open({ viewModel: LoadDialog, model: {}, lock: true })
+            .whenClosed((response: DialogCloseResult) => {
+                if (!response.wasCancelled) {
+                    this.loadConfig(response.output);
+                }
+            });
+    }
+
+    save() {
+        console.log("save")
     }
 }
 

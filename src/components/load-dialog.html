@@ -1,0 +1,18 @@
+<template>
+  <ux-dialog class="save-load-dialog">
+    <button class="btn btn-default dialog-button-cancel"
+            click.trigger="controller.cancel()">
+        <span class="fa fa-times"></span>
+    </button>
+    <ux-dialog-body class="load-config-body">
+      <div class="list-group">
+        <button repeat.for="config of configurations" 
+                type="button" 
+                class="list-group-item config-dialog-text""
+                click.trigger="controller.ok(config)">
+          ${config.name}
+        </button>
+      </div>
+    </ux-dialog-body>
+  </ux-dialog>
+</template>

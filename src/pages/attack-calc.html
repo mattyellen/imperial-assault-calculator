@@ -3,7 +3,7 @@
 
     <div class="main-container">
         <div class="row attack-type-row">
-            <div class="col-xs-6 attack-type-button-col">
+            <div class="col-xs-4 attack-type-button-col">
                 <button class="btn btn-default attack-type-button ${(attack_type == 'melee') ? 'attack-type-selected' : ''}"
                         data-toggle="tooltip"
                         title="Melee Attack"
@@ -11,7 +11,7 @@
                     <img class="img-icon" src="images/melee.png" />
                 </button>
             </div>
-            <div class="col-xs-6 attack-type-button-col">
+            <div class="col-xs-4 attack-type-button-col">
                 <button class="btn btn-default attack-type-button attack-type-button-range ${(attack_type == 'range') ? 'attack-type-selected' : ''}"
                         data-toggle="tooltip"
                         title="Ranged Attack"
@@ -19,6 +19,15 @@
                     ${range}
                     <img class="img-icon" src="images/ranged.png" />
                 </button>
+            </div>
+            <div class="col-xs-4 attack-type-button-col">
+                <button class="btn btn-default dropdown-toggle option-button" type="button" id="save-load-menu" data-toggle="dropdown">
+                    <span class="glyphicon glyphicon-option-horizontal"/>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-right save-load-menu" role="menu" aria-labelledby="save-load-menu">
+                    <li role="presentation"><a class="config-dialog-text" role="menuitem" tabindex="-1" click.delegate="save()">Save</a></li>
+                    <li role="presentation"><a class="config-dialog-text" role="menuitem" tabindex="-1" click.delegate="load()">Load</a></li>
+                </ul>
             </div>
         </div>
         <div class="row dice-button-row">
