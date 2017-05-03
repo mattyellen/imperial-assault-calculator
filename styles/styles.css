@@ -288,9 +288,19 @@ ux-dialog-container>div {
     padding: 30px 7px 0px 0px !important;
 }
 
+.checkbox label {
+    padding-left: 25px;
+}
+
 .config-dialog-text {
     font-size: 20px;
     font-weight: bold;
+}
+
+.checkbox input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    margin-left: -25px;
 }
 
 /* animation definitions */

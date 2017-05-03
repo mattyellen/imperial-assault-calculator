@@ -10,7 +10,8 @@ import { Dice } from "../util/Dice";
 import { ProbabilityChart } from "../components/probability-chart";
 import { LoadDialog } from "../components/load-dialog";
 import { Config } from "../util/Config";
-import { SaveDialog } from "../components/save-dialog";
+import { SaveDialog, SaveOptions } from "../components/save-dialog";
+import { ConfigStorage } from "../util/ConfigStorage";
 
 export class AttackCalc {
     private _dialogService: DialogService;
@@ -105,9 +106,20 @@ export class AttackCalc {
         }
     }
 
-    private saveConfig(saveOptions: any) {
+    private saveConfig(saveOptions: SaveOptions) {
+        let config = new Config();
+        config.diceCount = this.diceCount;
+        config.fixedAttackAbility = this.fixedAttackAbility;
+        config.surgeAbilities = this.surgeAbilities;
+        config.fixedDefenseAbility = this.fixedDefenseAbility;
+        
+        config.name = saveOptions.name;
+        config.hasAttackConfig = saveOptions.includeAttack;
+        config.hasDefenseConfig = saveOptions.includeDefense;
+
+        ConfigStorage.saveConfig(config.name, config);
     }
-    
+
     calculateResult() {
         let possibleRolls = new PossibleRolls();
         possibleRolls.applyAllRolls(this.diceCount);
