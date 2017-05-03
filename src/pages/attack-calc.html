@@ -4,7 +4,7 @@
     <div class="main-container">
         <div class="row attack-type-row">
             <div class="col-xs-4 attack-type-button-col">
-                <button class="btn btn-default attack-type-button ${(attack_type == 'melee') ? 'attack-type-selected' : ''}"
+                <button class="btn btn-default attack-type-button ${(attackTypeString == 'melee') ? 'attack-type-selected' : ''}"
                         data-toggle="tooltip"
                         title="Melee Attack"
                         click.delegate="selectAttackType('melee')">
@@ -12,7 +12,7 @@
                 </button>
             </div>
             <div class="col-xs-4 attack-type-button-col">
-                <button class="btn btn-default attack-type-button attack-type-button-range ${(attack_type == 'range') ? 'attack-type-selected' : ''}"
+                <button class="btn btn-default attack-type-button attack-type-button-range ${(attackTypeString == 'range') ? 'attack-type-selected' : ''}"
                         data-toggle="tooltip"
                         title="Ranged Attack"
                         click.delegate="selectAttackType('range')">

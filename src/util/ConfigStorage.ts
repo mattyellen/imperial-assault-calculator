@@ -38,4 +38,9 @@ export class ConfigStorage {
     static saveConfig(name: string, item: Config) {
         localStorage.setItem(this.configStoragePrefix + name, JSON.stringify(item));
     }
+
+    static deleteConfig(name: string) {
+        localStorage.removeItem(this.configStoragePrefix + name);
+    }
+
 }

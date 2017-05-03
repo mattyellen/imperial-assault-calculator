@@ -1,18 +1,29 @@
 <template>
   <ux-dialog class="save-load-dialog load-dialog">
-    <button class="btn btn-default dialog-button-cancel"
-            click.trigger="controller.cancel()">
+    <button class="btn btn-default dialog-button" click.trigger="controller.cancel()">
         <span class="fa fa-times"></span>
     </button>
+    <button class="btn btn-default dialog-button" click.trigger="toggleDelete()">
+        Delete?
+    </button>
     <ux-dialog-body class="load-config-body">
-      <div class="list-group">
-        <button repeat.for="config of configurations" 
-                type="button" 
-                class="list-group-item config-dialog-text"
-                click.trigger="controller.ok(config)">
-          ${config.name}
-        </button>
-      </div>
+      <table class="list-group" width="100%">
+        <tr repeat.for="config of configurations">
+          <td>
+            <button type="button" class="list-group-item config-dialog-text" click.trigger="controller.ok(config)">
+              <img class="config-dialog-icon" src="images/melee.png" if.bind="config.hasAttackConfig"/>
+              <img class="config-dialog-icon" src="images/ranged.png" />
+              <img class="config-dialog-icon" src="images/block.png" />
+              ${config.name}
+            </button>
+          </td>
+          <td class="fit" if.bind="deleteMode">
+            <button class="btn btn-danger dialog-button" click.trigger="deleteConfig(config)">
+              <span class="fa fa-times"></span>
+            </button>
+          </td>
+        </tr>
+      </table>
     </ux-dialog-body>
   </ux-dialog>
 </template>

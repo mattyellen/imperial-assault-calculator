@@ -12,6 +12,7 @@ import { LoadDialog } from "../components/load-dialog";
 import { Config } from "../util/Config";
 import { SaveDialog, SaveOptions } from "../components/save-dialog";
 import { ConfigStorage } from "../util/ConfigStorage";
+import { AttackType } from "../util/AttackType";
 
 export class AttackCalc {
     private _dialogService: DialogService;
@@ -21,7 +22,8 @@ export class AttackCalc {
     surgeAbilities: SurgeAttackProperty[];
     fixedAttackAbility: FixedAttackProperty;
     fixedDefenseAbility: DefenseProperty;
-    attack_type: string;
+    attackType: AttackType;
+    attackTypeString: string;
     range: number;
 
     probabilityChart: ProbabilityChart;
@@ -32,8 +34,7 @@ export class AttackCalc {
         this.resetDefenseDice();
 
         this.surgeAbilities = [];
-        this.attack_type = "melee";
-        this.range = 0;
+        this.selectAttackType('melee');
 
         this._dialogService = dialogService;
     }
@@ -43,10 +44,11 @@ export class AttackCalc {
     }
 
     selectAttackType(type: string) {
-        this.attack_type = type;
-        if (type == "melee") {
+        this.attackTypeString = type;
+        this.attackType = AttackType[type];
+        if (this.attackType == AttackType.melee) {
             this.range = 0;
-        } else if (type == "range") {
+        } else if (this.attackType == AttackType.range) {
             this.range++;
         }
     }
@@ -98,7 +100,7 @@ export class AttackCalc {
             this.loadAttackDice(config);
 
             this.surgeAbilities = config.surgeAbilities;
-            this.attack_type = config.attack_type;
+            this.attackType = config.attackType;
             this.range = config.range;
         }
         if (config.hasDefenseConfig) {
