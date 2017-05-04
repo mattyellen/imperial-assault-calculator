@@ -1,0 +1,70 @@
+{
+  "name": "imperial-assault-calculator",
+  "version": "1.0.0",
+  "description": "Calculates damage and skill probabilities for the Imperial Assault board game.",
+  "homepage": "http://mattyellen.github.io/imperial-assault-calculator",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/mattyellen/imperial-assault-calculator"
+  },
+  "scripts": {
+    "install-all": "npm install && jspm install && typings install"
+  },
+  "devDependencies": {
+    "aurelia-bundler": "^0.6.0-beta.3",
+    "aurelia-tools": "^0.1.3",
+    "browser-sync": "^1.8.1",
+    "conventional-changelog": "0.0.11",
+    "del": "^1.1.0",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^5.1.0",
+    "gulp-bump": "^0.3.1",
+    "gulp-changed": "^1.1.0",
+    "gulp-jshint": "^1.9.0",
+    "gulp-plumber": "^0.6.6",
+    "gulp-protractor": "^0.0.12",
+    "gulp-sourcemaps": "^1.3.0",
+    "gulp-tsc": "^1.1.1",
+    "gulp-typescript": "^3.1.6",
+    "gulp-yuidoc": "^0.1.2",
+    "jasmine-core": "^2.1.3",
+    "jshint-stylish": "^1.0.0",
+    "jspm": "^0.16.53",
+    "karma": "^0.12.28",
+    "karma-babel-preprocessor": "^5.2.1",
+    "karma-chrome-launcher": "^0.1.7",
+    "karma-coverage": "^0.3.1",
+    "karma-jasmine": "^0.3.5",
+    "karma-jspm": "^1.1.5",
+    "object.assign": "^1.0.3",
+    "require-dir": "^0.1.0",
+    "run-sequence": "^1.0.2",
+    "typescript": "^2.2.2",
+    "typings": "^2.1.1",
+    "vinyl-paths": "^1.0.0",
+    "yargs": "^2.1.1"
+  },
+  "jspm": {
+    "dependencies": {
+      "aurelia-bootstrapper": "npm:aurelia-bootstrapper@2.1.1",
+      "aurelia-dependency-injection": "npm:aurelia-dependency-injection@1.3.1",
+      "aurelia-dialog": "github:aurelia/dialog@master",
+      "aurelia-framework": "npm:aurelia-framework@1.1.2",
+      "aurelia-pal-browser": "npm:aurelia-pal-browser@1.2.1",
+      "bootstrap": "github:twbs/bootstrap@3.3.7",
+      "chartjs": "github:chartjs/Chart.js@1.0.2",
+      "core-js": "npm:core-js@1.2.7",
+      "css": "github:systemjs/plugin-css@0.1.33",
+      "fastclick": "npm:fastclick@1.0.6",
+      "fetch": "github:github/fetch@^2.0.3",
+      "font-awesome": "npm:font-awesome@4.7.0",
+      "jquery": "github:components/jquery@3.2.1",
+      "text": "github:systemjs/plugin-text@^0.0.9"
+    },
+    "devDependencies": {
+      "babel": "npm:babel-core@^5.8.24",
+      "babel-runtime": "npm:babel-runtime@^5.8.24"
+    }
+  }
+}
