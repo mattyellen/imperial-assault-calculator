@@ -2,6 +2,7 @@ import { SurgeAttackProperty, FixedAttackProperty } from "../util/AttackProperty
 import { DefenseProperty } from "../util/DefenseProperty";
 import { Dice } from "../util/Dice";
 import { AttackType } from "./AttackType";
+
 export class Config {
     constructor() {
         this.diceCount = {
@@ -38,8 +39,4 @@ export class Config {
 
     hasAttackConfig: boolean;
     hasDefenseConfig: boolean;
-
-    get isMelee(): boolean {
-        return this.hasAttackConfig && this.attackType == AttackType.melee;
-    }
 }

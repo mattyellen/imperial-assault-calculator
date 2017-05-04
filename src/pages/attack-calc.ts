@@ -110,6 +110,10 @@ export class AttackCalc {
 
     private saveConfig(saveOptions: SaveOptions) {
         let config = new Config();
+
+        config.attackType = this.attackType;
+        config.range = this.range;
+
         config.diceCount = this.diceCount;
         config.fixedAttackAbility = this.fixedAttackAbility;
         config.surgeAbilities = this.surgeAbilities;
