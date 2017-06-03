@@ -1,0 +1,29 @@
+<template>
+  <ux-dialog class="save-load-dialog load-dialog">
+    <button class="btn btn-default dialog-button" click.trigger="controller.cancel()">
+        <span class="fa fa-times"></span>
+    </button>
+    <button class="btn btn-default dialog-button" click.trigger="toggleDelete()">
+        Delete?
+    </button>
+    <ux-dialog-body class="load-config-body">
+      <table class="list-group" width="100%">
+        <tr repeat.for="config of configurations">
+          <td>
+            <button type="button" class="list-group-item config-dialog-text" click.trigger="controller.ok(config)">
+              <img class="config-dialog-icon" src="images/melee.png" if.bind="config.hasAttackConfig && config.attackType == 0"/>
+              <img class="config-dialog-icon" src="images/ranged.png" if.bind="config.hasAttackConfig && config.attackType == 1"/>
+              <img class="config-dialog-icon" src="images/block.png" if.bind="config.hasDefenseConfig && !config.hasAttackConfig"/>
+              ${config.name}
+            </button>
+          </td>
+          <td class="fit" if.bind="deleteMode">
+            <button class="btn btn-danger dialog-button" click.trigger="deleteConfig(config)">
+              <span class="fa fa-times"></span>
+            </button>
+          </td>
+        </tr>
+      </table>
+    </ux-dialog-body>
+  </ux-dialog>
+</template>
