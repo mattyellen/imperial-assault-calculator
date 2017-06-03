@@ -52,7 +52,13 @@ section {
 }
 
 .attack-type-row {
+    display: flex;
+    align-items: center;
     margin-top: 15px;
+}
+
+.option-button {
+    padding: 6px 12px 3px 12px
 }
 
 .dice-button-row {
@@ -195,7 +201,6 @@ section {
     margin-top: 10px;
     display: inline-block;
     font-size: 24px;
-    float: right;
 }
 
 .add-surge-button-row {
@@ -255,6 +260,78 @@ section {
 .chart-label {
     margin: -5px 0px 5px 0px;
     text-align: center;
+}
+
+.save-load-menu {
+    right: 20px;
+    min-width: 70px;
+    font-size: 32px;
+    font-weight: bold;    
+}
+
+.save-load-menu i {
+    font-size: 26px;
+    font-weight: normal;
+}
+
+.save-load-menu .glyphicon-floppy-disk {
+    padding: 0px 6px 0px 3px;  
+}
+
+.save-load-menu .glyphicon-folder-open {
+    padding: 0px 11px 0px 0px;  
+}
+
+.save-load-dialog {
+    width: 300px;
+}
+
+.load-dialog {
+    width: 300px;
+    min-height: 500px;
+}
+
+.dialog-button {
+    float: right;
+    margin-left: 5px; 
+}
+
+.load-config-body {
+    margin: 25px 0px 0px 0px;
+}
+
+ux-dialog-container>div {
+    padding: 30px 7px 0px 0px !important;
+}
+
+.checkbox label {
+    padding-left: 25px;
+}
+
+.config-dialog-text {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.config-dialog-icon {
+    height: 20px;
+    margin-top: -3px;
+}
+
+.checkbox input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    margin-left: -25px;
+}
+
+table td.max {
+    white-space: nowrap;
+    width: 100%;
+}
+
+table td.fit {
+    white-space: nowrap;
+    width: 1%;
 }
 
 /* animation definitions */

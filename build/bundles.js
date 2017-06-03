@@ -6,7 +6,7 @@ module.exports = {
         "**/*.html!text",
         "**/*.css!text",
         "bootstrap",
-        "chartjs/Chart.js",
+        "chartjs",
         "core-js",
         "css",
         "fastclick",
@@ -33,6 +33,7 @@ module.exports = {
         "aurelia-templating-binding",
         "aurelia-templating-resources",
         "aurelia-logging-console",
+        "aurelia-dialog",
         "fetch"
       ],
       "options": {

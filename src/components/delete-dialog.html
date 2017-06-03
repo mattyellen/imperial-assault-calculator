@@ -1,0 +1,12 @@
+<template>
+    <ux-dialog class="save-load-dialog">
+        <ux-dialog-body>
+            Are you sure?
+            <h2 class="config-dialog-text">${config.name}</h2>
+        </ux-dialog-body>
+        <ux-dialog-footer>
+            <button class="btn btn-default config-dialog-text" type="button" click.trigger="controller.cancel()">Cancel</button>
+            <button class="btn btn-danger config-dialog-text" type="button" click.trigger="controller.ok(config)">Delete</button>
+        </ux-dialog-footer>
+    </ux-dialog>
+</template>

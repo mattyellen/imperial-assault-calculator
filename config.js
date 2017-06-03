@@ -1427,13 +1427,13 @@ System.config({
   map: {
     "aurelia-bootstrapper": "npm:aurelia-bootstrapper@2.1.1",
     "aurelia-dependency-injection": "npm:aurelia-dependency-injection@1.3.1",
+    "aurelia-dialog": "github:aurelia/dialog@master",
     "aurelia-framework": "npm:aurelia-framework@1.1.2",
     "aurelia-pal-browser": "npm:aurelia-pal-browser@1.2.1",
     "babel": "npm:babel-core@5.8.38",
     "babel-runtime": "npm:babel-runtime@5.8.38",
     "bootstrap": "github:twbs/bootstrap@3.3.7",
     "chartjs": "github:chartjs/Chart.js@1.0.2",
-    "chartjs/Chart.js": "github:chartjs/Chart.js@1.0.2",
     "core-js": "npm:core-js@1.2.7",
     "css": "github:systemjs/plugin-css@0.1.33",
     "fastclick": "npm:fastclick@1.0.6",
@@ -1441,6 +1441,12 @@ System.config({
     "font-awesome": "npm:font-awesome@4.7.0",
     "jquery": "github:components/jquery@2.2.4",
     "text": "github:systemjs/plugin-text@0.0.9",
+    "github:aurelia/dialog@master": {
+      "aurelia-dependency-injection": "npm:aurelia-dependency-injection@1.3.1",
+      "aurelia-metadata": "npm:aurelia-metadata@1.0.3",
+      "aurelia-pal": "npm:aurelia-pal@1.3.0",
+      "aurelia-templating": "npm:aurelia-templating@1.4.2"
+    },
     "github:jspm/nodelibs-assert@0.1.0": {
       "assert": "npm:assert@1.4.1"
     },

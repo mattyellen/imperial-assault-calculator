@@ -1,0 +1,24 @@
+<template>
+    <ux-dialog class="save-load-dialog">
+        <ux-dialog-body>
+            <input type="text" class="form-control config-dialog-text" placeholder="Name" value.bind="saveOptions.name">
+            <div class="checkbox">
+                <label class="config-dialog-text">
+                    <input class="dialog-checkbox" type="checkbox" checked.bind="saveOptions.includeAttack" />
+                    Include attack
+                </label>
+            </div>
+            <div class="checkbox">
+                <label class="config-dialog-text">
+                    <input class="dialog-checkbox" type="checkbox" checked.bind="saveOptions.includeDefense" />
+                    Include defense
+                </label>
+            </div>
+            </form>
+        </ux-dialog-body>
+        <ux-dialog-footer>
+            <button class="btn btn-default config-dialog-text" type="button" click.trigger="controller.cancel()">Cancel</button>
+            <button class="btn btn-primary config-dialog-text" type="button" click.trigger="controller.ok(saveOptions)" disabled.bind="!canSave">Save</button>
+        </ux-dialog-footer>
+    </ux-dialog>
+</template>

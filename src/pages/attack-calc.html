@@ -3,22 +3,39 @@
 
     <div class="main-container">
         <div class="row attack-type-row">
-            <div class="col-xs-6 attack-type-button-col">
-                <button class="btn btn-default attack-type-button ${(attack_type == 'melee') ? 'attack-type-selected' : ''}"
+            <div class="col-xs-4 attack-type-button-col">
+                <button class="btn btn-default attack-type-button ${(attackTypeString == 'melee') ? 'attack-type-selected' : ''}"
                         data-toggle="tooltip"
                         title="Melee Attack"
                         click.delegate="selectAttackType('melee')">
                     <img class="img-icon" src="images/melee.png" />
                 </button>
             </div>
-            <div class="col-xs-6 attack-type-button-col">
-                <button class="btn btn-default attack-type-button attack-type-button-range ${(attack_type == 'range') ? 'attack-type-selected' : ''}"
+            <div class="col-xs-4 attack-type-button-col">
+                <button class="btn btn-default attack-type-button attack-type-button-range ${(attackTypeString == 'range') ? 'attack-type-selected' : ''}"
                         data-toggle="tooltip"
                         title="Ranged Attack"
                         click.delegate="selectAttackType('range')">
                     ${range}
                     <img class="img-icon" src="images/ranged.png" />
                 </button>
+            </div>
+            <div class="col-xs-4 attack-type-button-col">
+                <button class="btn btn-default dropdown-toggle option-button" type="button" id="save-load-menu" data-toggle="dropdown">
+                    <span class="glyphicon glyphicon-option-horizontal"/>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-right save-load-menu" role="menu" aria-labelledby="save-load-menu">
+                    <li role="presentation">                        
+                        <a role="menuitem" tabindex="-1" click.delegate="save()">
+                            <i class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></i>Save
+                        </a>
+                    </li>
+                    <li role="presentation">                        
+                        <a role="menuitem" tabindex="-1" click.delegate="load()">
+                            <i class="glyphicon glyphicon-folder-open" aria-hidden="true"></i>Load
+                        </a>
+                    </li>
+                </ul>
             </div>
         </div>
         <div class="row dice-button-row">
