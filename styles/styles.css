@@ -261,9 +261,25 @@ section {
     margin: -5px 0px 5px 0px;
     text-align: center;
 }
+
 .save-load-menu {
     right: 20px;
     min-width: 70px;
+    font-size: 32px;
+    font-weight: bold;    
+}
+
+.save-load-menu i {
+    font-size: 26px;
+    font-weight: normal;
+}
+
+.save-load-menu .glyphicon-floppy-disk {
+    padding: 0px 6px 0px 3px;  
+}
+
+.save-load-menu .glyphicon-folder-open {
+    padding: 0px 11px 0px 0px;  
 }
 
 .save-load-dialog {

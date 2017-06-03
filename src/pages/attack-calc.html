@@ -25,8 +25,16 @@
                     <span class="glyphicon glyphicon-option-horizontal"/>
                 </button>
                 <ul class="dropdown-menu dropdown-menu-right save-load-menu" role="menu" aria-labelledby="save-load-menu">
-                    <li role="presentation"><a class="config-dialog-text" role="menuitem" tabindex="-1" click.delegate="save()">Save</a></li>
-                    <li role="presentation"><a class="config-dialog-text" role="menuitem" tabindex="-1" click.delegate="load()">Load</a></li>
+                    <li role="presentation">                        
+                        <a role="menuitem" tabindex="-1" click.delegate="save()">
+                            <i class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></i>Save
+                        </a>
+                    </li>
+                    <li role="presentation">                        
+                        <a role="menuitem" tabindex="-1" click.delegate="load()">
+                            <i class="glyphicon glyphicon-folder-open" aria-hidden="true"></i>Load
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>

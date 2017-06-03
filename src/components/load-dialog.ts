@@ -21,6 +21,20 @@ export class LoadDialog {
         for (let config of ConfigStorage.getConfigs()) {
             this.configurations.push(config);
         }
+
+        this.configurations = this.configurations.sort((a,b) => this.compareInsensitive(a.name, b.name))
+    }
+
+    private compareInsensitive(a: string, b: string): number {
+        let al = a.toLocaleLowerCase();
+        let bl = b.toLocaleLowerCase();
+        if (al < bl) {
+            return -1;
+        }
+        if (al > bl) {
+            return 1;
+        }
+        return 0;
     }
 
     activate() {

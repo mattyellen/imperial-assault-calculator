@@ -100,6 +100,7 @@ export class AttackCalc {
             this.loadAttackDice(config);
 
             this.surgeAbilities = config.surgeAbilities;
+            this.attackTypeString = AttackType[config.attackType];
             this.attackType = config.attackType;
             this.range = config.range;
         }

@@ -13,7 +13,7 @@
             <button type="button" class="list-group-item config-dialog-text" click.trigger="controller.ok(config)">
               <img class="config-dialog-icon" src="images/melee.png" if.bind="config.hasAttackConfig && config.attackType == 0"/>
               <img class="config-dialog-icon" src="images/ranged.png" if.bind="config.hasAttackConfig && config.attackType == 1"/>
-              <img class="config-dialog-icon" src="images/block.png" if.bind="config.hasDefenseConfig"/>
+              <img class="config-dialog-icon" src="images/block.png" if.bind="config.hasDefenseConfig && !config.hasAttackConfig"/>
               ${config.name}
             </button>
           </td>
