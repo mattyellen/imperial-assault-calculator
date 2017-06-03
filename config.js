@@ -10,8 +10,14 @@ System.config({
     "calculator.js": [
       "app.html!github:systemjs/plugin-text@0.0.9.js",
       "app.js",
+      "components/delete-dialog.html!github:systemjs/plugin-text@0.0.9.js",
+      "components/delete-dialog.js",
+      "components/load-dialog.html!github:systemjs/plugin-text@0.0.9.js",
+      "components/load-dialog.js",
       "components/probability-chart.html!github:systemjs/plugin-text@0.0.9.js",
       "components/probability-chart.js",
+      "components/save-dialog.html!github:systemjs/plugin-text@0.0.9.js",
+      "components/save-dialog.js",
       "github:chartjs/Chart.js@1.0.2.js",
       "github:chartjs/Chart.js@1.0.2/Chart.js",
       "github:components/jquery@2.2.4.js",
@@ -22,6 +28,7 @@ System.config({
       "github:systemjs/plugin-css@0.1.33/css.js",
       "github:twbs/bootstrap@3.3.7.js",
       "github:twbs/bootstrap@3.3.7/js/bootstrap.js",
+      "main.js",
       "npm:core-js@1.2.7.js",
       "npm:core-js@1.2.7/index.js",
       "npm:core-js@1.2.7/modules/$.a-function.js",
@@ -238,12 +245,30 @@ System.config({
       "pages/attribute-test.html!github:systemjs/plugin-text@0.0.9.js",
       "pages/attribute-test.js",
       "util/AttackProperty.js",
+      "util/AttackType.js",
+      "util/Config.js",
+      "util/ConfigStorage.js",
       "util/DefenseProperty.js",
       "util/Dice.js",
       "util/PossibleRolls.js",
       "util/RollResult.js"
     ],
     "aurelia.js": [
+      "github:aurelia/dialog@master.js",
+      "github:aurelia/dialog@master/attach-focus.js",
+      "github:aurelia/dialog@master/aurelia-dialog.js",
+      "github:aurelia/dialog@master/dialog-cancel-error.js",
+      "github:aurelia/dialog@master/dialog-configuration.js",
+      "github:aurelia/dialog@master/dialog-controller.js",
+      "github:aurelia/dialog@master/dialog-renderer.js",
+      "github:aurelia/dialog@master/dialog-service.js",
+      "github:aurelia/dialog@master/dialog-settings.js",
+      "github:aurelia/dialog@master/lifecycle.js",
+      "github:aurelia/dialog@master/renderer.js",
+      "github:aurelia/dialog@master/ux-dialog-body.js",
+      "github:aurelia/dialog@master/ux-dialog-footer.js",
+      "github:aurelia/dialog@master/ux-dialog-header.js",
+      "github:aurelia/dialog@master/ux-dialog.js",
       "github:github/fetch@2.0.3.js",
       "github:github/fetch@2.0.3/fetch.js",
       "npm:aurelia-binding@1.2.1.js",
@@ -1408,10 +1433,17 @@ System.config({
     "pages/attack-calc.js": [
       "bootstrap",
       "bootstrap/css/bootstrap.css!",
+      "jquery",
+      "aurelia-dialog",
+      "aurelia-dependency-injection",
       "../util/PossibleRolls",
       "../util/AttackProperty",
       "../util/Dice",
-      "jquery"
+      "../components/load-dialog",
+      "../util/Config",
+      "../components/save-dialog",
+      "../util/ConfigStorage",
+      "../util/AttackType"
     ],
     "pages/attribute-test.js": [
       "bootstrap",
@@ -1422,6 +1454,23 @@ System.config({
     ],
     "util/PossibleRolls.js": [
       "./RollResult"
+    ],
+    "components/delete-dialog.js": [
+      "aurelia-dependency-injection",
+      "aurelia-dialog"
+    ],
+    "components/load-dialog.js": [
+      "aurelia-dependency-injection",
+      "aurelia-dialog",
+      "../util/ConfigStorage",
+      "./delete-dialog"
+    ],
+    "components/save-dialog.js": [
+      "aurelia-dependency-injection",
+      "aurelia-dialog"
+    ],
+    "util/Config.js": [
+      "./AttackType"
     ]
   },
   map: {
